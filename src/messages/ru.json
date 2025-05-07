@@ -1,0 +1,15 @@
+{
+    "LocaleLayout": {
+        "title": "Главная",
+        "description": "Это главная страница нашего сайта.",
+        "welcomeMessage": "Добро пожаловать на наш сайт!"
+    },
+    "Navigation": {
+        "home": "Главная",
+        "ourWorks": "Наши работы",
+        "about": "Про нас",
+        "contacts": "Контакты",
+        "blog": "Блог",
+        "reviews": "Отзывы"
+    }
+}
