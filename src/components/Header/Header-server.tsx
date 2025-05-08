@@ -2,13 +2,15 @@
 // "use server"
 import styles from './Header.module.css'
 import NavClient from './Nav-client'
-import {getTranslations} from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
 
-export default function HeaderServer() {
+export default async function HeaderServer() {
+
+    const t = await getTranslations('Header-contact');
     
     return (
-        <div className={styles.header}>
+        <header className={styles.header}>
             <div className={styles.logo}>
                 <img src="/logo.png" alt="logo" />
             </div>
@@ -16,7 +18,7 @@ export default function HeaderServer() {
                 <NavClient/>
             </nav>
 
-            <a className={styles.phone} href="tel:0671496741">Олександр 067-149-67-41</a>
-        </div>
+            <a className={styles.phone} href="tel:0671496741">{t('contact')}</a>
+        </header>
     )
 }

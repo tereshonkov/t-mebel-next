@@ -7,6 +7,9 @@ declare const messages: {
         "description": "Це головна сторінка нашого сайту.",
         "welcomeMessage": "Вітаю на нашому сайті!"
     },
+    "Header-contact": {
+        "contact": "Олександр 067-149-67-41"
+    },
     "Navigation": {
         "home": "Головна",
         "ourWorks": "Наші роботи",
@@ -14,6 +17,11 @@ declare const messages: {
         "contacts": "Контакти",
         "blog": "Блог",
         "reviews": "Відгуки"
+    },
+    "Hero": {
+        "title": "Чому під замовлення?",
+        "description": "Меблі на замовлення — мистецтво затишку та стилю. Створіть простір, що втілює вашу мрію, ідеально доповнює інтер’єр та наповнює дім гармонією.",
+        "button": "Контакти"
     }
 };
 export default messages;

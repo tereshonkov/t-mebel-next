@@ -9,6 +9,10 @@
     max-width: 1940px;
     margin: 0 auto;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 .header a {
     text-decoration: none;
@@ -60,6 +64,14 @@
   .nav a:hover::after {
     transform: scaleX(1);
     opacity: 1;
+  }
+  .phone {
+    border: 1px solid var(--text-color-primary);
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .phone:hover {
+    background-color: var(--button-background-color-hover);
   }
 @media (max-width: 768px) {
     .header {
