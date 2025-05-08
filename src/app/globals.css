@@ -3,7 +3,6 @@
   --text-color-secondary: #1e1e1d;
 
   --background-color-primary: #fcd294;
-  /* --background-color-wrappers: #42231333; */
   --background-color-wrappers: #36180933;
   --background-color-header: #42231399;
 
@@ -46,6 +45,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	margin: 0 auto;
 }
 ol, ul {
 	list-style: none;
@@ -61,4 +61,11 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+	max-width: 1940px;
 }
