@@ -21,9 +21,8 @@
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
-    /* align-items: center; */
     color: var(--text-color-primary);
-    margin-left: 10vw;
+    margin-left: 20vw;
 }
 .heading {
     font-size: var(--text-header-h1);
@@ -31,10 +30,10 @@
     letter-spacing: 5.7px;
     line-height: 1.2;
     font-weight: 700;
-    /* max-width: 50%; */
 }
 .paragraph {
     font-size: var(--text-description);
+    color: var(--text-color-primary);
     line-height: 1.2;
     letter-spacing: 1.5px;
 }
@@ -53,4 +52,30 @@
 .btn:hover {
     background-color: var(--button-background-color-hover);
     color: var(--text-color-primary);
+}
+@media (max-width: 1279px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        min-height: 80vh;
+    }
+    .headerTitle {
+        margin-left: 0;
+        gap: 1rem;
+        /* max-width: 80%; */
+    }
+    .heading {
+        font-size: var(--text-header-h3);
+    }
+    .paragraph {
+        font-size: var(--text-regular);
+    }
+    .btn {
+        padding: 1rem 2rem;
+    }
+}
+@media (max-width: 361px) {
+    .heading {
+        font-size: 28px;
+    }
 }

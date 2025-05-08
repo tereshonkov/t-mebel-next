@@ -8,7 +8,7 @@
     font-size: var(--text-regular);
     max-width: 1940px;
     margin: 0 auto;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
@@ -24,11 +24,15 @@
     overflow: hidden;
     border-radius: 50px;
     cursor: pointer;
+    transition: transform 0.8s ease-in-out;
 }
 .logo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.header:hover .logo {
+    transform: rotateY(360deg);
 }
 .burger {
     display: none;
@@ -73,7 +77,12 @@
   .phone:hover {
     background-color: var(--button-background-color-hover);
   }
-@media (max-width: 768px) {
+@media (max-width: 1350px) {
+    .header a {
+        font-size: 16px;
+    }
+}
+@media (max-width: 1279px) {
     .header {
         padding: 10px 20px;
     }

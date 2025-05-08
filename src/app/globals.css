@@ -3,11 +3,13 @@
   --text-color-secondary: #1e1e1d;
 
   --background-color-primary: #fcd294;
-  --background-color-wrappers: #42231333;
+  /* --background-color-wrappers: #42231333; */
+  --background-color-wrappers: #36180933;
   --background-color-header: #42231399;
 
   --text-header-h1: 55px;
   --text-header-h2: 44px;
+  --text-header-h3: 36px;
   --text-description: 22px;
   --text-regular: 18px;
 
