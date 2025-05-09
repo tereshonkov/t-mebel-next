@@ -6,7 +6,7 @@
     background-color: var(--background-color-header);
     color: var(--text-color-primary);
     font-size: var(--text-regular);
-    max-width: 1940px;
+    /* max-width: 1940px; */
     margin: 0 auto;
     width: 100vw;
     position: fixed;

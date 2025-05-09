@@ -1,6 +1,6 @@
 .wrapper {
     background-color: var(--background-color-secondary);
-    margin-top: -150px;
+    margin-top: -170px;
     min-height: 100vh;
     display: grid;
     display: flex;
