@@ -42,6 +42,10 @@ declare const messages: {
         "alt-one": "компанія віяр",
         "alt-two": "компанія даск",
         "alt-three": "компанія блюм"
+    },
+    "Slider": {
+        "title": "Останні роботи",
+        "button": "Наші роботи"
     }
 };
 export default messages;

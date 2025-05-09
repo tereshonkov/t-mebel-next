@@ -1,14 +1,16 @@
 import styles from './Slider.module.css';
 import Carusel from '../Carusel/Carusel';
 import Button from '../Button/Button';
+import { getTranslations } from 'next-intl/server';
 
-export default function Slider() {
+export default async function Slider() {
+    const t = await getTranslations('Slider');
   return (
     <section className={styles.wrapper}>
-        <h2 className={styles.title}>Последние работы</h2>
+        <h2 className={styles.title}>{t('title')}</h2>
         <Carusel />
         <div>
-        <Button link="#">Наши Работы</Button>
+        <Button link="#">{t('button')}</Button>
         </div>
     </section>
   )
