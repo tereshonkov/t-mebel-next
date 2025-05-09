@@ -1,9 +1,13 @@
 :root {
-  --text-color-primary: #fff5d1;
-  --text-color-secondary: #1e1e1d;
+  /* --text-color-primary: #fff5d1; */
+  /* --text-color-secondary: #1e1e1d; */
+  --text-color-primary: rgba(254, 247, 240, 1);
+  --text-color-secondary: rgba(112, 64, 21, 1);
   
-  --background-color-secondary: #c49a6c;
-  --background-color-primary: #fcd294;
+  /* --background-color-secondary: #c49a6c; */
+  /* --background-color-primary: #fcd294; */
+  --background-color-primary: rgba(255, 235, 214, 1);
+  --background-color-secondary: rgba(247, 210, 173, 1);
   --background-color-wrappers: #36180933;
   --background-color-header: #42231399;
 
@@ -14,7 +18,8 @@
   --text-regular: 18px;
 
   --button-background-color: #422313;
-  --button-background-color-hover: #c74f1399;
+  /* --button-background-color-hover: #c74f1399; */
+  --button-background-color-hover: rgba(112, 64, 21, 1);
 }
 
 html, body, div, span, applet, object, iframe,

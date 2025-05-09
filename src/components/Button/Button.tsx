@@ -8,7 +8,8 @@ interface ButtonProps {
 }
 const darkTheme = {
     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-    backgroundColor: '#c74f1399',
+    color: 'rgba(112, 64, 21, 1)',
+    border: '1px solid rgba(112, 64, 21, 1)',
 }
 
 export default function Button({children, link, dark}: ButtonProps) {

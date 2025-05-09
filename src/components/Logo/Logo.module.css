@@ -8,16 +8,14 @@
 }
 .title {
     font-size: var(--text-header-h2);
-    color: var(--text-header-h2);
+    color: var(--text-color-secondary);
     text-align: center;
-    /* margin-bottom: 20px; */
 }
 .logos {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    /* margin: 50px; */
 }
 .logo {
     width: 140px;

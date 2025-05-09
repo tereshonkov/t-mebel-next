@@ -1,7 +1,9 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-content: center;
     position: relative;
+    width: 100vw;
     min-height: 100vh;
     background-color: var(--background-color-wrappers);
 }
@@ -19,10 +21,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     justify-content: center;
     color: var(--text-color-primary);
-    margin-left: 20vw;
+    /* margin-left: 20vw; */
 }
 .heading {
     font-size: var(--text-header-h1);
@@ -36,6 +39,8 @@
     color: var(--text-color-primary);
     line-height: 1.2;
     letter-spacing: 1.5px;
+    width: 60%;
+    text-align: center;
 }
 
 @media (max-width: 1279px) {

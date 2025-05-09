@@ -10,7 +10,7 @@ export default async function Slider() {
         <h2 className={styles.title}>{t('title')}</h2>
         <Carusel />
         <div>
-        <Button link="#">{t('button')}</Button>
+        <Button dark link="#">{t('button')}</Button>
         </div>
     </section>
   )

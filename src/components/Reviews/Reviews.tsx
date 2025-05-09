@@ -29,7 +29,7 @@ export default async function Reviews() {
             </div>
         </div>
         <div className={styles.btn}>
-        <Button link='#'>{t('button')}</Button>
+        <Button link='#' dark>{t('button')}</Button>
         </div>
     </section>
   )
