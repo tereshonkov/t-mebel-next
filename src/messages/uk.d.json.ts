@@ -8,7 +8,7 @@ declare const messages: {
         "welcomeMessage": "Вітаю на нашому сайті!"
     },
     "Header-contact": {
-        "contact": "Олександр 067-149-67-41"
+        "contact": "067-149-67-41"
     },
     "Navigation": {
         "home": "Головна",

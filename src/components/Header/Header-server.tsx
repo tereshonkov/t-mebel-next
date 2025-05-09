@@ -3,6 +3,7 @@
 import styles from './Header.module.css'
 import NavClient from './Nav-client'
 import { getTranslations } from 'next-intl/server';
+import Button from '../Button/Button';
 
 
 export default async function HeaderServer() {
@@ -18,7 +19,8 @@ export default async function HeaderServer() {
                 <NavClient/>
             </nav>
 
-            <a className={styles.phone} href="tel:0671496741">{t('contact')}</a>
+            {/* <a className={styles.phone} href="tel:0671496741">{t('contact')}</a> */}
+            <Button link='tel:0671496741'>{t('contact')}</Button>
         </header>
     )
 }
