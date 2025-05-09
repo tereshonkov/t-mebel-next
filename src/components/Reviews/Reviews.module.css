@@ -63,6 +63,9 @@
 .text {
     color: var(--text-color-secondary);
 }
+.btn {
+    margin-bottom: 40px;
+}
 @media (max-width: 1279px) {
     .wrapper {
         margin-top: -100px;
