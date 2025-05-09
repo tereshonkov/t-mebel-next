@@ -24,7 +24,7 @@ export default async function Hero() {
       <p className={styles.paragraph}>
         {t('description')}
       </p>
-     <div>
+     <div className={styles.btn}>
      <Button link='#'>{t('button')}</Button>
      </div>
     </div>

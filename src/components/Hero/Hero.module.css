@@ -55,9 +55,11 @@
     }
     .heading {
         font-size: var(--text-header-h3);
+        text-align: center;
     }
     .paragraph {
         font-size: var(--text-regular);
+        width: 100%;
     }
 }
 @media (max-width: 361px) {

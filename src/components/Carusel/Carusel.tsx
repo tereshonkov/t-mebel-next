@@ -32,31 +32,31 @@ export default function Carusel() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp" />
+          <img src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/4/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/4/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/7/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/7/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/4/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/4/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/7/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/7/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/1/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/1/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/1/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/1/tablet.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img height={300} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/3/tablet.webp" />
+          <img  src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/3/tablet.webp" />
         </SwiperSlide>
       </Swiper>
     </>
