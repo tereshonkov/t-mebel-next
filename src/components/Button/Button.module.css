@@ -1,0 +1,21 @@
+.btn {
+    background-color: transparent;
+    color: var(--text-color-primary);
+    padding: 1rem 3rem;
+    border-radius: 15px;    
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    align-self: start;
+    border: 1px solid var(--text-color-primary);
+}
+.btn:hover {
+    background-color: var(--button-background-color-hover);
+    color: var(--text-color-primary);
+}
+@media (max-width: 1279px) {
+    .btn {
+        padding: 1rem 2rem;
+    }
+}

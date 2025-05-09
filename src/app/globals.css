@@ -1,7 +1,8 @@
 :root {
   --text-color-primary: #fff5d1;
   --text-color-secondary: #1e1e1d;
-
+  
+  --background-color-secondary: #c49a6c;
   --background-color-primary: #fcd294;
   --background-color-wrappers: #36180933;
   --background-color-header: #42231399;
@@ -68,4 +69,5 @@ table {
 	grid-template-rows: auto 1fr auto;
 	min-height: 100vh;
 	max-width: 1940px;
+	overflow: hidden;
 }

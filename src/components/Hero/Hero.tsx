@@ -1,5 +1,6 @@
 import styles from './Hero.module.css'
 import { getTranslations } from 'next-intl/server';
+import Button from '../Button/Button';
 
 export default async function Hero() {
   const t = await getTranslations('Hero');
@@ -23,7 +24,7 @@ export default async function Hero() {
       <p className={styles.paragraph}>
         {t('description')}
       </p>
-      <button className={styles.btn}>{t('button')}</button>
+      <Button link='#'>{t('button')}</Button>
     </div>
   </section>
   )
