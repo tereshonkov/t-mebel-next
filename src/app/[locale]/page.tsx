@@ -3,6 +3,7 @@ import Hero from "@/components/Hero/Hero"
 import Service from "@/components/Service/Service"
 import Rewies from "@/components/Reviews/Reviews"
 import Logo from "@/components/Logo/Logo"
+import Slider from "@/components/Slider/Slider"
 
 export default function page() {
   return (
@@ -13,6 +14,7 @@ export default function page() {
       <Service />
       <Rewies />
       <Logo />
+      <Slider />
     </main>
     </div>
   )
