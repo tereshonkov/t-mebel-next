@@ -46,6 +46,13 @@ declare const messages: {
     "Slider": {
         "title": "Останні роботи",
         "button": "Наші роботи"
+    },
+    "Form": {
+        "title": "Залиште заявку і ми зв’яжемося з вами найближчим часом",
+        "name": "Ваше ім'я",
+        "phone": "Ваш телефон",
+        "message": "Ваше повідомлення",
+        "button": "Відправити"
     }
 };
 export default messages;
