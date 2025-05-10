@@ -5,6 +5,7 @@ import Rewies from "@/components/Reviews/Reviews"
 import Logo from "@/components/Logo/Logo"
 import Slider from "@/components/Slider/Slider"
 import Faq from "@/components/Faq/Faq"
+import Form from "@/components/Form/Form"
 
 export default function page() {
   return (
@@ -17,6 +18,7 @@ export default function page() {
       <Logo />
       <Slider />
       <Faq />
+      <Form />
     </main>
     </div>
   )

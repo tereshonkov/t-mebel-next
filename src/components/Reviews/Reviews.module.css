@@ -1,6 +1,6 @@
 .wrapper {
     background-color: var(--background-color-secondary);
-    margin-top: -170px;
+    margin-top: -220px;
     min-height: 100vh;
     display: grid;
     display: flex;
@@ -11,7 +11,7 @@
     /* margin-bottom: -150px; */
 }
 .header {
-    margin-top: 100px;
+    margin-top: 200px;
     display: flex;
     flex-direction: column;
     gap: 30px;
