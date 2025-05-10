@@ -54,7 +54,7 @@
 .btn:hover {
     transform: scale(1.05);
 }
-input::placeholder {
+.input::placeholder {
     color: var(--text-color-secondary); 
     opacity: 1; 
 }
