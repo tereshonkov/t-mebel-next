@@ -6,6 +6,7 @@ import Logo from "@/components/Logo/Logo"
 import Slider from "@/components/Slider/Slider"
 import Faq from "@/components/Faq/Faq"
 import Form from "@/components/Form/Form"
+import Footer from "@/components/Footer/Footer"
 
 export default function page() {
   return (
@@ -20,6 +21,7 @@ export default function page() {
       <Faq />
       <Form />
     </main>
+    <Footer />
     </div>
   )
 }
