@@ -18,7 +18,7 @@ const t = useTranslations('Navigation');
     <>
         <ul className={styles.nav}>
         <Link href="/">{t('home')}</Link>
-        <Link href="/our">{t('ourWorks')}</Link>
+        <Link href="/service">{t('ourWorks')}</Link>
         <Link href="/about">{t('about')}</Link>
         <Link href="/contacts">{t('contacts')}</Link>
         <Link href="/blog">{t('blog')}</Link>
@@ -27,7 +27,7 @@ const t = useTranslations('Navigation');
     {isOpen && (
           <ul className={styles.mobile}>
         <Link href="/">{t('home')}</Link>
-        <Link href="/our">{t('ourWorks')}</Link>
+        <Link href="/service">{t('ourWorks')}</Link>
         <Link href="/about">{t('about')}</Link>
         <Link href="/contacts">{t('contacts')}</Link>
         <Link href="/blog">{t('blog')}</Link>

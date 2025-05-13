@@ -76,3 +76,7 @@ table {
 	/* max-width: 1940px; */
 	overflow: hidden;
 }
+.main-service {
+	background-color: var(--background-color-primary);
+	min-height: 100vh;
+}

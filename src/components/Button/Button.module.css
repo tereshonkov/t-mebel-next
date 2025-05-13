@@ -3,7 +3,7 @@
     background-color: transparent;
     color: var(--text-color-primary);
     padding: 1rem 3rem;
-    border-radius: 100px;    
+    border-radius: 10px;    
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
