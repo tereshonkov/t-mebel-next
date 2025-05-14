@@ -116,6 +116,7 @@
     }
     .title {
         font-size: var(--text-header-h3);
+        text-align: center;
     }
     .description {
         max-width: 100%;

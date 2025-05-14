@@ -9,4 +9,5 @@
 .title {
     font-size: var(--text-header-h2);
     color: var(--text-color-secondary);
+    text-align: center;
 }
