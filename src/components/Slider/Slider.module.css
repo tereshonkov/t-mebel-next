@@ -1,13 +1,25 @@
 .wrapper {
-    background-color: var(--background-color-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    background-image: url('/bg-slider.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color-header);
+    width: 100vw;
     padding: 30px 0;
+    /* height: 100vh; */
 }
 .title {
     font-size: var(--text-header-h2);
-    color: var(--text-color-secondary);
+    color: var(--text-color-primary);
     text-align: center;
 }
