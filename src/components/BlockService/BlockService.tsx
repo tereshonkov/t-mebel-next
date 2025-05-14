@@ -22,7 +22,7 @@ export default function BlockService() {
                 <div className={styles.text}>
                     <h3>Кухня серая</h3>
                     <p>Короткое описание</p>
-                    <Button dark link="#">Заказать</Button>
+                    <Button dark link="#">Подробнее</Button>
                 </div>
             </div>
         </div>
