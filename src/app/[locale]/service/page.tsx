@@ -8,9 +8,6 @@ import BlockService from "@/components/BlockService/BlockService"
 
 export default function page() {
   return (
-    <>
-
-
       <div className="container">
         <HeaderServer />
         <main className="main-service">
@@ -19,6 +16,5 @@ export default function page() {
         </main>
         <Footer />
       </div>
-    </>
   )
 }
