@@ -1,5 +1,5 @@
 import styles from './BlockService.module.css';
-import Button from '../Button/Button';
+import Item from './Item';
 
 export default function BlockService() {
   return (
@@ -15,16 +15,10 @@ export default function BlockService() {
             </ul>
         </div>
         <div className={styles.container}>
-            <div className={styles.item}>
-                <div className={styles.image}>
-                    <img src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp" alt="" />
-                </div>
-                <div className={styles.text}>
-                    <h3>Кухня серая</h3>
-                    <p>Короткое описание</p>
-                    <Button dark link="#">Подробнее</Button>
-                </div>
-            </div>
+            <Item />
+            <Item />
+            <Item />
+            <Item />
         </div>
     </section>
   )

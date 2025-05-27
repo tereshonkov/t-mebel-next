@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: auto 2fr;
-    gap: 2rem;
+    gap: 1rem;
     width: 100vw;
 }
 .sidebar {
@@ -14,8 +14,8 @@
 }
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
     padding: 20px;
 }
 .sidebar h3 {
@@ -59,10 +59,11 @@
     padding: 20px;
     border: 1px solid var(--text-color-secondary);
     border-radius: 15px;
+    max-width: 320px;
 }
 .image {
-    width: 320px;
-    height: 300px;
+    width: 100%;
+    height: 260px;
 }
 .image img {
     width: 100%;
