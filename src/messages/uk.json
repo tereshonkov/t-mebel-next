@@ -73,5 +73,137 @@
         "name": "© 2025 Меблі на замовлення T-MEBEL. Усі права захищено.",
         "privacy": "Політика конфіденційності",
         "user-agreement": "Користувацька угода"
+    },
+    "categories": {
+  "kitchens": [
+    {
+      "description": "Сучасна кухня з вбудованою технікою, системою доводчиків та м’яким підсвічуванням. Просторе планування й акцент на ергономіку роблять її ідеальним вибором для заміського будинку.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp",
+      "alt": "Сіра кухня",
+      "category": "Кухні",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Місце, де починається день і народжуються теплі родинні традиції. Зручна, простора кухня з сучасним обладнанням — створена для життя без метушні.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/6/tablet.webp",
+      "alt": "Синя кухня",
+      "category": "Кухні",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Елегантна кухня з чіткими лініями, вбудованою технікою та продуманою організацією. Простір для кулінарного натхнення щодня.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/3/tablet.webp",
+      "alt": "Світла кухня з островом",
+      "category": "Кухні",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Стиль і функціональність в гармонії. Вбудоване освітлення та зручність у кожній деталі.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/4/tablet.webp",
+      "alt": "Кухня з барною стійкою",
+      "category": "Кухні",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Кухня в мінімалістичному стилі з акцентом на якість, зручність та сучасний ритм життя.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/7/tablet.webp",
+      "alt": "Мінімалістична кухня",
+      "category": "Кухні",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Естетика, ергономіка та м’яке освітлення — ключові риси цієї кухні. Все для вашого комфорту й натхнення.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp",
+      "alt": "Сучасна кухня",
+      "category": "Кухні",
+      "btn": "Детальніше"
     }
+  ],
+  "wardrobes": [
+    {
+      "description": "Простора шафа-купе з дзеркальними фасадами та продуманим внутрішнім наповненням — ідеальне рішення для зберігання в будь-якій кімнаті.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/1/tablet.webp",
+      "alt": "Шафа з дзеркальними дверцятами",
+      "category": "Шафи",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Сучасна шафа з матовими фасадами та м’якими лініями. Зручність, мінімалізм і висока місткість.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/2/tablet.webp",
+      "alt": "Матева шафа",
+      "category": "Шафи",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Функціональна шафа-купе для гардеробної з розсувними секціями. Ідеальне поєднання стилю та практичності.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/3/tablet.webp",
+      "alt": "Гардеробна шафа з підсвічуванням",
+      "category": "Шафи",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Елегантна шафа-купе. Поєднання природних відтінків і сучасної геометрії.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/4/tablet.webp",
+      "alt": "Шафа під дерево",
+      "category": "Шафи",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Шафа з максимальною місткістю та системою зберігання за індивідуальним проєктом.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/5/tablet.webp",
+      "alt": "Кутова шафа",
+      "category": "Шафи",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Стильна шафа в темних тонах з вертикальною текстурою — ідеальне рішення для сучасних інтер’єрів.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/7/tablet.webp",
+      "alt": "Темна шафа",
+      "category": "Шафи",
+      "btn": "Детальніше"
+    }
+  ],
+  "bathrooms": [
+    {
+      "description": "Функціональні меблі для ванної кімнати з лаконічним дизайном, вологостійкими матеріалами та місткими відділеннями для зберігання.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/4/tablet.webp",
+      "alt": "Меблі для ванної",
+      "category": "Ванні кімнати",
+      "btn": "Детальніше"
+    }
+  ],
+  "bedrooms": [
+    {
+      "description": "Стильна спальня з акцентом на натуральні матеріали, функціональні меблі та атмосферне освітлення.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/2/tablet.webp",
+      "alt": "Світла спальня",
+      "category": "Спальня",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Спальня з сучасним фасадом і зручним внутрішнім наповненням — гармонія затишку та практичності.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/8/tablet.webp",
+      "alt": "Шафа у спальні",
+      "category": "Спальня",
+      "btn": "Детальніше"
+    }
+  ],
+  "shops": [
+    {
+      "description": "Функціональні меблі для магазинів: лаконічні стелажі, які підкреслюють продукцію та створюють зручність для покупців.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/5/tablet.webp",
+      "alt": "Стелажі для магазину",
+      "category": "Магазини",
+      "btn": "Детальніше"
+    },
+    {
+      "description": "Сучасне оформлення торгового простору зі зручними системами зберігання й мінімалістичним дизайном.",
+      "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/2/tablet.webp",
+      "alt": "Оформлення торгового залу",
+      "category": "Магазини",
+      "btn": "Детальніше"
+    }
+  ]
+}
+
 }

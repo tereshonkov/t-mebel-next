@@ -1,16 +1,27 @@
 import styles from './BlockService.module.css';
 import Button from '../Button/Button';
 
-export default function Item() {
+type ItemProps = {
+  data: {
+    image: string;
+    alt: string;
+    category: string;
+    description: string;
+    btn: string;
+  };
+};
+
+export default function Item({data}: ItemProps) {
   return (
     <div className={styles.item}>
     <div className={styles.image}>
-        <img src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp" alt="" />
+        <img src={data.image} alt={data.alt} />
     </div>
     <div className={styles.text}>
-        <h3>Кухня серая</h3>
-        <p>Короткое описание</p>
-        <Button dark link="#">Подробнее</Button>
+        <h5>{data.category}</h5>
+        <p>{data.description}</p>
+        {/* <Button dark link="#">Подробнее</Button> */}
+        <button className={styles.btn}>{data.btn}</button>
     </div>
 </div>
   )
