@@ -8,7 +8,7 @@
     border-bottom: 1px solid var(--background-color-secondary);
 }
 .image {
-    width: 80vw;
+    width: 95vw;
     height: 40vh;
     display: flex;
     justify-content: center;
