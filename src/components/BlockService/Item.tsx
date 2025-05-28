@@ -1,5 +1,4 @@
 import styles from './BlockService.module.css';
-import Button from '../Button/Button';
 
 type ItemProps = {
   data: {
@@ -20,7 +19,6 @@ export default function Item({data}: ItemProps) {
     <div className={styles.text}>
         <h5>{data.category}</h5>
         <p>{data.description}</p>
-        {/* <Button dark link="#">Подробнее</Button> */}
         <button className={styles.btn}>{data.btn}</button>
     </div>
 </div>
