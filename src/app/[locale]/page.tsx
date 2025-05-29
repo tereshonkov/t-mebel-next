@@ -1,4 +1,4 @@
-import HeaderServer from "@/components/Header/Header-server"
+// import HeaderServer from "@/components/Header/Header"
 import Hero from "@/components/Hero/Hero"
 import Service from "@/components/Service/Service"
 import Rewies from "@/components/Reviews/Reviews"
@@ -11,7 +11,7 @@ import Footer from "@/components/Footer/Footer"
 export default function page() {
   return (
     <div className="container">
-      <HeaderServer />
+      {/* <HeaderServer /> */}
     <main>
       <Hero />
       <Service />

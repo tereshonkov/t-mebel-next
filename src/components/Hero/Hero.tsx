@@ -1,13 +1,15 @@
 import styles from './Hero.module.css'
 import { getTranslations } from 'next-intl/server';
 import Button from '../Button/Button';
+import Header from '../Header/Header';
 
 export default async function Hero() {
   const t = await getTranslations('Hero');
   return (
     <section className={styles.wrapper}>
-    <img
-      className={styles.backgroundImg}
+      <Header />
+      <div className={styles.backgroundImg}>
+      <img
       decoding="async"
       data-fetchpriority="high"
       src="https://storage.googleapis.com/t-mebel/Image/lqip-hero.webp" // LQIP изображение
@@ -16,6 +18,7 @@ export default async function Hero() {
       srcSet="https://storage.googleapis.com/t-mebel/Image/home/slider/item2/dekstope.webp 1920w, https://storage.googleapis.com/t-mebel/Image/home/slider/item2/tablet.webp 1024w, https://storage.googleapis.com/t-mebel/Image/home/slider/item2/mobile.webp 768w"
       loading="eager"
     />
+      </div>
 
     <div className={styles.headerTitle}>
       <h2 className={styles.heading}>
