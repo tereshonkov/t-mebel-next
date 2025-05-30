@@ -2,7 +2,7 @@ import Hero from "@/components/Hero/Hero"
 import Service from "@/components/Service/Service"
 import Rewies from "@/components/Reviews/Reviews"
 import Logo from "@/components/Logo/Logo"
-// import Slider from "@/components/Slider/Slider"
+import Furniture from "@/components/Furniture/Furniture"
 // import Faq from "@/components/Faq/Faq"
 // import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
@@ -15,7 +15,7 @@ export default function page() {
       <Service />
       <Rewies />
       <Logo />
-      {/* <Slider /> */}
+      <Furniture />
       {/* <Faq /> */}
       {/* <Form /> */}
     </main>

@@ -1,19 +1,16 @@
-import styles from './Slider.module.css';
-import Button from '../Button/Button';
-import { getTranslations } from 'next-intl/server';
-import Portfolio from '../Portfolio/Portfolio';
+import styles from "./Furniture.module.css";
+import Button from "../Button/Button";
 
-export default async function Slider() {
-  const t = await getTranslations('Slider');
+export default function Slider() {
   return (
     <section className={styles.wrapper}>
+      <h2 className={styles.title}>Реализованные проэкты</h2>
       <div className={styles.container}>
-        <h2 className={styles.title}>{t('title')}</h2>
-        <Portfolio />
-        <div>
-          <Button link="#">{t('button')}</Button>
-        </div>
+        
+      </div>
+      <div>
+        <Button link="#">Все работы</Button>
       </div>
     </section>
-  )
+  );
 }
