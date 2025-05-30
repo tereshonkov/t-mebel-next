@@ -11,7 +11,7 @@ export default function Reviews() {
       </div>
         <Slider />
       <div className={styles.btn}>
-        <Button link='#'>Оставить отзыв</Button>
+        <Button link='#'>Оставить отзыв</Button>      
       </div>
     </section>
   )
