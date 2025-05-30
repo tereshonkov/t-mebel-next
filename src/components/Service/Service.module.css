@@ -3,9 +3,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 80px;
-    padding: 80px;
+    padding: 50px 62px;
     background-color: var(--background-color-primary);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
 }
 .first, .second {
     display: grid;
@@ -20,6 +19,7 @@
 .imgWrapper {
     border-radius: 15px;
     overflow: hidden;
+    max-height: 520px;
 }
 .imgWrapper img {
     width: 100%;
@@ -30,20 +30,17 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+    max-width: 809px;
 }
 .title {
-    font-size: var(--text-header-h3);
-    font-weight: 700;
+    font-size: var(--text-header-h2);
+    font-weight: 600;
     color: var(--text-color-secondary);
-    letter-spacing: 1.5px;
-    line-height: 1.2;
 }
 .subtitle {
     font-size: var(--text-description);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-color-secondary);
-    letter-spacing: 1.5px;
-    line-height: 1.5;
 }
 @media (max-width: 1439px) {
     .service {
