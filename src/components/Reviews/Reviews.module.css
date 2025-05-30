@@ -109,3 +109,31 @@
     gap: 5px;
     max-width: 40%;
 }
+@media (max-width: 1279px) {
+  .emblaSlide {
+    flex: 0 0 calc((100% - 60px) / 2);
+    max-width: none;
+  }
+}
+@media (max-width: 550) {
+  .wrapper {
+    padding: 20px 16px;
+  }
+  .sliderWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    width: 100%;
+  }
+  .emblaSlide {
+    flex: 0 0 calc((100% - 60px) / 1);
+    max-width: none;
+  }
+  .prev {
+    display: none;
+  }
+  .next {
+    display: none;
+  }
+}
