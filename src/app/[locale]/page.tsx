@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero/Hero"
 import Service from "@/components/Service/Service"
 import Rewies from "@/components/Reviews/Reviews"
-// import Logo from "@/components/Logo/Logo"
+import Logo from "@/components/Logo/Logo"
 // import Slider from "@/components/Slider/Slider"
 // import Faq from "@/components/Faq/Faq"
 // import Form from "@/components/Form/Form"
@@ -14,7 +14,7 @@ export default function page() {
     <main>
       <Service />
       <Rewies />
-      {/* <Logo /> */}
+      <Logo />
       {/* <Slider /> */}
       {/* <Faq /> */}
       {/* <Form /> */}
