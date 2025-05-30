@@ -47,7 +47,6 @@ export default async function LocaleLayout({children, params}: Props) {
     <html lang={locale}>
       <body className={`${montserrat.variable}`}>
         <NextIntlClientProvider>
-          {/* <Navigation /> */}
           {children}
         </NextIntlClientProvider>
       </body>
