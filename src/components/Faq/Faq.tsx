@@ -1,12 +1,13 @@
 import styles from "./Faq.module.css";
 import Accordion from "./Accordion";
-import { getTranslations } from "next-intl/server";
 
-export default async function Faq() {
-    const t = await getTranslations('FAQ');
+export default function Faq() {
   return (
     <div className={styles.wrapper}>
-        <h2 className={styles.title}>{t('title')}</h2>
+        <div className={styles.titleWrapper}>
+        <h2 className={styles.title}>Часто <span>задаваемые вопросы</span></h2>
+        <p>Если вы не нашли ответ на свой вопрос вы можете к нам обратится по телефону или же через форму на сайте</p>  
+        </div>
         <Accordion />
     </div>
   )
