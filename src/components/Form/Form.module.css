@@ -19,11 +19,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     width: 100%;
     border: 3px solid var(--text-color-secondary);
     border-radius: 50px;
-    width: 100%;
     padding: 10px;
 }
 .number {
@@ -54,12 +52,9 @@
     }
     .title {
         text-align: center;
-        max-width: 100%;
+        font-size: var(--text-header-h3);
     }
-    .input {
-        width: 100%;
-    }
-    .form {
+    .numberWrapper {
         max-width: 100%;
     }
     .btn {
