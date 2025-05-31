@@ -76,19 +76,20 @@
 }
 @media (max-width: 1279px) {
     .wrapper {
-        padding: 1%;
-    }
-    .title {
-        font-size: var(--text-header-h2);
-    }
-    .accWrapper {
-        width: 100%;
+        padding: 50px 2px;
+        flex-direction: column;
     }
     .itemQ::after {
-        top: 60%;
-        right: 5%;
+        top: 15%;
+        right: 0;
+    }
+    .accItem {
+        padding: 10px 20px;
     }
     .collapse.open {
         height: 300px;
+    }
+    .titleWrapper {
+        text-align: center;
     }
 }
