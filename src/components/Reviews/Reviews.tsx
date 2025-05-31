@@ -1,5 +1,5 @@
 import styles from './Reviews.module.css'
-import Button from '../Button/Button'
+// import Button from '../Button/Button'
 import Slider from './Slider'
 
 export default function Reviews() {
@@ -10,9 +10,9 @@ export default function Reviews() {
         <h2 className={styles.title}>Ваши отзывы вдохновляют нас</h2>
       </div>
         <Slider />
-      <div className={styles.btn}>
+      {/* <div className={styles.btn}>
         <Button link='#'>Оставить отзыв</Button>      
-      </div>
+      </div> */}
     </section>
   )
 }
