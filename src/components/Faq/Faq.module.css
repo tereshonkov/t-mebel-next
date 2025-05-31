@@ -78,6 +78,7 @@
     .wrapper {
         padding: 50px 2px;
         flex-direction: column;
+        align-items: center;
     }
     .itemQ::after {
         top: 15%;

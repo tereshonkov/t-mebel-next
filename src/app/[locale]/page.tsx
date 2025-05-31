@@ -4,7 +4,7 @@ import Rewies from "@/components/Reviews/Reviews"
 import Logo from "@/components/Logo/Logo"
 import Furniture from "@/components/Furniture/Furniture"
 import Faq from "@/components/Faq/Faq"
-// import Form from "@/components/Form/Form"
+import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 
 export default function page() {
@@ -17,7 +17,7 @@ export default function page() {
       <Logo />
       <Furniture />
       <Faq />
-      {/* <Form /> */}
+      <Form />
     </main>
     <Footer />
     </div>
