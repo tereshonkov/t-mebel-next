@@ -85,6 +85,20 @@
   color: var(--text-color-secondary);
   font-weight: 600;
 }
+.langWrapper {
+  max-width: 150px;
+  max-height: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.langWrapper p {
+  color: var(--text-color-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
 @media (max-width: 1279px) {
   .header {
     padding: 0 20px;

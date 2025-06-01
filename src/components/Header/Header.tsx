@@ -19,7 +19,10 @@ export default function Header() {
         </ul>
         <NavMobile />
       </nav>
-      <button className={styles.btn}>Заказать</button>
+      <div className={styles.langWrapper}>
+        <img src="/lang.svg" alt="language" />
+        <p>Язык</p>
+      </div>
     </div>
   )
 }
