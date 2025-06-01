@@ -16,6 +16,10 @@ export default function NavMobile() {
     </div>
     {isOpen && (
       <nav className={styles.navMobile}>
+              <div className={styles.langWrapperDark}>
+        <img src="/lang-dark.svg" alt="language" />
+        <p>Язык</p>
+      </div>
         <button onClick={toggleMenu} className={styles.close}></button>
         <ul className={styles.wrapperNavMobile}>
           <Link href="/">Главная</Link>
