@@ -8,7 +8,6 @@ import {routing} from '@/i18n/routing';
 type Props = {
   children: ReactNode;
   params: Promise<{locale: Locale}>;
-  // params: {locale: Locale};
 };
 
 const montserrat = Montserrat({
@@ -22,7 +21,6 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: Omit<Props, 'children'>) {
   const {locale} = await props.params;
-  // const {locale} = props.params;
   console.log('locale', locale);
   
 

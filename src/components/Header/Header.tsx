@@ -1,8 +1,10 @@
 import styles from './Header.module.css';
 import { Link } from '@/i18n/navigation';
 import NavMobile from './NavMobile';
+import { getTranslations } from 'next-intl/server';
 
-export default function Header() {
+export default async function Header() {
+  const t = await getTranslations('header');
   return (
     <div className={styles.header}>
       <div className={styles.logoWrapper}>
@@ -12,16 +14,16 @@ export default function Header() {
       </div>
       <nav className={styles.nav}>
         <ul className={styles.wrapperNav}>
-          <Link href="/">Главная</Link>
-          <Link href="/service">Наши работы</Link>
-          <Link href="/about">Про нас</Link>
-          <Link href="/contacts">Контакты</Link>
+          <Link href="/">{t('home')}</Link>
+          <Link href="/service">{t('service')}</Link>
+          <Link href="/about">{t('about')}</Link>
+          <Link href="/contacts">{t('contacts')}</Link>
         </ul>
         <NavMobile />
       </nav>
       <div className={styles.langWrapper}>
         <img src="/lang.svg" alt="language" />
-        <p>Язык</p>
+        <p>{t('language')}</p>
       </div>
     </div>
   )

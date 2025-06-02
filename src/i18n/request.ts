@@ -3,6 +3,7 @@ import {getRequestConfig} from 'next-intl/server';
 import {routing} from './routing';
 import uk from '../messages/uk.json';
 import ru from '../messages/ru.json';
+import en from '../messages/en.json';
 
 export default getRequestConfig(async ({requestLocale}) => {
   // Typically corresponds to the `[locale]` segment
@@ -13,6 +14,7 @@ export default getRequestConfig(async ({requestLocale}) => {
   const messagesMap = {
     uk,
     ru,
+    en,
   }
   return {
     locale,

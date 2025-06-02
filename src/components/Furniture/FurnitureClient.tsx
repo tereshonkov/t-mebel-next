@@ -1,10 +1,11 @@
 "use client";
 import styles from "./Furniture.module.css";
 import { useState } from "react";
-import { kitchens, wardrobe, shops, bedrooms, selected } from "./dataFurniture";
+import useDataFurniture from "./useDataFurniture";
 
 export default function FurnitureClient() {
     const [active, setActive] = useState<number>(1);
+    const { selected, kitchens, wardrobe, shops, bedrooms } = useDataFurniture();
   return (
     <div className={styles.container}>
     <ul className={styles.nav}>

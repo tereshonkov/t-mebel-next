@@ -1,14 +1,16 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("footer");
   return (
     <footer className={styles.wrapper}>
         <div className={styles.logoFooter}>
           <div className={styles.logo}>
           <img src="/logo.png" alt="logo" />
           </div>
-          <p>Мебель под заказ — удобно. стильно. индивидуально.</p>
+          <p>{t('title')}</p>
         </div>
         <div className={styles.socialWrapper}>
           <div className={styles.social}>
@@ -16,7 +18,7 @@ export default function Footer() {
             <Link className={styles.telega} href="#"></Link>
             <Link className={styles.facebook} href="#"></Link>
           </div>
-          <p>© 2025 T-MEBEL Все права защищены</p>
+          <p>{t('subtitle')}</p>
         </div>
     </footer>
   );

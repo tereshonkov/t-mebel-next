@@ -2,9 +2,11 @@ import styles from './Hero.module.css'
 import Header from '../Header/Header';
 import { Link } from '@/i18n/navigation';
 import HeroCarusel from './HeroCarusel';
+import { getTranslations } from 'next-intl/server';
 
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getTranslations('hero');
   return (
     <header className={styles.wrapper}>
       <Header />
@@ -13,16 +15,16 @@ export default function Hero() {
           <div className={styles.banner}>
           <div className={styles.banerWrapper}>
       <div className={styles.bannerText}>
-        <h2>Мебель под заказ</h2>
-        <p>Мебель на заказ — искусство уюта и стиля.</p>
+        <h2>{t('title')}</h2>
+        <p>{t('subtitle')}</p>
       </div>
       <div className={styles.bannerButton}>
-        <a href='tel:0671496741' className={styles.btn}>Звонок</a>
-        <Link href="/contacts" className={styles.btnSecond}>Контакты</Link>
+        <a href='tel:0671496741' className={styles.btn}>{t('button')}</a>
+        <Link href="/contacts" className={styles.btnSecond}>{t('buttonTwo')}</Link>
       </div>
     </div>
     </div>
-    <h1 className={styles.title}>Создайте пространство, которое отражает <span>вашу мечту</span></h1>
+    <h1 className={styles.title}>{t('header')} <span>{t('bold')}</span></h1>
     </div>
   </header>
   )

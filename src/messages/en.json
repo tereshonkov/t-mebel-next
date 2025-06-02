@@ -1,0 +1,68 @@
+{
+    "LocaleLayout": {
+        "title": "Page Layout"
+    },
+  "header": {
+    "home": "Home",
+    "service": "Service",
+    "about": "About Us",
+    "contacts": "Contacts",
+    "language": "Language",
+    "call": "Call Us"
+  },
+    "hero": {
+    "title": "Custom Furniture",
+    "subtitle": "Custom-made furniture — the art of comfort and style.",
+    "button": "Call",
+    "buttonTwo": "Contacts",
+    "header": "Create a space that reflects",
+    "bold": "your dream"
+  },
+  "service": {
+    "titleKitchen": "Perfect custom kitchens — style, functionality, and quality",
+    "subtitleKitchen": "We offer custom kitchens tailored to your preferences and space. Every project is an individual approach, thought out to the smallest detail: from appliance placement to material selection. We create custom kitchens that combine comfort, ergonomics, and modern design to make daily cooking a joy.",
+    "btnKitchen": "Kitchens",
+    "titleWardrobe": "Functional custom wardrobes for any interior",
+    "subtitleWardrobe": "We design custom wardrobes that make the most of your space. Corner, built-in, sliding, or classic — we create wardrobes that complement your interior and bring order and harmony to your home. Choose furniture that works for you!",
+    "btnWardrobe": "Wardrobes"
+  },
+    "reviews": {
+    "title": "Your reviews inspire us"
+  },
+    "furniture": {
+    "title": "Completed Projects",
+    "kitchens": "Kitchens",
+    "wardrobes": "Wardrobes",
+    "stores": "Stores",
+    "bedrooms": "Bedrooms",
+    "btnFurniture": "All Projects"
+  },
+    "faq": {
+    "title": "Frequently",
+    "titleBold": "Asked Questions",
+    "subtitle": "If you did not find the answer to your question, you can contact us by phone or through the form on the website.",
+    "question1": "What is the cost of custom furniture?",
+    "answer1": "The cost of custom furniture is determined individually and depends on the selected materials, complexity of the design, and type of fittings. We offer the optimal balance of price and quality so that each piece of custom furniture meets your expectations and budget.",
+    "question2": "What is the production time for custom furniture?",
+    "answer2": "The production time for custom furniture depends on the volume and complexity of the project. On average, it takes about 30 calendar days. However, if you need it urgently, we are always ready to discuss individual terms and try to speed up the process without losing quality.",
+    "question3": "What documents are issued when ordering furniture?",
+    "answer3": "When placing an order for custom furniture, we sign an official contract that details all stages of cooperation, cost, deadlines, and list of materials. This ensures transparency and reliability at every stage of your order fulfillment.",
+    "question4": "Can furniture be made according to our design?",
+    "answer4": "Yes, of course! We are happy to make custom furniture according to your individual design. You just need to share your ideas or drawings, and we will implement them taking into account all wishes regarding style, materials, and dimensions. Custom furniture manufacturing is an opportunity to create not just a piece of furniture but a unique solution that perfectly fits your home or office.",
+    "question5": "Where can I choose components for my project?",
+    "answer5": "Choosing components is an important step, and we fully take it into account. You will be able to select materials, fittings, and decorations according to your budget and preferences. We cooperate with reliable partners such as Viyar, Dark, Blum, and other trusted suppliers, so we offer a wide range of facades, mechanisms, and fittings — from economy to premium class. With us, you get the freedom of choice and confidence in the quality of every detail!",
+    "question6": "In which cities do you operate?",
+    "answer6": "Our main area of operation is the city of Kharkiv and the Kharkiv region. However, we are open to cooperation and ready to consider trips to other regions of Ukraine — such projects are discussed individually by agreement. If you are in another city, just contact us and we will try to find the best solution!"
+  },
+    "form": {
+    "titleRegular": "Get a",
+    "titleBold": "free ",
+    "titleRegularTwo": "consultation ",
+    "titleBoldTwo": "today!",
+    "btn": "Call us"
+  },
+"footer": {
+  "title": "Custom furniture — convenient. stylish. personalized.",
+  "subtitle": "© 2025 T-MEBEL All rights reserved"
+}
+}

@@ -1,25 +1,32 @@
-export type Service = {
+import { useTranslations } from "next-intl";
+
+
+export default function useDataFurniture() {
+
+const t = useTranslations("furniture");
+
+ type Service = {
     img: string;
   };
-export type SelectedItem = {
+ type SelectedItem = {
     name: string;
     id: number;
   };
   const selected: SelectedItem[] = [
     {
-      name: "Кухни",
+      name: t('kitchens'),
       id: 1,
     },
     {
-      name: "Шкафы",
+      name: t('wardrobes'),
       id: 2,
     },
     {
-      name: "Магазины",
+      name: t('stores'),
       id: 3,
     },
     {
-      name: "Спальни",
+      name: t('bedrooms'),
       id: 4,
     },
   ];
@@ -94,6 +101,14 @@ const kitchens: Service[] = [
     {
       img: "https://storage.googleapis.com/t-mebel/Image/wall.jpg"
     }
-  ]
+  ];
 
-export { kitchens, wardrobe, shops, bedrooms, selected};
+  
+  return {
+    kitchens,
+    wardrobe,
+    shops,
+    bedrooms,
+    selected,
+  };
+}

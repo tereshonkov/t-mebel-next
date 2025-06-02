@@ -1,28 +1,26 @@
 import styles from './Logo.module.css';
-import { getTranslations } from 'next-intl/server';
 
-export default async function Logo() {
-    const t = await getTranslations('Logos');
+export default function Logo() {
   return (
     <section className={styles.wrapper}>
         <div className={styles.logos}>
             <div className={styles.logo}>
-                <img src="/logos/1.png" alt={t('alt-one')} className={styles.image} />
+                <img src="/logos/1.png" alt="logo" className={styles.image} />
             </div>
             <div className={styles.logo}>
-                <img src="/logos/2.png" alt={t('alt-two')} className={styles.image} />
+                <img src="/logos/2.png" alt="logo" className={styles.image} />
             </div>
             <div className={styles.logo}>
-                <img src="/logos/3.webp" alt={t('alt-three')} className={styles.image} />
+                <img src="/logos/3.webp" alt="logo" className={styles.image} />
             </div>
             <div className={styles.logo}>
-                <img src="/logos/1.png" alt={t('alt-one')} className={styles.image} />
+                <img src="/logos/1.png" alt="logo" className={styles.image} />
             </div>
             <div className={styles.logo}>
-                <img src="/logos/2.png" alt={t('alt-two')} className={styles.image} />
+                <img src="/logos/2.png" alt="logo" className={styles.image} />
             </div>
             <div className={styles.logo}>
-                <img src="/logos/3.webp" alt={t('alt-three')} className={styles.image} />
+                <img src="/logos/3.webp" alt="logo" className={styles.image} />
             </div>
         </div>
     </section>
