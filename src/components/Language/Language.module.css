@@ -39,8 +39,12 @@
   font-size: 16px;
   padding: 5px;
   border-radius: 50px;
-  /* border: 3px solid var(--text-color-secondary); */
   border: none;
+  text-align: center;
+
+  -webkit-appearance: none; /* для Safari и Chrome */
+  -moz-appearance: none; /* для Firefox */
+  appearance: none;
 }
 @media (max-width: 1279px) {
   .langWrapper {
