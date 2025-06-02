@@ -15,7 +15,7 @@ export default function NavMobile() {
     <>
     <div onClick={toggleMenu} className={styles.menuMobile}>
       <img src="/menu-dark.svg" alt="menu" />
-      <p>Меню</p>
+      <p>{t('menu')}</p>
     </div>
     {isOpen && (
       <nav className={styles.navMobile}>
