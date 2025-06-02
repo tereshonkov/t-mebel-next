@@ -1,9 +1,8 @@
 .langWrapper {
   max-width: 150px;
   max-height: 50px;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 10px;
   position: relative;
