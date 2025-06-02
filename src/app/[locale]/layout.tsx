@@ -42,12 +42,12 @@ export default async function LocaleLayout({children, params}: Props) {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
-      <body className={`${montserrat.variable}`}>
+    // <html lang={locale}>
+      // <body className={`${montserrat.variable}`}>
         <NextIntlClientProvider>
           {children}
         </NextIntlClientProvider>
-      </body>
-    </html>
+      // </body>
+    // </html>
   );
 }

@@ -2,6 +2,7 @@ import styles from './Header.module.css';
 import { Link } from '@/i18n/navigation';
 import NavMobile from './NavMobile';
 import { getTranslations } from 'next-intl/server';
+import Language from '../Language/Language';
 
 export default async function Header() {
   const t = await getTranslations('header');
@@ -21,10 +22,7 @@ export default async function Header() {
         </ul>
         <NavMobile />
       </nav>
-      <div className={styles.langWrapper}>
-        <img src="/lang.svg" alt="language" />
-        <p>{t('language')}</p>
-      </div>
+      <Language mobile={false}/>
     </div>
   )
 }

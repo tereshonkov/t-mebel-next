@@ -3,6 +3,7 @@ import styles from './Header.module.css';
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import Language from '../Language/Language';
 
 export default function NavMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,10 +19,7 @@ export default function NavMobile() {
     </div>
     {isOpen && (
       <nav className={styles.navMobile}>
-              <div className={styles.langWrapperDark}>
-        <img src="/lang-dark.svg" alt="language" />
-        <p>{t('language')}</p>
-      </div>
+        <Language mobile={true} />
         <button onClick={toggleMenu} className={styles.close}></button>
         <ul className={styles.wrapperNavMobile}>
           <Link href="/">{t('home')}</Link>
