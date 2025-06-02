@@ -9,14 +9,15 @@
   position: relative;
 }
 .langWrapper img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 .item {
   color: var(--background-color-primary);
   font-size: 16px;
   font-weight: 600;
+  text-align: center;
 }
 .langWrapperDark {
   max-width: 60px;
@@ -36,11 +37,13 @@
   background-color: var(--background-color-primary);
   color: var(--text-color-secondary);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   padding: 5px;
   border-radius: 50px;
   border: none;
   text-align: center;
+  text-align-last: center;
+  cursor: pointer;
 
   -webkit-appearance: none; /* для Safari и Chrome */
   -moz-appearance: none; /* для Firefox */
