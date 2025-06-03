@@ -4,13 +4,14 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useCallback } from 'react';
 import heroData from './heroData';
 
-export default function HeroCarusel() {
+export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: number }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: false,
         align: 'start',
         skipSnaps: false,
         dragFree: false,
         containScroll: 'trimSnaps',
+        startIndex: initialIndex,
     });
 
     const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);

@@ -3,12 +3,12 @@ import { useTranslations } from "next-intl";
 
 export default function useDataFurniture() {
 
-const t = useTranslations("furniture");
+  const t = useTranslations("furniture");
 
- type Service = {
+  type Service = {
     img: string;
   };
- type SelectedItem = {
+  type SelectedItem = {
     name: string;
     id: number;
   };
@@ -31,7 +31,7 @@ const t = useTranslations("furniture");
     },
   ];
 
-const kitchens: Service[] = [
+  const kitchens: Service[] = [
     {
       img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp",
     },
@@ -49,12 +49,6 @@ const kitchens: Service[] = [
     },
     {
       img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp",
-    },
-    {
-      img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5/tablet.webp",
-    },
-    {
-      img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/6/tablet.webp",
     },
   ];
   const wardrobe: Service[] = [
@@ -87,9 +81,6 @@ const kitchens: Service[] = [
       img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/2/tablet.webp",
     },
     {
-      img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/3/tablet.webp"
-    },
-    {
       img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/8/tablet.webp"
     },
     {
@@ -100,10 +91,13 @@ const kitchens: Service[] = [
     },
     {
       img: "https://storage.googleapis.com/t-mebel/Image/wall.jpg"
-    }
+    },
+    {
+      img: "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/1/tablet.webp",
+    },
   ];
 
-  
+
   return {
     kitchens,
     wardrobe,

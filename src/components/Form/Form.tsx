@@ -1,6 +1,6 @@
 import styles from "./Form.module.css";
-import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 export default async function Form() {
   const t = await getTranslations("form");
@@ -11,7 +11,7 @@ export default async function Form() {
       </h2>
       <div className={styles.numberWrapper}>
         <h3 className={styles.number}>
-            067 - 149 - 67 - 41
+          067 - 149 - 67 - 41
         </h3>
         <Link href="tel:0671496741" className={styles.btn}>
           {t('btn')}

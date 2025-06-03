@@ -13,14 +13,14 @@ export default async function Service() {
             <div className={styles.textWrapper}>
                 <h2 className={styles.title}>{t('titleKitchen')}</h2>
                 <p className={styles.subtitle}>{t('subtitleKitchen')}</p>
-                <Button link='#'>{t('btnKitchen')}</Button>
+                <Button link='/service#furniture'>{t('btnKitchen')}</Button>
             </div>
         </div>
         <div className={styles.second}>
             <div className={styles.textWrapper}>
             <h2 className={styles.title}>{t('titleWardrobe')}</h2>
             <p className={styles.subtitle}>{t('subtitleWardrobe')}</p>
-            <Button link='#'>{t('btnWardrobe')}</Button>
+            <Button link='/service#furniture'>{t('btnWardrobe')}</Button>
             </div>
             <div className={styles.imgWrapper}>
                 <img src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/7/tablet.webp" alt="wradrobe" />

@@ -11,7 +11,8 @@ declare const messages: {
     "about": "Про нас",
     "contacts": "Контакти",
     "language": "Мова",
-    "call": "Зателефонувати"
+    "call": "Зателефонувати",
+    "menu": "Меню"
   },
     "hero": {
     "title": "Меблі під замовлення",

@@ -10,12 +10,12 @@ import Footer from "@/components/Footer/Footer"
 export default function page() {
   return (
     <div className="container">
-      <Hero />
+      <Hero startIndex={0} home={true}/>
     <main>
       <Service />
       <Rewies />
       <Logo />
-      <Furniture />
+      <Furniture home={true}/>
       <Faq />
       <Form />
     </main>

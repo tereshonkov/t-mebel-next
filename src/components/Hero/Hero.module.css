@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 100vw;
+    max-width: 100%;
     min-height: 100vh;
     background-color: var(--background-color-primary);
     padding: 10px;
@@ -168,6 +168,43 @@
   flex: 0 0 100%;
 }
 
+.numberWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    border: 3px solid var(--background-color-primary);
+    border-radius: 50px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.number {
+    color: var(--text-color-primary); 
+    font-size: var(--text-header-h2);
+    font-weight: 600;
+    padding-left: 10%;
+}
+.btnCaller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-primary);
+    color: var(--text-color-secondary);
+    width: 250px;
+    padding: 26px;
+    border-radius: 50px;    
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--text-color-secondary);
+    box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.15);
+  
+}
+
 @media (max-width: 1279px) {
     .wrapper {
         padding: 0;
@@ -177,7 +214,6 @@
         align-items: center;
         padding: 20px 16px;
         gap: 24px;
-        /* max-width: 290px; */
     }
     .bannerText h2 {
         font-size: 32px;
@@ -204,5 +240,19 @@
     .sliderBtns {
         right: 50%;
         transform: translateX(50%);
+    }
+    .numberWrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .number {
+        font-size: 24px;
+        padding-left: 5%;
+    }
+    .btnCaller {
+        max-width: 100px;
+        padding: 16px;
+        text-align: center;
+        font-size: 18px;
     }
 }
