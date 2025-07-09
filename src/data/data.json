@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "title": "Мебель 1",
+  "description": "Описание мебели 1",
+  "color": "Красный",
+  "furnitures": "blum, hpl, mdf",
+  "image": "/images/furniture1.jpg",
+  "images": ["/images/furniture1.jpg", "/images/furniture2.jpg"],
+  "width": 120,
+  "height": 80,
+  "rating": 5
+}
