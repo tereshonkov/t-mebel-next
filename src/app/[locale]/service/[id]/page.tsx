@@ -1,4 +1,11 @@
-export default function FurniturePage({ params }: { params: { id: string } }) {
+
+interface PageProps {
+  params: { id: string };
+}
+
+
+
+export default function FurniturePage({ params }: PageProps) {
   const { id } = params;
   
   return (
@@ -8,17 +15,3 @@ export default function FurniturePage({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
-/* СОЗДАТЬ МАССИВ СУЩНОСТЬ ДЛЯ ВСЕХ ФОТОК МЕБЕЛИ ИСПОЛЬЗОВАТЬ DATA.JSON
- {
-  id: 1,  ID мебели
-  title: "Мебель 1", НАЗВАНИЕ МЕБЕЛИ
-  description: "Описание мебели 1", ОПИСАНИЕ МЕБЕЛИ
-  color: "Красный", ЦВЕТ МЕБЕЛИ
-  furnitures: "blum, hpl, mdf", ФУРНИТУРЫ
-  image: ["/images/furniture1.jpg", "/images.furniture2.jpg".....], ИЗОБРАЖЕНИЕ МЕБЕЛИ
-  width: 120,
-  height: 80,
-  rating: 5,
-}
- */
