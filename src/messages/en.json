@@ -1,7 +1,7 @@
 {
-    "LocaleLayout": {
-        "title": "Page Layout"
-    },
+  "LocaleLayout": {
+    "title": "Page Layout"
+  },
   "header": {
     "home": "Home",
     "service": "Service",
@@ -11,7 +11,7 @@
     "call": "Call Us",
     "menu": "Menu"
   },
-    "hero": {
+  "hero": {
     "title": "Custom Furniture",
     "subtitle": "Custom-made furniture — the art of comfort and style.",
     "button": "Call",
@@ -27,10 +27,10 @@
     "subtitleWardrobe": "We design custom wardrobes that make the most of your space. Corner, built-in, sliding, or classic — we create wardrobes that complement your interior and bring order and harmony to your home. Choose furniture that works for you!",
     "btnWardrobe": "Wardrobes"
   },
-    "reviews": {
+  "reviews": {
     "title": "Your reviews inspire us"
   },
-    "furniture": {
+  "furniture": {
     "title": "Completed Projects",
     "kitchens": "Kitchens",
     "wardrobes": "Wardrobes",
@@ -38,7 +38,7 @@
     "bedrooms": "Bedrooms",
     "btnFurniture": "All Projects"
   },
-    "faq": {
+  "faq": {
     "title": "Frequently",
     "titleBold": "Asked Questions",
     "subtitle": "If you did not find the answer to your question, you can contact us by phone or through the form on the website.",
@@ -55,15 +55,79 @@
     "question6": "In which cities do you operate?",
     "answer6": "Our main area of operation is the city of Kharkiv and the Kharkiv region. However, we are open to cooperation and ready to consider trips to other regions of Ukraine — such projects are discussed individually by agreement. If you are in another city, just contact us and we will try to find the best solution!"
   },
-    "form": {
+  "form": {
     "titleRegular": "Get a",
     "titleBold": "free ",
     "titleRegularTwo": "consultation ",
     "titleBoldTwo": "today!",
     "btn": "Call us"
   },
-"footer": {
-  "title": "Custom furniture — convenient. stylish. personalized.",
-  "subtitle": "© 2025 T-MEBEL All rights reserved"
-}
+  "footer": {
+    "title": "Custom furniture — convenient. stylish. personalized.",
+    "subtitle": "© 2025 T-MEBEL All rights reserved"
+  },
+  "kitchen_1": {
+    "title": "Kitchen 1",
+    "description": "Description of kitchen 1"
+  },
+  "kitchen_2": {
+    "title": "Kitchen 2",
+    "description": "Description of kitchen 2"
+  },
+  "kitchen_3": {
+    "title": "Kitchen 3",
+    "description": "Description of kitchen 3"
+  },
+  "kitchen_4": {
+    "title": "Kitchen 4",
+    "description": "Description of kitchen 4"
+  },
+  "kitchen_5": {
+    "title": "Kitchen 5",
+    "description": "Description of kitchen 5"
+  },
+  "kitchen_17": {
+    "title": "Kitchen 6",
+    "description": "Description of kitchen 6"
+  },
+  "wardrobe_6": {
+    "title": "Wardrobe 2",
+    "description": "Description of wardrobe 2"
+  },
+  "wardrobe_7": {
+    "title": "Wardrobe 3",
+    "description": "Description of wardrobe 3"
+  },
+  "wardrobe_8": {
+    "title": "Wardrobe 4",
+    "description": "Description of wardrobe 4"
+  },
+  "wardrobe_9": {
+    "title": "Wardrobe 5",
+    "description": "Description of wardrobe 5"
+  },
+  "wardrobe_10": {
+    "title": "Wardrobe 6",
+    "description": "Description of wardrobe 6"
+  },
+  "wardrobe_11": {
+    "title": "Wardrobe 7",
+    "description": "Description of wardrobe 7"
+  },
+  "store_12": {
+    "title": "Store 1",
+    "description": "Description of store 1"
+  },
+  "bedroom_13": {
+    "title": "Bedroom 1",
+    "description": "Description of bedroom 1"
+  },
+  "bedroom_14": {
+    "title": "Bedroom 2",
+    "description": "Description of bedroom 2"
+  },
+  "bedroom_15": {
+    "title": "Bedroom 3",
+    "description": "Description of bedroom 3"
+  }
 }
