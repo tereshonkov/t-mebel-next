@@ -1,12 +1,5 @@
-
-interface PageProps {
-  params: { id: string };
-}
-
-
-
-export default function FurniturePage({ params }: PageProps) {
-  const { id } = params;
+export default async function FurniturePage({ params }: any) {
+  const { id } = params as { id: string };
   
   return (
     <div>
