@@ -5,11 +5,11 @@ import HeroCarusel from './HeroCarusel';
 import { getTranslations } from 'next-intl/server';
 
 
-export default async function Hero({ startIndex = 0, home }: { startIndex?: number, home?: boolean }) {
+export default async function Hero({ startIndex = 0, home, page }: { startIndex?: number, home?: boolean, page?:boolean }) {
   const t = await getTranslations('hero');
   const form = await getTranslations('form');
   return (
-    <header className={styles.wrapper}>
+    <header className={styles.wrapper} style={page ? { height: '50vh' } : { height: '100vh' }}>
       <Header />
       <HeroCarusel initialIndex={startIndex} />
       {home && <div className={styles.wrapperContent}>
