@@ -10,6 +10,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    animation: moveRight 20s linear infinite;
 }
 .logo {
     max-width: 188px;
@@ -42,3 +43,18 @@
         height: 60px;
     }
 }
+
+@keyframes moveRight {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-40%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+        transform: translate(40%);
+    }
+  }
