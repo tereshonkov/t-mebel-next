@@ -6,7 +6,7 @@
     "color": "gray",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp",
-    "images": [],
+    "images": ["https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp"],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -20,6 +20,7 @@
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/6/tablet.webp",
     "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/6/tablet.webp",
       "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/2/tablet.webp"
     ],
     "width": 120,
@@ -34,7 +35,9 @@
     "color": "gray",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/3/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/3/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -47,7 +50,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/4/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/4/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -60,7 +65,9 @@
     "color": "green",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/7/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/7/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -73,7 +80,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -86,7 +95,9 @@
     "color": "gray",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/1/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/1/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -99,7 +110,9 @@
     "color": "brown",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/2/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/2/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -112,7 +125,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/3/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/3/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -125,7 +140,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/4/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/4/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -138,7 +155,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/5/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/5/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -167,7 +186,9 @@
     "color": "red",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/5/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/rizne/5/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -180,7 +201,9 @@
     "color": "brown",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/8/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/shafa/8/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -209,7 +232,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/2/tablet.webp",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/2/tablet.webp"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,
@@ -222,7 +247,9 @@
     "color": "white",
     "furnitures": "blum, hpl, mdf",
     "image": "https://storage.googleapis.com/t-mebel/Image/wall.jpg",
-    "images": [],
+    "images": [
+      "https://storage.googleapis.com/t-mebel/Image/wall.jpg"
+    ],
     "width": 120,
     "height": 80,
     "rating": 5,

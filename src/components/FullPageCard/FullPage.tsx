@@ -10,7 +10,7 @@ type Data = {
     color: string;
     furnitures: string;
     image: string;
-    images?: string[];
+    images: string[];
     width?: number;
     height?: number;
     raiting?: number;
@@ -52,16 +52,13 @@ export default function FullPage({ id }: { id: string }) {
             />
           </div>
           <div className={styles.track}>
-            {data?.images && data.images.length > 0 ? (
-                data.images.map((image, index) => (
-              <div key={index} className={styles.trackItem}>
-                <img src={image} alt={`${data.title} ${index + 1}`} />
-              </div>
-            ))) : (
-                <div className={styles.trackItem}>
-                    <img src={data?.image} alt={data?.title} />
-                </div>
-            )}
+            {data?.images.map((image,index) => (
+                 <div key={index} className={styles.trackItem}>
+                 <img src={image} alt={data?.title} />
+             </div>
+            ))}
+               
+            
           </div>
           <div className={styles.sliderBtns}>
             <button className={styles.prev}></button>
