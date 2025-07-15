@@ -28,3 +28,28 @@ const reviewsData: Review[] = [
 ]
 
 export default reviewsData;
+
+/* 
+Подвязываем коментарии под каждую позицию и потом будем их использовать в FullPageCard и в Slider
+Пример:
+  {
+    "id": 1,
+    "title": "Современная кухня в светлых тонах с лаконичным дизайном",
+    "description": "Эта кухня выполнена в стиле минимализм с акцентом на светлую цветовую гамму. Гладкие фасады без ручек, встроенная техника и продуманная система хранения создают ощущение простора и комфорта. Идеальный выбор для ценителей современного дизайна и функциональности",
+    "color": "gray",
+    "furnitures": "blum, hpl, mdf",
+    "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp",
+    "images": ["https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp"],
+    "width": 120,
+    "height": 80,
+    "rating": 5,
+    "categories": ["kitchen"],
+    "reviews": [
+      {
+        "name": "Оксана",
+        "text": "Когда заказывали шкаф-купе, честно, переживали, что не получится, как на картинках. Но ребята нас приятно удивили! Всё сделали под наши размеры, материалы отличные, и качество сборки - без нареканий. Приехали, всё установили быстро и без лишних вопросов. Идеально вписался в нашу спальню. Спасибо, будем заказывать ещё!",
+        "image": "https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/1/tablet.webp"
+      }
+    ]
+  },
+*/
