@@ -10,7 +10,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["kitchen"]
+    "categories": ["kitchen"],
+    "reviews": []
   },
   {
     "id": 2,
@@ -26,7 +27,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["kitchen"]
+    "categories": ["kitchen"],
+    "reviews": []
   },
   {
     "id": 3,
@@ -41,7 +43,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["kitchen"]
+    "categories": ["kitchen"],
+    "reviews": []
   },
   {
     "id": 4,
@@ -78,7 +81,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["kitchen"]
+    "categories": ["kitchen"],
+    "reviews": []
   },
   {
     "id": 17,
@@ -93,7 +97,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["kitchen"]
+    "categories": ["kitchen"],
+    "reviews": []
   },
   {
     "id": 6,
@@ -130,7 +135,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["wardrobe"]
+    "categories": ["wardrobe"],
+    "reviews": []
   },
   {
     "id": 8,
@@ -167,7 +173,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["wardrobe"]
+    "categories": ["wardrobe"],
+    "reviews": []
   },
   {
     "id": 10,
@@ -182,7 +189,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["wardrobe"]
+    "categories": ["wardrobe"],
+    "reviews": []
   },
   {
     "id": 11,
@@ -220,7 +228,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["store"]
+    "categories": ["store"],
+    "reviews": []
   },
   {
     "id": 13,
@@ -235,7 +244,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["bedroom"]
+    "categories": ["bedroom"],
+    "reviews": []
   },
   {
     "id": 14,
@@ -251,7 +261,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["bedroom"]
+    "categories": ["bedroom"],
+    "reviews": []
   },
   {
     "id": 15,
@@ -266,7 +277,8 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["bedroom"]
+    "categories": ["bedroom"],
+    "reviews": []
   },
   {
     "id": 16,
@@ -281,6 +293,7 @@
     "width": 120,
     "height": 80,
     "rating": 5,
-    "categories": ["bedroom"]
+    "categories": ["bedroom"],
+    "reviews": []
   }
 ]

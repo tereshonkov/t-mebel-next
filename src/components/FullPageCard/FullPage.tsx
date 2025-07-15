@@ -16,13 +16,12 @@ type Data = {
   height?: number;
   raiting?: number;
   categories?: string[];
-  reviews?: [
-    {
-      name: string;
-      text: string;
-      image: string;
-    }
-  ]
+  reviews?: Review[];
+};
+type Review = {
+  name: string;
+  text: string;
+  image: string;
 };
 
 export default function FullPage({ id }: { id: string }) {
@@ -64,6 +63,7 @@ export default function FullPage({ id }: { id: string }) {
   useEffect(() => {
     if (!emblaApi) return;
   }, [emblaApi]);
+
   return (
     <>
       <section className={styles.wrapper}>
