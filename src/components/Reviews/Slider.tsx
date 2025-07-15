@@ -2,7 +2,7 @@
 import styles from './Reviews.module.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useCallback, useState } from 'react';
-// import reviewsData from './reviewsData';
+import reviewsData from './reviewsData';
 
 type Data = {
     id: number;
@@ -41,25 +41,25 @@ export default function Slider() {
         if (!emblaApi) return;
     }, [emblaApi]);
 
-    const [reviewsData, setReviewsData] = useState([]);
-    console.log("ReviewsData:", reviewsData);
+    // const [reviewsData, setReviewsData] = useState([]);
+    // console.log("ReviewsData:", reviewsData);
     
-    useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const response = await fetch('/data/data.json');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                const reviews = data.map((item: Data) => (item?.reviews))
-                setReviewsData(reviews);
-            } catch (error) {
-                console.error("Error fetching reviews:", error);
-            }
-        }
-        fetchReviews();
-    }, [])
+    // useEffect(() => {
+    //     const fetchReviews = async () => {
+    //         try {
+    //             const response = await fetch('/data/data.json');
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             const data = await response.json();
+    //             const reviews = data.map((item: Data) => (item?.reviews))
+    //             setReviewsData(reviews);
+    //         } catch (error) {
+    //             console.error("Error fetching reviews:", error);
+    //         }
+    //     }
+    //     fetchReviews();
+    // }, [])
     return (
         <div className={styles.sliderWrapper}>
             <button onClick={scrollPrev} className={styles.prev}></button>
