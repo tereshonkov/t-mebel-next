@@ -108,10 +108,6 @@ export default function FullPage({ id }: { id: string }) {
           <p className={styles.subtitle}>
             {data?.description}
           </p>
-          <div className={styles.colorDiv}>
-            <span className={styles.colorTitle}>Цвет:</span>
-            <div className={styles.colors} style={{ backgroundColor: `${data?.color}` }}></div>
-          </div>
           <p className={styles.width}>Размеры: {data?.width} x {data?.height}</p>
           <p className={styles.furnitures}>Фурнитура: {data?.furnitures}</p>
           <Link href="tel:0671496741" className={styles.link}>
