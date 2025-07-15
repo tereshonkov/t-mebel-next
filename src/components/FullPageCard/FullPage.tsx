@@ -16,6 +16,13 @@ type Data = {
   height?: number;
   raiting?: number;
   categories?: string[];
+  reviews?: [
+    {
+      name: string;
+      text: string;
+      image: string;
+    }
+  ]
 };
 
 export default function FullPage({ id }: { id: string }) {
@@ -113,23 +120,23 @@ export default function FullPage({ id }: { id: string }) {
         </div>
       </section>
       <section className={styles.reviews}>
-        <div className={styles.review}>
-          <div className={styles.reviewsHeading}>
-            <h3 className={styles.name}>Ivan Ivanov</h3>
-            <div className={styles.stars}>
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-            </div>
-          </div>
-          <p className={styles.body}>
-            Очень удобная кровать — спать комфортно, механизм подъёма работает
-            плавно, а ниша внутри действительно вместительная. Отличный вариант,
-            особенно если нужно дополнительное место для хранения!
-          </p>
-        </div>
+        {data?.reviews?.map((review, index) => (
+                  <div key={index} className={styles.review}>
+                  <div className={styles.reviewsHeading}>
+                    <h3 className={styles.name}>{review.name}</h3>
+                    <div className={styles.stars}>
+                      <img src="/star.svg" alt="star" />
+                      <img src="/star.svg" alt="star" />
+                      <img src="/star.svg" alt="star" />
+                      <img src="/star.svg" alt="star" />
+                      <img src="/star.svg" alt="star" />
+                    </div>
+                  </div>
+                  <p className={styles.body}>
+                    {review.text}
+                  </p>
+                </div>
+        ))}
         <div>
           <button className={styles.btn}>Оставить отзыв</button>
         </div>
