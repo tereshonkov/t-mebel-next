@@ -64,6 +64,8 @@ export default function FullPage({ id }: { id: string }) {
     if (!emblaApi) return;
   }, [emblaApi]);
 
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   return (
     <>
       <section className={styles.wrapper}>
@@ -134,9 +136,22 @@ export default function FullPage({ id }: { id: string }) {
                 </div>
         ))}
         <div>
-          <button className={styles.btn}>Оставить отзыв</button>
+          <button onClick={() => setModalOpen(prev => !prev)} className={styles.btn}>Оставить отзыв</button>
         </div>
       </section>
+      {modalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <button onClick={() => setModalOpen(false)} className={styles.closeBtn}>X</button>
+            <h2>Оставить отзыв</h2>
+            <form className={styles.form}>
+              <input type="text" placeholder="Ваше имя" required />
+              <textarea rows={6} placeholder="Ваш отзыв" required></textarea>
+              <button type="submit" className={styles.btn}>Отправить</button>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 }
