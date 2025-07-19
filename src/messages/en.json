@@ -129,5 +129,24 @@
   "bedroom_15": {
     "title": "Bedroom 3",
     "description": "Description of bedroom 3"
-  }
+  },
+  "contactPage": {
+    "contactTitle": "Contacts",
+    "adress": "Address: Kharkiv, 8 Lev Landau Avenue",
+    "phone": "Phone: 067 - 149 - 67 - 41",
+    "social": "Social Media",
+    "conactForm": "Contact Form",
+    "nameInput": "Name",
+    "phoneInput": "Phone",
+    "messageInput": "Message",
+    "submitButton": "Send"
+  },
+  "aboutUsPage": {
+  "title": "About Us",
+  "text1": "We are a team of specialists with many years of experience in custom furniture manufacturing. Since 2006, we have been offering functional, stylish, and convenient solutions for homes, offices, and commercial spaces.",
+  "text2": "Our main specialization is case furniture: kitchens, sliding wardrobes, beds, living rooms, walk-in closets, and much more. We take into account each client's individual preferences and use only high-quality materials and fittings.",
+  "text3": "Our goal is to create comfort in every interior and make it easier to choose furniture that truly suits you.",
+  "subtitle": "Contacts",
+  "phone": "Phone: 067 - 149 - 67 - 41"
+}
 }

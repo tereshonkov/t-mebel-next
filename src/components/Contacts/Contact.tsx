@@ -1,15 +1,18 @@
 import styles from "./Contact.module.css";
 import Link from "next/link";
+import FormContact from "./FormContact";
+import { getTranslations } from "next-intl/server";
 
-export default function Contact() {
+export default async function Contact() {
+    const t = await getTranslations("contactPage");
   return (
     <section className={styles.wrapper}>
       <div className={styles.contact}>
-        <h2 className={styles.titleContact}>Контакты</h2>
-        <p className={styles.textContact}>г. Харьков проспект Льва Ландау 8</p>
-        <p className={styles.textContact}>Телефон: 067 - 149 - 67 - 41</p>
+        <h2 className={styles.titleContact}>{t('contactTitle')}</h2>
+        <p className={styles.textContact}>{t('adress')}</p>
+        <p className={styles.textContact}>{t('phone')}</p>
         <div className={styles.socials}>
-          <p className={styles.textContact}>Социальные сети: </p>
+          <p className={styles.textContact}>{t('social')}:</p>
           <div className={styles.socialWrapper}>
             <Link href="#" target="_blank" className={styles.instagram}></Link>
             <Link href="#" target="_blank" className={styles.telegram}></Link>
@@ -17,31 +20,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className={styles.form}>
-        <h2 className={styles.titleForm}>Контактная форма</h2>
-        <form className={styles.formContact}>
-          <input
-            type="text"
-            placeholder="Ваше имя"
-            className={styles.input}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Ваш Телефон"
-            className={styles.input}
-            required
-          />
-          <textarea
-            placeholder="Ваше сообщение"
-            className={styles.textarea}
-            required
-          ></textarea>
-          <button type="submit" className={styles.button}>
-            Отправить
-          </button>
-        </form>
-      </div>
+        <FormContact />
     </section>
   );
 }

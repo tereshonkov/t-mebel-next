@@ -1,21 +1,23 @@
 import Link from 'next/link';
 import styles from './About.module.css';
+import { getTranslations } from 'next-intl/server';
 
-export default function About() {
+export default async function About() {
+  const t = await getTranslations('aboutUsPage');
   return (
     <section className={styles.wrapper}>
         <div className={styles.content}>
-            <h2 className={styles.title}>О нас</h2>
+            <h2 className={styles.title}>{t('title')}</h2>
 
             <div className={styles.description}>
-              <p>Мы — команда специалистов с многолетним опытом в изготовлении мебели на заказ. Работаем с 2006 года, предлагая функциональные, стильные и удобные решения для дома, офиса и коммерческих пространств.</p>
-              <p>Наша основная специализация — корпусная мебель: кухни, шкафы-купе, кровати, гостиные, гардеробные и многое другое. Мы учитываем индивидуальные пожелания каждого клиента и используем только качественные материалы и фурнитуру.</p>
-              <p>Наша цель — создавать комфорт в каждом интерьере и упрощать выбор мебели, которая действительно подходит вам.</p>
+              <p>{t('text1')}</p>
+              <p>{t('text2')}</p>
+              <p>{t('text3')}</p>
             </div>
 
-            <h3 className={styles.contact}>Контакты</h3>
+            <h3 className={styles.contact}>{t('subtitle')}</h3>
 
-            <Link className={styles.tel} href="tel:0671496741">Телефон: 067 - 149 - 67 - 41</Link>
+            <Link className={styles.tel} href="tel:0671496741">{t('phone')}</Link>
 
             <div className={styles.socials}>
                 <Link className={styles.instagram} href="https://www.facebook.com/" target="_blank"></Link>
