@@ -14,9 +14,9 @@ export default async function Contact() {
         <div className={styles.socials}>
           <p className={styles.textContact}>{t('social')}:</p>
           <div className={styles.socialWrapper}>
-            <Link href="#" target="_blank" className={styles.instagram}></Link>
-            <Link href="#" target="_blank" className={styles.telegram}></Link>
-            <Link href="#" target="_blank" className={styles.facebook}></Link>
+            <Link href="https://www.instagram.com/tereshonkov.alexander/"  target="_blank" className={styles.instagram}></Link>
+            <Link href="https://t.me/+380980276709"  target="_blank" className={styles.telegram}></Link>
+            <Link href="https://www.facebook.com/tmebelsite?locale=ru_RU" target="_blank" className={styles.facebook}></Link>
           </div>
         </div>
       </div>

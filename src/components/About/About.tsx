@@ -20,9 +20,9 @@ export default async function About() {
             <Link className={styles.tel} href="tel:0671496741">{t('phone')}</Link>
 
             <div className={styles.socials}>
-                <Link className={styles.instagram} href="https://www.facebook.com/" target="_blank"></Link>
-                <Link className={styles.telegram} href="https://www.instagram.com/" target="_blank"></Link>
-                <Link className={styles.facebook} href="https://www.linkedin.com/" target="_blank"></Link>
+                <Link className={styles.instagram} href="https://www.instagram.com/tereshonkov.alexander/" target="_blank"></Link>
+                <Link className={styles.telegram} href="https://t.me/+380980276709"  target="_blank"></Link>
+                <Link className={styles.facebook} href="https://www.facebook.com/tmebelsite?locale=ru_RU" target="_blank"></Link>
             </div>
         </div>
         <div className={styles.images}>
