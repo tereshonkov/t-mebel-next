@@ -3,6 +3,7 @@ import styles from "./FullPage.module.css";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import useEmblaCarousel from 'embla-carousel-react';
+import { useTranslations } from 'next-intl';
 
 type Data = {
   id: number;
@@ -25,6 +26,9 @@ type Review = {
 };
 
 export default function FullPage({ id }: { id: string }) {
+  const t = useTranslations(`data_${id}`);
+  const t2 = useTranslations('fullPage');
+  const t3 = useTranslations('modal');
   const [data, setData] = useState<Data | null>(null);
   console.log("FurniturePage data:", data);
 
@@ -97,7 +101,8 @@ export default function FullPage({ id }: { id: string }) {
         <div className={styles.description}>
           <div className={styles.heading}>
             <h2 className={styles.title}>
-              {data?.title}
+              {/* {data?.title} */}
+              {t('title')}
             </h2>
             <div className={styles.stars}>
               <img src="/star.svg" alt="star" />
@@ -108,12 +113,13 @@ export default function FullPage({ id }: { id: string }) {
             </div>
           </div>
           <p className={styles.subtitle}>
-            {data?.description}
+            {/* {data?.description} */}
+            {t('description')}
           </p>
-          <p className={styles.width}>Размеры: {data?.width} x {data?.height}</p>
-          <p className={styles.furnitures}>Фурнитура: {data?.furnitures}</p>
+          <p className={styles.width}>{t2('size')}: {data?.width} x {data?.height}</p>
+          <p className={styles.furnitures}>{t2('furniture')}: {data?.furnitures}</p>
           <Link href="tel:0671496741" className={styles.link}>
-            По всем вопросам звонить: 067 - 149 - 67 - 41
+            {t2('phone')}
           </Link>
         </div>
       </section>
@@ -136,18 +142,18 @@ export default function FullPage({ id }: { id: string }) {
                 </div>
         ))}
         <div>
-          <button onClick={() => setModalOpen(prev => !prev)} className={styles.btn}>Оставить отзыв</button>
+          <button onClick={() => setModalOpen(prev => !prev)} className={styles.btn}>{t2('review')}</button>
         </div>
       </section>
       {modalOpen && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <button onClick={() => setModalOpen(false)} className={styles.closeBtn}>X</button>
-            <h2>Оставить отзыв</h2>
+            <h2>{t3('title')}</h2>
             <form className={styles.form}>
-              <input type="text" placeholder="Ваше имя" required />
-              <textarea rows={6} placeholder="Ваш отзыв" required></textarea>
-              <button type="submit" className={styles.btn}>Отправить</button>
+              <input type="text" placeholder={t3('name')} required />
+              <textarea rows={6} placeholder={t3('review')} required></textarea>
+              <button type="submit" className={styles.btn}>{t3('submit')}</button>
             </form>
           </div>
         </div>

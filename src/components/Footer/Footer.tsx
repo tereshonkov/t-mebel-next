@@ -14,7 +14,7 @@ export default async function Footer() {
         </div>
         <div className={styles.socialWrapper}>
           <div className={styles.social}>
-            <Link className={styles.insta} href="#"></Link>
+            <Link className={styles.insta} href="https://www.instagram.com/tereshonkov.alexander/"></Link>
             <Link className={styles.telega} href="#"></Link>
             <Link className={styles.facebook} href="#"></Link>
           </div>
