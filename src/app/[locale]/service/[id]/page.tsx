@@ -12,10 +12,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: `data_${id}` });
 
   return {
-    title: t('title'),
+    title: t('titleSeo'),
     description: t('description'),
     openGraph: {
-      title: t('title'),
+      title: t('titleSeo'),
       description: t('description'),
       url: `https://t-mebel.com.ua/${locale}`,
       siteName: 'T-Mebel',
