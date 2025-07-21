@@ -160,5 +160,21 @@
     "name": "Your Name",
     "review": "Your Review",
     "submit": "Submit"
+  },
+  "seoHome": {
+    "title": "Custom Furniture in Kharkiv — Kitchens, Wardrobes, Closets",
+    "description": "We create custom furniture in Kharkiv: kitchens, wardrobes, closets. Personalized designs, honest deadlines, measurements, and delivery."
+  },
+  "seoAbout": {
+    "title": "About T-Mebel — Custom Furniture in Kharkiv",
+    "description": "Learn more about our company, experience, and approach to custom furniture manufacturing in Kharkiv. Quality and reliability since 2010."
+  },
+  "seoContact": {
+    "title": "Contacts — Custom Furniture in Kharkiv",
+    "description": "Contact us to order custom furniture in Kharkiv. Address, phone number, working hours, and contact form."
+  },
+  "seoPortfolio": {
+    "title": "Our Works — Custom Furniture in Kharkiv",
+    "description": "Our works: wardrobes, kitchens, bedrooms, furniture for shops and other spaces in Kharkiv. High-quality custom furniture manufacturing."
   }
 }
