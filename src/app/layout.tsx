@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import {useLocale} from 'next-intl';
+import { useLocale } from 'next-intl';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -21,6 +21,24 @@ export default function RootLayout({
   const locale = useLocale(); // Получаем текущую локаль
   return (
     <html lang={locale}>
+      <head>
+        {/* Google Tag Manager (отложенная загрузка) */}
+        <script>
+          {`
+            setTimeout(() => {
+            let gtmScript = document.createElement("script");
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-DSKK22XDCJ');
+        }, 2000);
+    `}
+        </script>
+      </head>
       <body className={`${montserrat.variable}`}>
         {children}
       </body>
