@@ -14,6 +14,9 @@ const config: NextConfig = {
     images: {
     domains: ['storage.googleapis.com'],
   },
+    experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default withNextIntl(config);
