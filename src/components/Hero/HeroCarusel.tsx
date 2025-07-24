@@ -33,7 +33,7 @@ export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: nu
                             <Image
                                 src={item}
                                 alt={`hero-image-${index}`}
-                                width={1024}
+                                width={1020}
                                 height={768}
                                 priority
                             />
