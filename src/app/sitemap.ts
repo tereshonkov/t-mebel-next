@@ -18,10 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const result: MetadataRoute.Sitemap = [];
 
-  // Для каждой страницы и каждого языка
   for (const page of pages) {
     for (const locale of locales) {
-      // Полный путь с языком
       const url =
         page.slug === ""
           ? `${baseUrl}/${locale}`
@@ -31,16 +29,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: page.changeFrequency,
         priority: page.priority,
-        // Добавляем hreflang-альтернативы:
         alternates: {
-          languages: Object.fromEntries(
-            locales.map((hreflang) => [
-              hreflang,
+          languages: {
+            ...Object.fromEntries(
+              locales.map((hreflang) => [
+                hreflang,
+                page.slug === ""
+                  ? `${baseUrl}/${hreflang}`
+                  : `${baseUrl}/${hreflang}/${page.slug}`,
+              ])
+            ),
+            // Добавляем x-default для всех страниц
+            "x-default":
               page.slug === ""
-                ? `${baseUrl}/${hreflang}`
-                : `${baseUrl}/${hreflang}/${page.slug}`,
-            ])
-          ),
+                ? `${baseUrl}/en`
+                : `${baseUrl}/${locales[2]}/${page.slug}`, 
+          },
         },
       });
     }
