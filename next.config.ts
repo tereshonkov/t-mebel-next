@@ -11,6 +11,9 @@ const config: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+    images: {
+    domains: ['storage.googleapis.com'],
+  },
 };
 
 export default withNextIntl(config);
