@@ -3,6 +3,7 @@ import styles from './Hero.module.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useCallback } from 'react';
 import heroData from './heroData';
+import { useTranslations } from 'next-intl';
 
 export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: number }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -20,6 +21,8 @@ export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: nu
     useEffect(() => {
         if (!emblaApi) return;
     }, [emblaApi]);
+
+    const t = useTranslations('label');
     return (
         <>
             <div className={styles.backgroundImg} ref={emblaRef}>
@@ -39,8 +42,8 @@ export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: nu
                 </div>
             </div>
             <div className={styles.sliderBtns}>
-                <button onClick={scrollPrev} className={styles.prev}></button>
-                <button onClick={scrollNext} className={styles.next}></button>
+                <button onClick={scrollPrev} aria-label={t('prev')} className={styles.prev}></button>
+                <button onClick={scrollNext} aria-label={t('next')} className={styles.next}></button>
             </div>
         </>
     )

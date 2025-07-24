@@ -31,7 +31,7 @@ export default function Language({ mobile = false }: { mobile?: boolean }) {
             <img src={!mobile ? "/lang.svg" : "/lang-dark.svg"} alt="language" />
             {/* <p>{t('language')}</p> */}
             <div className={styles.langSelect}>
-                <select className={styles.select} value={currentLocale} onChange={handleChange} name="language" id="language">
+                <select aria-label={t('language') || "Выберите язык"} className={styles.select} value={currentLocale} onChange={handleChange} name="language" id="language">
                     <option className={styles.darkItem} value="en">English</option>
                     <option className={styles.darkItem} value="ru">Русский</option>
                     <option className={styles.darkItem} value="uk">Українська</option>

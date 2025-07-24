@@ -2,7 +2,7 @@
 import styles from "./Reviews.module.css";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useCallback, useState } from "react";
-// import reviewsData from "./reviewsData";
+import { useTranslations } from "next-intl";
 
 type Data = {
   id: number;
@@ -32,6 +32,8 @@ export default function Slider() {
     dragFree: true,
     containScroll: "trimSnaps",
   });
+
+  const t = useTranslations("label");
 
   const scrollPrev = useCallback(
     () => emblaApi && emblaApi.scrollPrev(),
@@ -69,7 +71,7 @@ export default function Slider() {
   }, []);
   return (
     <div className={styles.sliderWrapper}>
-      <button onClick={scrollPrev} className={styles.prev}></button>
+      <button onClick={scrollPrev} className={styles.prev} aria-label={t("prev")}></button>
       <div className={styles.cards} ref={emblaRef}>
         <div className={styles.emblaTrack}>
           {reviewsData.map((review, index) => (
@@ -96,7 +98,7 @@ export default function Slider() {
           ))}
         </div>
       </div>
-      <button onClick={scrollNext} className={styles.next}></button>
+      <button onClick={scrollNext} className={styles.next} aria-label={t("next")}></button>
     </div>
   );
 }

@@ -192,5 +192,9 @@
   "seoPortfolio": {
     "title": "Our Works — Custom Furniture in Kharkiv",
     "description": "Our works: wardrobes, kitchens, bedrooms, furniture for shops and other spaces in Kharkiv. High-quality custom furniture manufacturing."
+  },
+    "label": {
+    "prev": "Previous",
+    "next": "Next"
   }
 }

@@ -13,23 +13,23 @@ export default function NavMobile() {
   const t = useTranslations('header');
   return (
     <>
-    <div onClick={toggleMenu} className={styles.menuMobile}>
-      <img src="/menu-dark.svg" alt="menu" />
-      <p>{t('menu')}</p>
-    </div>
-    {isOpen && (
-      <nav className={styles.navMobile}>
-        <Language mobile={true} />
-        <button onClick={toggleMenu} className={styles.close}></button>
-        <ul className={styles.wrapperNavMobile}>
-          <Link href="/">{t('home')}</Link>
-          <Link href="/service">{t('service')}</Link>
-          <Link href="/about">{t('about')}</Link>
-          <Link href="/contacts">{t('contacts')}</Link>
-          <Link className={styles.active} href="tel:0671496741">{t('call')}</Link>
-        </ul>
-      </nav>
-    )}
+      <div onClick={toggleMenu} className={styles.menuMobile}>
+        <img src="/menu-dark.svg" alt="menu" />
+        <p>{t('menu')}</p>
+      </div>
+      {isOpen && (
+        <nav className={styles.navMobile}>
+          <Language mobile={true} />
+          <button onClick={toggleMenu} className={styles.close}></button>
+          <ul className={styles.wrapperNavMobile}>
+            <li><Link href="/">{t('home')}</Link></li>
+            <li><Link href="/service">{t('service')}</Link></li>
+            <li><Link href="/about">{t('about')}</Link></li>
+            <li><Link href="/contacts">{t('contacts')}</Link></li>
+            <li><Link className={styles.active} href="tel:0671496741">{t('call')}</Link></li>
+          </ul>
+        </nav>
+      )}
     </>
   )
 }

@@ -15,14 +15,14 @@ export default async function Header() {
       </div>
       <nav className={styles.nav}>
         <ul className={styles.wrapperNav}>
-          <Link href="/">{t('home')}</Link>
-          <Link href="/service">{t('service')}</Link>
-          <Link href="/about">{t('about')}</Link>
-          <Link href="/contacts">{t('contacts')}</Link>
+          <li><Link href="/">{t('home')}</Link></li>
+          <li><Link href="/service">{t('service')}</Link></li>
+          <li><Link href="/about">{t('about')}</Link></li>
+          <li><Link href="/contacts">{t('contacts')}</Link></li>
         </ul>
         <NavMobile />
       </nav>
-      <Language mobile={false}/>
+      <Language mobile={false} />
     </div>
   )
 }
