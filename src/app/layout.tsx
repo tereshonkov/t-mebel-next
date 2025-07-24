@@ -25,7 +25,7 @@ export default function RootLayout({
         {/* Google Tag Manager (отложенная загрузка) */}
         <script>
           {`
-            setTimeout(() => {
+            
             let gtmScript = document.createElement("script");
             gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
             gtmScript.async = true;
@@ -35,7 +35,7 @@ export default function RootLayout({
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
             gtag('config', 'G-DSKK22XDCJ');
-        }, 2000);
+        
     `}
         </script>
       </head>
