@@ -3,6 +3,7 @@ import styles from "./Reviews.module.css";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 type Data = {
   id: number;
@@ -77,7 +78,9 @@ export default function Slider() {
           {reviewsData.map((review, index) => (
             <div className={styles.emblaSlide} key={index}>
               <div className={styles.card}>
-                <img
+                <Image
+                  width={300}
+                  height={500}
                   className={styles.cardImage}
                   src={review.image}
                   alt="picture"
@@ -86,11 +89,11 @@ export default function Slider() {
                   <h3 className={styles.name}>{review.name}</h3>
                   <p className={styles.text}>{review.text}</p>
                   <div className={styles.stars}>
-                    <img src="/star.svg" alt="star" />
-                    <img src="/star.svg" alt="star" />
-                    <img src="/star.svg" alt="star" />
-                    <img src="/star.svg" alt="star" />
-                    <img src="/star.svg" alt="star" />
+                    <Image width={60} height={60} src="/star.svg" alt="star" />
+                    <Image width={60} height={60} src="/star.svg" alt="star" />
+                    <Image width={60} height={60} src="/star.svg" alt="star" />
+                    <Image width={60} height={60} src="/star.svg" alt="star" />
+                    <Image width={60} height={60} src="/star.svg" alt="star" />
                   </div>
                 </div>
               </div>

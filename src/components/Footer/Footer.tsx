@@ -1,6 +1,7 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export default async function Footer() {
   const t = await getTranslations("footer");
@@ -8,7 +9,7 @@ export default async function Footer() {
     <footer className={styles.wrapper}>
         <div className={styles.logoFooter}>
           <div className={styles.logo}>
-          <img src="/logo.png" alt="logo" />
+          <Image width={60} height={60} src="/logo.png" alt="logo" />
           </div>
           <p>{t('title')}</p>
         </div>

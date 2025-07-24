@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 type Data = {
   id: number;
@@ -78,7 +79,7 @@ export default function FullPage({ id }: { id: string }) {
             <div className={styles.emblaContainer}>
               {data?.images?.map((img, index) => (
                 <div key={index} className={styles.sliderMain}>
-                  <img src={img} alt={data?.title} />
+                  <Image src={img} alt={data?.title} width={1024} height={768} />
                 </div>
               ))}
             </div>
@@ -88,7 +89,7 @@ export default function FullPage({ id }: { id: string }) {
             {data?.images.map((image, index) => (
               <div onClick={() => emblaApi?.scrollTo(index)}
                 key={index} className={styles.trackItem}>
-                <img src={image} alt={data?.title} />
+                <Image src={image} alt={data?.title} width={1024} height={768} />
               </div>
             ))}
           </div>
@@ -105,11 +106,11 @@ export default function FullPage({ id }: { id: string }) {
               {t('title')}
             </h2>
             <div className={styles.stars}>
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
-              <img src="/star.svg" alt="star" />
+              <Image width={60} height={60} src="/star.svg" alt="star" />
+              <Image width={60} height={60} src="/star.svg" alt="star" />
+              <Image width={60} height={60} src="/star.svg" alt="star" />
+              <Image width={60} height={60} src="/star.svg" alt="star" />
+              <Image width={60} height={60} src="/star.svg" alt="star" />
             </div>
           </div>
           <p className={styles.subtitle}>
@@ -129,11 +130,11 @@ export default function FullPage({ id }: { id: string }) {
                   <div className={styles.reviewsHeading}>
                     <h3 className={styles.name}>{review.name}</h3>
                     <div className={styles.stars}>
-                      <img src="/star.svg" alt="star" />
-                      <img src="/star.svg" alt="star" />
-                      <img src="/star.svg" alt="star" />
-                      <img src="/star.svg" alt="star" />
-                      <img src="/star.svg" alt="star" />
+                      <Image width={60} height={60} src="/star.svg" alt="star" />
+                      <Image width={60} height={60} src="/star.svg" alt="star" />
+                      <Image width={60} height={60} src="/star.svg" alt="star" />
+                      <Image width={60} height={60} src="/star.svg" alt="star" />
+                      <Image width={60} height={60} src="/star.svg" alt="star" />
                     </div>
                   </div>
                   <p className={styles.body}>

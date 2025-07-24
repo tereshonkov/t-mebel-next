@@ -2,6 +2,7 @@
 import styles from "./Furniture.module.css";
 import useDataFurniture from "./useDataFurniture";
 import { Link } from '@/i18n/navigation';
+import Image from "next/image";
 
 export default function FurnitureClient({ limit }: { limit: number}) {
     const { selected, active, setActive, kitchens, wardrobe, bedrooms, store } = useDataFurniture();
@@ -24,24 +25,24 @@ export default function FurnitureClient({ limit }: { limit: number}) {
       {active === 1 &&
         kitchens.slice(0, limit).map((item, index) => (
           <Link href={`/service/${item.id}`} className={styles.card} key={item.id || index}>
-            <img src={item.image} alt={`Кухня ${index + 1}`} />
+            <Image src={item.image} alt={`Кухня ${index + 1}`} width={1024} height={768} />
           </Link>
         ))}
       {active === 2 &&
         wardrobe.slice(0, limit).map((item, index) => (
           <Link href={`/service/${item.id}`} className={styles.card} key={item.id || index}>
-            <img src={item.image} alt={`Шкаф ${index + 1}`} />
+            <Image src={item.image} alt={`Шкаф ${index + 1}`} width={1024} height={768} />
           </Link>
         ))}
         {active === 3 &&
         store.slice(0, limit).map((item, index) => (
           <Link href={`/service/${item.id}`} className={styles.card} key={item.id ||index}>
-            <img src={item.image} alt={`Магазин ${index + 1}`} />
+            <Image src={item.image} alt={`Магазин ${index + 1}`} width={1024} height={768} />
           </Link>
         ))}
         {active === 4 && bedrooms.slice(0, limit).map((item, index) => (
           <Link href={`/service/${item.id}`} className={styles.card} key={item.id || index}>
-            <img src={item.image} alt={`Спальня ${index + 1}`} />
+            <Image src={item.image} alt={`Спальня ${index + 1}`} width={1024} height={768} />
           </Link>
         ))}
     </div>

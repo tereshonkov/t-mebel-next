@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import NavMobile from './NavMobile';
 import { getTranslations } from 'next-intl/server';
 import Language from '../Language/Language';
+import Image from 'next/image';
 
 export default async function Header() {
   const t = await getTranslations('header');
@@ -10,7 +11,7 @@ export default async function Header() {
     <div className={styles.header}>
       <div className={styles.logoWrapper}>
         <Link href="/" className={styles.logo}>
-          <img src="/logo.png" alt="Logo" />
+          <Image src="/logo.png" alt="Logo" width={150} height={50} />
         </Link>
       </div>
       <nav className={styles.nav}>

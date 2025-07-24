@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './About.module.css';
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 
 export default async function About() {
   const t = await getTranslations('aboutUsPage');
@@ -27,10 +28,10 @@ export default async function About() {
         </div>
         <div className={styles.images}>
           <div className={styles.imageOne}>
-            <img src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/1/tablet.webp" alt="table" />
+            <Image width={1024} height={768} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/modern/1/tablet.webp" alt="table" />
           </div>
           <div className={styles.imageTwo}>
-            <img src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp" alt="kitchen" />
+            <Image width={1024} height={768} src="https://storage.googleapis.com/t-mebel/Image/ourPage/modal/kitchen/5384567338008963271.webp" alt="kitchen" />
           </div>
         </div>
     </section>
