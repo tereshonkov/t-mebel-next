@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useCallback } from 'react';
 import heroData from './heroData';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: number }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -29,13 +30,12 @@ export default function HeroCarusel({    initialIndex = 0 }: { initialIndex?: nu
                 <div className={styles.emblaTrack}>
                     {heroData.map((item, index) => (
                         <div className={styles.emblaSlide} key={index}>
-                            <img
-                                decoding="async"
-                                data-fetchpriority="high"
-                                src={item} // LQIP изображение
+                            <Image
+                                src={item}
                                 alt={`hero-image-${index}`}
-                                srcSet={`${item} 1920w, ${item} 1024w, ${item} 768w`}
-                                loading="eager"
+                                width={1024}
+                                height={768}
+                                priority
                             />
                         </div>
                     ))}
