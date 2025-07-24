@@ -1,0 +1,6 @@
+# robots.txt for https://t-mebel.com.ua/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://t-mebel.com.ua/sitemap.xml
