@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+// import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { useLocale } from 'next-intl';
 import { Analytics } from "@vercel/analytics/next";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin", "cyrillic"],
-});
+// const montserrat = Montserrat({
+//   variable: "--font-montserrat",
+//   subsets: ["latin", "cyrillic"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,29 +21,31 @@ export default function RootLayout({
 }>) {
   const locale = useLocale(); // Получаем текущую локаль
   return (
-    <html lang={locale}>
-      <head>
-        {/* Google Tag Manager (отложенная загрузка) */}
-        <script>
-          {`
-            
-            let gtmScript = document.createElement("script");
-            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
-            gtmScript.async = true;
-            document.head.appendChild(gtmScript);
+    // <html lang={locale}>
+    //   <head>
+    //     {/* Google Tag Manager (отложенная загрузка) */}
+    //     <script>
+    //       {`
 
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-DSKK22XDCJ');
-        
-    `}
-        </script>
-      </head>
-      <body className={`${montserrat.variable}`}>
-        {children}
-        <Analytics />
-      </body>
-    </html>
+    //         let gtmScript = document.createElement("script");
+    //         gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
+    //         gtmScript.async = true;
+    //         document.head.appendChild(gtmScript);
+
+    //         window.dataLayer = window.dataLayer || [];
+    //         function gtag() { dataLayer.push(arguments); }
+    //         gtag('js', new Date());
+    //         gtag('config', 'G-DSKK22XDCJ');
+
+    // `}
+    //     </script>
+    //   </head>
+    //   <body className={`${montserrat.variable}`}>
+    <>
+      {children}
+      <Analytics />
+    </>
+    //   </body>
+    // </html>
   );
 }

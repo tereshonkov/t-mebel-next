@@ -13,6 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seoHome' });
 
+    const baseUrl = 'https://t-mebel.com.ua';
+  const canonical = `${baseUrl}/${locale}`;
+
   return {
     title: t('title'),
     description: t('description'),
@@ -22,6 +25,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: `https://t-mebel.com.ua/${locale}`,
       siteName: 'T-Mebel',
       locale,
+    },
+        alternates: {
+      canonical,
+      languages: {
+        uk: `${baseUrl}/uk`,
+        en: `${baseUrl}/en`,
+        ru: `${baseUrl}/ru`,
+        'x-default': `${baseUrl}/uk`,
+      },
     },
   };
 }

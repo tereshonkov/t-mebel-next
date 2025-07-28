@@ -9,6 +9,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seoPortfolio' });
 
+  const baseUrl = 'https://t-mebel.com.ua';
+  const path = '/service';
+  const canonical = `${baseUrl}/${locale}${path}`;
+
   return {
     title: t('title'),
     description: t('description'),
@@ -19,6 +23,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: 'T-Mebel',
       locale,
     },
+    alternates: {
+      canonical,
+      languages: {
+        uk: `${baseUrl}/uk${path}`,
+        en: `${baseUrl}/en${path}`,
+        ru: `${baseUrl}/ru${path}`,
+        'x-default': `${baseUrl}/uk${path}`,
+      },
+    },
   };
 }
 
@@ -26,13 +39,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default function page() {
   return (
-      <div className="container">
-       <Hero startIndex={1}/>
-        <main className="main-service">
-          <Furniture />
-          <Form />
-        </main>
-        <Footer />
-      </div>
+    <div className="container">
+      <Hero startIndex={1} />
+      <main className="main-service">
+        <Furniture />
+        <Form />
+      </main>
+      <Footer />
+    </div>
   )
 }

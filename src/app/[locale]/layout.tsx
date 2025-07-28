@@ -1,13 +1,13 @@
-import {notFound} from 'next/navigation';
-import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {ReactNode} from 'react';
-import {Montserrat} from 'next/font/google';
-import {routing} from '@/i18n/routing';
+import { notFound } from 'next/navigation';
+import { Locale, hasLocale, NextIntlClientProvider } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { ReactNode } from 'react';
+import { Montserrat } from 'next/font/google';
+import { routing } from '@/i18n/routing';
 
 type Props = {
   children: ReactNode;
-  params: Promise<{locale: Locale}>;
+  params: Promise<{ locale: Locale }>;
 };
 
 const montserrat = Montserrat({
@@ -15,25 +15,27 @@ const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
 });
 
+
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+ return routing.locales.map((locale) => ({ locale }));
 }
 
-// export async function generateMetadata(props: Omit<Props, 'children'>) {
-//   const {locale} = await props.params;
-//   console.log('locale', locale);
+export async function generateMetadata(props: Omit<Props, 'children'>) {
+  const { locale } = await props.params;
+  console.log('locale', locale);
   
 
-//   const t = await getTranslations({locale, namespace: 'LocaleLayout'});
+  const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
-//   return {
-//     title: t('title')
-//   };
-// }
 
-export default async function LocaleLayout({children, params}: Props) {
+  return {
+    title: t('title'),
+  };
+}
+
+export default async function LocaleLayout({ children, params }: Props) {
   // Ensure that the incoming `locale` is valid
-  const {locale} = await params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -42,12 +44,30 @@ export default async function LocaleLayout({children, params}: Props) {
   setRequestLocale(locale);
 
   return (
-    // <html lang={locale}>
-      // <body className={`${montserrat.variable}`}>
+    <html lang={locale}>
+      <head>
+        {/* Google Tag Manager (отложенная загрузка) */}
+        <script>
+          {`
+            
+            let gtmScript = document.createElement("script");
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-DSKK22XDCJ');
+        
+    `}
+        </script>
+      </head>
+      <body className={`${montserrat.variable}`}>
         <NextIntlClientProvider>
           {children}
         </NextIntlClientProvider>
-      // </body>
-    // </html>
+      </body>
+    </html>
   );
 }

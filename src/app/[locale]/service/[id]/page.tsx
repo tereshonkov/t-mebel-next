@@ -11,6 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, id } = await params;
   const t = await getTranslations({ locale, namespace: `data_${id}` });
 
+  const baseUrl = 'https://t-mebel.com.ua';
+  const path = `/product/${id}`;
+  const canonical = `${baseUrl}/${locale}${path}`;
+
   return {
     title: t('titleSeo'),
     description: t('description'),
@@ -21,13 +25,22 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: 'T-Mebel',
       locale,
     },
+    alternates: {
+      canonical,
+      languages: {
+        uk: `${baseUrl}/uk${path}`,
+        en: `${baseUrl}/en${path}`,
+        ru: `${baseUrl}/ru${path}`,
+        'x-default': `${baseUrl}/uk${path}`,
+      },
+    },
   };
 }
 
 
 export default function FurniturePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params) as { id: string };
-  
+
   return (
     <>
       <Hero startIndex={2} page={true} />
