@@ -52,7 +52,7 @@ export default function useDataFurniture() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log("Data fetched successfully in useDataFurniture component:", data);
+        // console.log("Data fetched successfully in useDataFurniture component:", data);
         setArray(data);
       } catch (e) {
         console.error("Error fetching data in useDataFurniture component!:", e);

@@ -50,7 +50,7 @@ export default function Slider() {
   }, [emblaApi]);
 
   const [reviewsData, setreviewsData] = useState<Review[]>([]);
-  console.log("Slider data:", reviewsData);
+  // console.log("Slider data:", reviewsData);
 
   useEffect(() => {
     const fetchData = async () => {
