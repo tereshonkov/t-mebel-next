@@ -11,30 +11,55 @@ export default function Language({ mobile = false }: { mobile?: boolean }) {
     const searchParams = useSearchParams();
     const currentLocale = pathname.split('/')[1];
 
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        // Сохраняем выбранный язык
-        const selectedLocale = e.target.value;
+const supportedLocales = ['uk', 'ru', 'en'];
 
-        // Формируем строку с query параметрами, если они есть
-        const paramsString = searchParams.toString();
-        const query = paramsString ? `?${paramsString}` : '';
+const getLocaleFromPath = (pathname: string) => {
+  const first = pathname.split('/')[1];
+  if (supportedLocales.includes(first)) return first;
+  return 'uk'; // default
+};
 
-        // Формируем новый URL, заменяя старую локаль на новую
-        // Например: "/ru/products" -> "/en/products"
-        const newPathname = pathname.replace(`/${currentLocale}`, `/${selectedLocale}`);
+const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const selectedLocale = e.target.value;
+  const paramsString = searchParams.toString();
+  const query = paramsString ? `?${paramsString}` : '';
 
-        // Делаем переход на новый URL с помощью роутера Next.js
-        router.push(`${newPathname}${query}`);
-    };
+  let basePath = pathname;
+
+  // Если есть префикс локали в начале — удаляем его
+  const current = getLocaleFromPath(pathname);
+  if (supportedLocales.includes(current)) {
+    basePath = pathname.replace(`/${current}`, '') || '/';
+  }
+
+  let newPathname;
+  // Для украинского (defaultLocale) не ставим префикс
+  if (selectedLocale === 'uk') {
+    newPathname = basePath;
+  } else {
+    // Для других языков добавляем префикс
+    newPathname = `/${selectedLocale}${basePath === '/' ? '' : basePath}`;
+  }
+
+  router.push(`${newPathname}${query}`);
+};
+
     return (
         <div className={mobile ? styles.langWrapperDark : styles.langWrapper}>
             <img src={!mobile ? "/lang.svg" : "/lang-dark.svg"} alt="language" />
             {/* <p>{t('language')}</p> */}
             <div className={styles.langSelect}>
-                <select aria-label={t('language') || "Выберите язык"} className={styles.select} value={currentLocale} onChange={handleChange} name="language" id="language">
+                <select
+                    aria-label={t('language') || "Выберите язык"}
+                    className={styles.select}
+                    value={currentLocale === 'uk' ? 'uk' : currentLocale}
+                    onChange={handleChange}
+                    name="language"
+                    id="language"
+                >
+                    <option className={styles.darkItem} value="uk">Українська</option>
                     <option className={styles.darkItem} value="en">English</option>
                     <option className={styles.darkItem} value="ru">Русский</option>
-                    <option className={styles.darkItem} value="uk">Українська</option>
                 </select>
             </div>
         </div>

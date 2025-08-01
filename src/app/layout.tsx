@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-// import { Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { useLocale } from 'next-intl';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-// const montserrat = Montserrat({
-//   variable: "--font-montserrat",
-//   subsets: ["latin", "cyrillic"],
-// });
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin", "cyrillic"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,34 +19,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = useLocale(); // Получаем текущую локаль
   return (
-    // <html lang={locale}>
-    //   <head>
-    //     {/* Google Tag Manager (отложенная загрузка) */}
-    //     <script>
-    //       {`
+    <html lang='uk'>
+      <head>
+        {/* Google Tag Manager (отложенная загрузка) */}
+        <script>
+          {`
+            
+            let gtmScript = document.createElement("script");
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
 
-    //         let gtmScript = document.createElement("script");
-    //         gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
-    //         gtmScript.async = true;
-    //         document.head.appendChild(gtmScript);
-
-    //         window.dataLayer = window.dataLayer || [];
-    //         function gtag() { dataLayer.push(arguments); }
-    //         gtag('js', new Date());
-    //         gtag('config', 'G-DSKK22XDCJ');
-
-    // `}
-    //     </script>
-    //   </head>
-    //   <body className={`${montserrat.variable}`}>
-    <>
-      {children}
-      <Analytics />
-      <SpeedInsights />
-    </>
-    //   </body>
-    // </html>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-DSKK22XDCJ');
+        
+    `}
+        </script>
+      </head>
+      <body className={`${montserrat.variable}`}>
+        <SpeedInsights />
+        <Analytics />
+          {children}
+      </body>
+    </html>
   );
 }

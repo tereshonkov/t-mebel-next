@@ -44,30 +44,30 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
-      <head>
-        {/* Google Tag Manager (отложенная загрузка) */}
-        <script>
-          {`
+    // <html lang={locale}>
+    //   <head>
+    //     {/* Google Tag Manager (отложенная загрузка) */}
+    //     <script>
+    //       {`
             
-            let gtmScript = document.createElement("script");
-            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
-            gtmScript.async = true;
-            document.head.appendChild(gtmScript);
+    //         let gtmScript = document.createElement("script");
+    //         gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
+    //         gtmScript.async = true;
+    //         document.head.appendChild(gtmScript);
 
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-DSKK22XDCJ');
+    //         window.dataLayer = window.dataLayer || [];
+    //         function gtag() { dataLayer.push(arguments); }
+    //         gtag('js', new Date());
+    //         gtag('config', 'G-DSKK22XDCJ');
         
-    `}
-        </script>
-      </head>
-      <body className={`${montserrat.variable}`}>
-        <NextIntlClientProvider>
+    // `}
+    //     </script>
+    //   </head>
+    //   <body className={`${montserrat.variable}`}>
+        <NextIntlClientProvider locale={locale}>
           {children}
         </NextIntlClientProvider>
-      </body>
-    </html>
+    //   </body>
+    // </html>
   );
 }
