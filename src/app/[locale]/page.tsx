@@ -29,10 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         alternates: {
       canonical,
       languages: {
-        uk: `${baseUrl}/uk`,
+        uk: `${baseUrl}`,
         en: `${baseUrl}/en`,
         ru: `${baseUrl}/ru`,
-        'x-default': `${baseUrl}/uk`,
+        'x-default': `${baseUrl}`,
       },
     },
   };
