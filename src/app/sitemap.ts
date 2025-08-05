@@ -4,7 +4,14 @@ const locales = ["uk", "ru", "en"];
 
 const pages: {
   slug: string;
-  changeFrequency: "yearly" | "monthly" | "always" | "hourly" | "daily" | "weekly" | "never";
+  changeFrequency:
+    | "yearly"
+    | "monthly"
+    | "always"
+    | "hourly"
+    | "daily"
+    | "weekly"
+    | "never";
   priority: number;
 }[] = [
   { slug: "", changeFrequency: "yearly", priority: 1 },
@@ -13,17 +20,22 @@ const pages: {
   { slug: "contacts", changeFrequency: "yearly", priority: 0.7 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://t-mebel.com.ua";
+function getUrl(locale: string, slug: string) {
+  if (locale === "uk") {
+    return slug ? `https://t-mebel.com.ua/${slug}` : `https://t-mebel.com.ua/`;
+  }
+  return slug
+    ? `https://t-mebel.com.ua/${locale}/${slug}`
+    : `https://t-mebel.com.ua/${locale}`;
+}
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const result: MetadataRoute.Sitemap = [];
 
   for (const page of pages) {
     for (const locale of locales) {
-      const url =
-        page.slug === ""
-          ? `${baseUrl}/${locale}`
-          : `${baseUrl}/${locale}/${page.slug}`;
+      const url = getUrl(locale, page.slug);
+
       result.push({
         url,
         lastModified: new Date(),
@@ -31,19 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: page.priority,
         alternates: {
           languages: {
-            ...Object.fromEntries(
-              locales.map((hreflang) => [
-                hreflang,
-                page.slug === ""
-                  ? `${baseUrl}/${hreflang}`
-                  : `${baseUrl}/${hreflang}/${page.slug}`,
-              ])
-            ),
-            // Добавляем x-default для всех страниц
-            "x-default":
-              page.slug === ""
-                ? `${baseUrl}/en`
-                : `${baseUrl}/${locales[2]}/${page.slug}`, 
+            uk: getUrl("uk", page.slug),
+            ru: getUrl("ru", page.slug),
+            en: getUrl("en", page.slug),
+            "x-default": getUrl("uk", page.slug),
           },
         },
       });
