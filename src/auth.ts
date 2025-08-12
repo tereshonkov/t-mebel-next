@@ -1,4 +1,6 @@
 import Credentials from "next-auth/providers/credentials";
+import clientPromise from "./lib/mongodb";
+import bcrypt from "bcryptjs";
 
 export const authConfig = {
   providers: [
@@ -8,22 +10,33 @@ export const authConfig = {
         email: {},
         password: {},
       },
-      async authorize(credentials) {
-        const user = {
-          id: "1",
-          name: "User",
-          email: "user@example.com",
-          password: "123456",
+      async authorize(credentials?: Record<string, string> | undefined){
+        if (!credentials?.email || !credentials?.password) return null;
+        const client = await clientPromise;
+        const db = client.db("users");
+
+        console.log("Authorizing user:", credentials?.email);
+        console.log("Password", credentials?.password);
+        
+
+        const user = await db
+          .collection("users")
+          .findOne({ email: credentials?.email });
+          console.log("Found user:", !!user);
+
+        if (!user) return null;
+
+        const isValid = await bcrypt.compare(
+          credentials?.password,
+          user.password
+        );
+        if (!isValid) return null;
+
+        return {
+          id: user._id.toString(),
+          name: user.name,
+          email: user.email,
         };
-
-        if (
-          credentials?.email === user.email &&
-          credentials?.password === user.password
-        ) {
-          return user;
-        }
-
-        return null;
       },
     }),
   ],
