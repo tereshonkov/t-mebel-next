@@ -1,0 +1,17 @@
+.adminPage {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1rem;
+}
+.sidebarContainer {
+    padding: 1rem 2rem;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    max-width: 60px;
+    border-radius: 50%;
+}
