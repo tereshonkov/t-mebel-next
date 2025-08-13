@@ -6,11 +6,11 @@ export default function AdminPage() {
     <>
       <div className={styles.sidebarContainer}>
         <img className={styles.logo} src="/logo.png" alt="Логотип" />
-        <p>Привет (тут будет имя администратора если он будет не один)</p>
+        <p className={styles.greeting}>Привет, Александр</p>
       </div>
       <div className={styles.adminPage}>
         <Sidebar />
-        <p>Добро пожаловать в админку!</p>
+        <div className={styles.content}>Контент</div>
       </div>
     </>
   )

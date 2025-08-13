@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 1rem;
+    height: 100vh;
+    overflow: hidden;
 }
 .sidebarContainer {
     padding: 1rem 2rem;
@@ -14,4 +16,12 @@
 .logo {
     max-width: 60px;
     border-radius: 50%;
+}
+.content {
+    padding: 2rem;
+    background-color: #fff;
+}
+.greeting {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
