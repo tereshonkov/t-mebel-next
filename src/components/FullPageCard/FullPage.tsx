@@ -44,7 +44,8 @@ export default function FullPage({ id }: { id: string }) {
   const [data, setData] = useState<Data | null>(null);
   console.log("FurniturePage data:", data);
 
-  const sendReview = async (review: Review) => {
+  const sendReview = async (e: React.MouseEvent<HTMLButtonElement>, review: Review) => {
+    e.preventDefault();
     try {
       await toast.promise(
         fetch('https://t-mebel.onrender.com/review/create-review', {
@@ -223,7 +224,7 @@ export default function FullPage({ id }: { id: string }) {
             <form className={styles.form}>
               <input value={review.name} onChange={(e) => setReview({ ...review, name: e.target.value })} type="text" placeholder={t3("name")} required />
               <textarea value={review.text} onChange={(e) => setReview({ ...review, text: e.target.value })} rows={6} placeholder={t3("review")} required></textarea>
-              <button onClick={() => sendReview(review)} type="submit" className={styles.btn}>
+              <button onClick={(e) => sendReview(e, review)} type="submit" className={styles.btn}>
                 {t3("submit")}
               </button>
             </form>
