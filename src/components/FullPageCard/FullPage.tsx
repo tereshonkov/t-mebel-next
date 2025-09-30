@@ -47,7 +47,7 @@ export default function FullPage({ id }: { id: string }) {
   const sendReview = async (review: Review) => {
     try {
       await toast.promise(
-        fetch('https://t-mebel.onrender.com/review/create', {
+        fetch('https://t-mebel.onrender.com/review/create-review', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
