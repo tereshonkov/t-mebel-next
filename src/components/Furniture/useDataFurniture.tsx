@@ -1,10 +1,24 @@
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
-
 export default function useDataFurniture() {
-
   const t = useTranslations("furniture");
+
+  type Review = {
+    id: string;
+    name: string;
+    text: string;
+    productId: string;
+    isApproved?: boolean;
+  }
+
+  type Images = {
+    url: string;
+    id: string;
+    isCover: boolean;
+    productId: string;
+    reviewId: string | null;
+  };
 
   type Data = {
     id: number;
@@ -12,12 +26,12 @@ export default function useDataFurniture() {
     description: string;
     color: string;
     furnitures: string;
-    image: string;
-    images?: string[];
+    images: Images[];
     width?: number;
     height?: number;
     raiting?: number;
-    categories?: string[];
+    category?: "KITCHEN" | "WARDROBE" | "STORE" | "BEDROOM";
+    reviews?: Review[];
   };
   type SelectedItem = {
     name: string;
@@ -25,19 +39,19 @@ export default function useDataFurniture() {
   };
   const selected: SelectedItem[] = [
     {
-      name: t('kitchens'),
+      name: t("kitchens"),
       id: 1,
     },
     {
-      name: t('wardrobes'),
+      name: t("wardrobes"),
       id: 2,
     },
     {
-      name: t('stores'),
+      name: t("stores"),
       id: 3,
     },
     {
-      name: t('bedrooms'),
+      name: t("bedrooms"),
       id: 4,
     },
   ];
@@ -45,25 +59,30 @@ export default function useDataFurniture() {
   const [active, setActive] = useState<number>(1);
   const [array, setArray] = useState<Data[]>([]);
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataPosrgress = async () => {
       try {
-        const response = await fetch('/data/data.json');
+        const response = await fetch(
+          "https://t-mebel.onrender.com/product/products"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        // console.log("Data fetched successfully in useDataFurniture component:", data);
+        console.log(
+          "Data fetched successfully in useDataFurniture component:",
+          data
+        );
         setArray(data);
       } catch (e) {
         console.error("Error fetching data in useDataFurniture component!:", e);
       }
-    }
-    fetchData();
+    };
+    fetchDataPosrgress();
   }, []);
-  const kitchens = array.filter(item => item.categories?.includes('kitchen'));
-  const wardrobe = array.filter(item => item.categories?.includes('wardrobe'));
-  const store = array.filter(item => item.categories?.includes('store'));
-  const bedrooms = array.filter(item => item.categories?.includes('bedroom'));
+  const kitchens = array.filter((item) => item.category === "KITCHEN");
+  const wardrobe = array.filter((item) => item.category === "WARDROBE");
+  const store = array.filter((item) => item.category === "STORE");
+  const bedrooms = array.filter((item) => item.category === "BEDROOM");
   return {
     active,
     setActive,
