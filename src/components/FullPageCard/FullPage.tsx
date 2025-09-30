@@ -42,7 +42,7 @@ export default function FullPage({ id }: { id: string }) {
   const t2 = useTranslations("fullPage");
   const t3 = useTranslations("modal");
   const [data, setData] = useState<Data | null>(null);
-  console.log("FurniturePage data:", data);
+  // console.log("FurniturePage data:", data);
 
   const sendReview = async (e: React.MouseEvent<HTMLButtonElement>, review: Review) => {
     e.preventDefault();
