@@ -114,6 +114,7 @@ export default function FullPage({ id }: { id: string }) {
     name: "",
     text: "",
     productId: id,
+    isApproved: false,
   });
 
   return (
