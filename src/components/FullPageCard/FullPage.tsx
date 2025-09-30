@@ -5,9 +5,10 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 type Review = {
-  id: string;
+  id?: string;
   name: string;
   text: string;
   productId: string;
@@ -42,6 +43,28 @@ export default function FullPage({ id }: { id: string }) {
   const t3 = useTranslations("modal");
   const [data, setData] = useState<Data | null>(null);
   console.log("FurniturePage data:", data);
+
+  const sendReview = async (review: Review) => {
+    try {
+      await toast.promise(
+        fetch('https://t-mebel.onrender.com/review/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(review),
+      }),
+      {
+        loading: 'Отправка отзыва...',
+        success: 'Отзыв отправлен!',
+        error: 'Ошибка при отправке отзыва',
+      }
+    )
+    } catch (error) {
+      console.error("Error submitting review:", error);
+    }
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,6 +109,11 @@ export default function FullPage({ id }: { id: string }) {
   }, [emblaApi]);
 
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [review, setReview] = useState<Review>({
+    name: "",
+    text: "",
+    productId: id,
+  });
 
   return (
     <>
@@ -193,9 +221,9 @@ export default function FullPage({ id }: { id: string }) {
             </button>
             <h2>{t3("title")}</h2>
             <form className={styles.form}>
-              <input type="text" placeholder={t3("name")} required />
-              <textarea rows={6} placeholder={t3("review")} required></textarea>
-              <button type="submit" className={styles.btn}>
+              <input value={review.name} onChange={(e) => setReview({ ...review, name: e.target.value })} type="text" placeholder={t3("name")} required />
+              <textarea value={review.text} onChange={(e) => setReview({ ...review, text: e.target.value })} rows={6} placeholder={t3("review")} required></textarea>
+              <button onClick={() => sendReview(review)} type="submit" className={styles.btn}>
                 {t3("submit")}
               </button>
             </form>
