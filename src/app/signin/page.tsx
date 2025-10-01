@@ -1,55 +1,65 @@
 "use client";
 
-import { signIn } from "next-auth/react";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
+import { Box, Paper, Typography, TextField, Button } from "@mui/material";
 
-export default function SignInPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const router = useRouter();
-
-  const handleSubmit = async (e: React.FormEvent) => {
+export default function LoginForm() {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    const res = await signIn("credentials", {
-      redirect: false, // сами решаем, куда редиректить
-      email,
-      password,
-    });
-
-    if (res?.error) {
-      alert("Неверный логин или пароль");
-    } else {
-      router.push("/admin"); // успешный вход → в админку
-    }
+    // обработка логина
   };
 
   return (
-    <div className={styles.wrapper}>
-      <img className={styles.logo} src="/logo.png" alt="Logo" />
-      <h2 className={styles.header}>Вход в систему Администратора</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <input
-          className={styles.input}
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Нужно ввести Email"
-          required
-        />
-        <input
-          className={styles.input}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Нужно ввести Пароль"
-          required
-        />
-        <button className={styles.button} type="submit">Войти</button>
-      </form>
-    </div>
-
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background:
+          "linear-gradient(270deg, #6a11cb, #2575fc, #6a11cb, #2575fc)",
+        backgroundSize: "400% 400%",
+        animation: "gradientAnim 15s ease infinite",
+        "@keyframes gradientAnim": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      }}
+    >
+      <Paper
+        elevation={6}
+        sx={{
+          p: 4,
+          width: 400,
+          borderRadius: 3,
+          backgroundColor: "rgba(255,255,255,0.9)",
+        }}
+      >
+        <Typography variant="h5" textAlign="center" mb={3}>
+          Войти в аккаунт
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            fullWidth
+            label="Email"
+            name="email"
+            type="email"
+            margin="normal"
+            required
+          />
+          <TextField
+            fullWidth
+            label="Пароль"
+            name="password"
+            type="password"
+            margin="normal"
+            required
+          />
+          <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+            Войти
+          </Button>
+        </form>
+      </Paper>
+    </Box>
   );
 }
