@@ -1,11 +1,13 @@
-import ThemeProviderClient from "@/components/ThemeProviderClient/ThemeProviderClient";
-import TopBar from "@/components/TopBar/TopBar";
+"use client";
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <ThemeProviderClient>
-      <TopBar />
-      <main>{children}</main>
-    </ThemeProviderClient>
-  );
+import { ReactNode } from "react";
+import { ThemeProviderWrapper } from "@/components/ThemeProviderClient/ThemeProviderClient";
+
+interface AdminLayoutProps {
+  children: ReactNode;
 }
+
+export default function AdminLayout({ children }: AdminLayoutProps) {
+  return <ThemeProviderWrapper>{children}</ThemeProviderWrapper>;
+}
+

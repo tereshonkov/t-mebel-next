@@ -51,20 +51,30 @@ export default function FullPage({ id }: { id: string }) {
     e.preventDefault();
     try {
       await toast.promise(
-        fetch("https://t-mebel.onrender.com/reviews/create-review", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(review),
-        }).then((res) => {
+        (async () => {
+          const res = await fetch(
+            "https://t-mebel.onrender.com/reviews/create-review",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(review),
+            }
+          );
+
+          if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            throw new Error(errorData.message || `Ошибка ${res.status}`);
+          }
           setModalOpen(false);
-          return res;
-        }),
+          return res.json();
+        })(),
         {
           loading: "Отправка отзыва...",
-          success: "Отзыв отправлен!",
-          error: "Ошибка при отправке отзыва",
+          success: "Отзыв отправлен и будет показан после проверки!",
+          error: (err: unknown) =>
+            `Ошибка при отправке отзыва: ${(err as Error).message}`,
         }
       );
     } catch (error) {
