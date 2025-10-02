@@ -123,6 +123,7 @@ export default function LoginForm() {
           Войти в аккаунт
         </Typography>
         <form
+          action="#"
           onSubmit={(e) => {
             e.preventDefault();
             onSubmit();
