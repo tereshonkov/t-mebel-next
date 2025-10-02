@@ -2,27 +2,30 @@ import Footer from "@/components/Footer/Footer";
 import Form from "@/components/Form/Form";
 import FullPage from "@/components/FullPageCard/FullPage";
 import Hero from "@/components/Hero/Hero";
-import { use } from 'react';
-import { Metadata } from "next"
-import { getTranslations } from 'next-intl/server';
+import { use } from "react";
+import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
   const { id } = await params;
-  const locale = 'uk';
+  const locale = "uk";
   const t = await getTranslations({ locale, namespace: `data_${id}` });
 
-  const baseUrl = 'https://t-mebel.com.ua';
+  const baseUrl = "https://t-mebel.com.ua";
   const path = `/product/${id}`;
 
   return {
-    title: t('titleSeo'),
-    description: t('description'),
+    title: t("titleSeo"),
+    description: t("description"),
     openGraph: {
-      title: t('titleSeo'),
-      description: t('description'),
+      title: t("titleSeo"),
+      description: t("description"),
       url: baseUrl + path,
-      siteName: 'T-Mebel',
+      siteName: "T-Mebel",
       locale,
     },
     alternates: {
@@ -31,14 +34,17 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         uk: `${baseUrl}${path}`,
         en: `${baseUrl}/en${path}`,
         ru: `${baseUrl}/ru${path}`,
-        'x-default': `${baseUrl}${path}`,
+        "x-default": `${baseUrl}${path}`,
       },
     },
   };
 }
 
-
-export default function FurniturePage({ params }: { params: Promise<{ id: string }> }) {
+export default function FurniturePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = use(params) as { id: string };
 
   return (

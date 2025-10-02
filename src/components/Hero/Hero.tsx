@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import { Link } from '@/i18n/navigation';
 import HeroCarusel from './HeroCarusel';
 import { getTranslations } from 'next-intl/server';
+import PageVisit from '../PageVisit/PageVisit';
 
 
 export default async function Hero({ startIndex = 0, home, page }: { startIndex?: number, home?: boolean, page?:boolean }) {
@@ -10,6 +11,7 @@ export default async function Hero({ startIndex = 0, home, page }: { startIndex?
   const form = await getTranslations('form');
   return (
     <header className={styles.wrapper} style={page ? { height: '50vh' } : { height: '100vh' }}>
+      <PageVisit />
       <Header />
       <HeroCarusel initialIndex={startIndex} />
       {home && <div className={styles.wrapperContent}>
