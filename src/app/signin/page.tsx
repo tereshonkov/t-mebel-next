@@ -150,7 +150,7 @@ export default function LoginForm() {
             onChange={(e) => setValue({ ...value, password: e.target.value })}
             required
           />
-          <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+          <Button type="button" variant="contained" fullWidth sx={{ mt: 2 }} onClick={onSubmit}>
             Войти
           </Button>
         </form>
