@@ -20,6 +20,20 @@ export default function UsersDaily() {
           },
         }
       );
+      if (response.ok) {
+        const refreshRes = await fetch(
+          "https://t-mebel.onrender.com/auth/refresh",
+          {
+            method: "GET",
+            credentials: "include",
+          }
+        );
+
+        if (refreshRes.ok) {
+          const newToken = await refreshRes.text();
+          localStorage.setItem("token", newToken);
+        }
+      }
       const data = await response.json();
       setUsers(data);
     };
