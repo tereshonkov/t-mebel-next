@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import { useState, useEffect } from "react";
+import { getToken } from "@/utils/refreshToken";
 
 interface RoutesStats {
   url: string;
@@ -18,7 +19,7 @@ interface RoutesStats {
 
 export default function UsersRouts() {
   const [routes, setRoutes] = useState<RoutesStats[]>();
-  const token = localStorage.getItem("token");
+  const token = getToken();
   useEffect(() => {
     const getUsersDaily = async () => {
       const response = await fetch(

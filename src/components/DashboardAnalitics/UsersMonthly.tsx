@@ -1,6 +1,7 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
 import { useState, useEffect } from "react";
+import { getToken } from "@/utils/refreshToken";
 
 interface UsersMonthly {
   monthlyUsers: number;
@@ -8,7 +9,7 @@ interface UsersMonthly {
 
 export default function UsersMonthly() {
     const [users, setUsers] = useState<UsersMonthly | null>(null);
-    const token = localStorage.getItem("token");
+    const token = getToken();
     useEffect(() => {
       const getUsersDaily = async () => {
         const response = await fetch(

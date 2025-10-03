@@ -1,10 +1,11 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import { useState, useEffect } from "react";
+import { getToken } from "@/utils/refreshToken";
 
 export default function UsersCall() {
       const [users, setUsers] = useState<string | null>(null);
-      const token = localStorage.getItem("token");
+      const token = getToken();
       useEffect(() => {
         const getUsersDaily = async () => {
           const response = await fetch(

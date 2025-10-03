@@ -2,6 +2,7 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
 import { useEffect, useState } from "react";
+import { getToken } from "@/utils/refreshToken";
 
 interface UsersDaily {
   dailyUsers: number;
@@ -9,7 +10,7 @@ interface UsersDaily {
 
 export default function UsersDaily() {
   const [users, setUsers] = useState<UsersDaily | null>(null);
-  const token = localStorage.getItem("token");
+  const token = getToken();
   useEffect(() => {
     const getUsersDaily = async () => {
       const response = await fetch(

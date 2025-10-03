@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import CommentIcon from "@mui/icons-material/Comment";
 import { useEffect, useState } from "react";
+import { getToken } from "@/utils/refreshToken";
 
 interface Review {
   id: string;
@@ -19,7 +20,7 @@ interface Review {
 
 export default function UsersLastReview() {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const token = localStorage.getItem("token");
+  const token = getToken();
   useEffect(() => {
     const getUsersDaily = async () => {
       const response = await fetch("https://t-mebel.onrender.com/reviews", {

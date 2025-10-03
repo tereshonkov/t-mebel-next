@@ -10,12 +10,13 @@ import {
   Bar,
 } from "recharts";
 import { useState, useEffect } from "react";
+import { getToken } from "@/utils/refreshToken";
 
 const weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
 export default function UsersDiagramm() {
   const [data, setData] = useState(weekDays.map((day) => ({ day, users: 0 })));
-  const token = localStorage.getItem("token");
+  const token = getToken();
   useEffect(() => {
     const fetchDaily = async () => {
       try {
