@@ -1,7 +1,32 @@
+"use client";
 import { Grid, Paper, Typography } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
+import { useEffect, useState } from "react";
+
+interface UsersDaily {
+  dailyUsers: number;
+}
 
 export default function UsersDaily() {
+  const [users, setUsers] = useState<UsersDaily | null>(null);
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    const getUsersDaily = async () => {
+      const response = await fetch(
+        "https://t-mebel.onrender.com/analitics/daily-users",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // return response.json();
+      const data = await response.json();
+      console.log(data);
+      setUsers(data);
+    };
+    getUsersDaily();
+  }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
       <Paper
@@ -18,7 +43,7 @@ export default function UsersDaily() {
       >
         <Typography variant="h6">Пользователи за день</Typography>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          20
+          {users?.dailyUsers}
         </Typography>
         <PeopleIcon
           sx={{
