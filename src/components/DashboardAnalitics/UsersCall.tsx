@@ -1,7 +1,27 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
+import { useState, useEffect } from "react";
 
 export default function UsersCall() {
+      const [users, setUsers] = useState<string | null>(null);
+      const token = localStorage.getItem("token");
+      useEffect(() => {
+        const getUsersDaily = async () => {
+          const response = await fetch(
+            "https://t-mebel.onrender.com/callclick",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          // return response.json();
+          const data = await response.json();
+          console.log(data);
+          setUsers(data);
+        };
+        getUsersDaily();
+      }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
       <Paper
@@ -18,7 +38,7 @@ export default function UsersCall() {
       >
         <Typography variant="h6">Конверсий на звонок</Typography>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          5
+          {users?.length}
         </Typography>
         <CallIcon
           sx={{

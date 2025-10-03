@@ -20,9 +20,7 @@ export default function UsersDaily() {
           },
         }
       );
-      // return response.json();
       const data = await response.json();
-      console.log(data);
       setUsers(data);
     };
     getUsersDaily();
