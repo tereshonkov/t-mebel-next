@@ -10,16 +10,15 @@ import {
 } from "@mui/material";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import { useState, useEffect } from "react";
-import { getToken } from "@/utils/refreshToken";
 
 interface RoutesStats {
   url: string;
-  views: number 
+  views: number;
 }
 
 export default function UsersRouts() {
   const [routes, setRoutes] = useState<RoutesStats[]>();
-  const token = getToken();
+  const token = localStorage.getItem("token");
   useEffect(() => {
     const getUsersDaily = async () => {
       const response = await fetch(
@@ -49,12 +48,14 @@ export default function UsersRouts() {
           Наиболее посещаемые страницы
         </Typography>
 
-        <TableContainer sx={{maxHeight: 300,}}>
+        <TableContainer sx={{ maxHeight: 300 }}>
           <Table size="small">
             <TableBody>
               {routes?.map((rout) => (
                 <TableRow key={rout.url}>
-                  <TableCell sx={{maxWidth: 500, overflow: "hidden"}}>{rout.url}</TableCell>
+                  <TableCell sx={{ maxWidth: 500, overflow: "hidden" }}>
+                    {rout.url}
+                  </TableCell>
                   <TableCell align="right">{rout.views}</TableCell>
                 </TableRow>
               ))}
