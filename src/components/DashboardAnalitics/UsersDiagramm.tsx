@@ -1,3 +1,4 @@
+"use client";
 import { Box, Grid, Paper } from "@mui/material";
 import {
   XAxis,
@@ -8,18 +9,42 @@ import {
   BarChart,
   Bar,
 } from "recharts";
+import { useState, useEffect } from "react";
 
-const data = [
-  { day: "Пн", users: 120 },
-  { day: "Вт", users: 150 },
-  { day: "Ср", users: 90 },
-  { day: "Чт", users: 200 },
-  { day: "Пт", users: 170 },
-  { day: "Сб", users: 80 },
-  { day: "Вс", users: 50 },
-];
+const weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
 export default function UsersDiagramm() {
+  const [data, setData] = useState(weekDays.map((day) => ({ day, users: 0 })));
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    const fetchDaily = async () => {
+      try {
+        const res = await fetch(
+          "https://t-mebel.onrender.com/analitics/daily-users",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const { dailyUsers } = await res.json();
+
+        const todayIndex = new Date().getDay();
+        // 0 = Вс, 1 = Пн, ... нужно сместить, чтобы Пн был 0
+        const index = todayIndex === 0 ? 6 : todayIndex - 1;
+
+        setData((prev) => {
+          const updated = [...prev];
+          updated[index] = { ...updated[index], users: dailyUsers };
+          return updated;
+        });
+      } catch (error) {
+        console.error("Ошибка загрузки статистики:", error);
+      }
+    };
+
+    fetchDaily();
+  }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 12 }} sx={{ mb: 2 }}>
       <Paper

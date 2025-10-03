@@ -9,8 +9,31 @@ import {
   TableRow,
 } from "@mui/material";
 import PageviewIcon from "@mui/icons-material/Pageview";
+import { useState, useEffect } from "react";
+
+interface RoutesStats {
+  url: string;
+  views: number 
+}
 
 export default function UsersRouts() {
+  const [routes, setRoutes] = useState<RoutesStats[]>();
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    const getUsersDaily = async () => {
+      const response = await fetch(
+        "https://t-mebel.onrender.com/pagevisit/stats",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      setRoutes(data);
+    };
+    getUsersDaily();
+  }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 8 }}>
       <Paper
@@ -25,21 +48,15 @@ export default function UsersRouts() {
           Наиболее посещаемые страницы
         </Typography>
 
-        <TableContainer>
+        <TableContainer sx={{maxHeight: 300,}}>
           <Table size="small">
             <TableBody>
-              <TableRow>
-                <TableCell>/home</TableCell>
-                <TableCell align="right">1500 просмотров</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>/about</TableCell>
-                <TableCell align="right">900 просмотров</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>/contacts</TableCell>
-                <TableCell align="right">700 просмотров</TableCell>
-              </TableRow>
+              {routes?.map((rout) => (
+                <TableRow key={rout.url}>
+                  <TableCell sx={{maxWidth: 500, overflow: "hidden"}}>{rout.url}</TableCell>
+                  <TableCell align="right">{rout.views}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
