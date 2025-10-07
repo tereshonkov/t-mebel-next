@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -21,30 +22,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='uk'>
+    <html lang="uk">
       <head>
-        {/* Google Tag Manager (отложенная загрузка) */}
-        <script>
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
-            
-            let gtmScript = document.createElement("script");
-            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DSKK22XDCJ";
-            gtmScript.async = true;
-            document.head.appendChild(gtmScript);
-
             window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-DSKK22XDCJ');
-        
-    `}
-        </script>
+          `}
+        </Script>
       </head>
       <body className={`${montserrat.variable}`}>
         <SpeedInsights />
         <Analytics />
         <Toaster position="top-right" reverseOrder={false} />
-          {children}
+        {children}
       </body>
     </html>
   );
