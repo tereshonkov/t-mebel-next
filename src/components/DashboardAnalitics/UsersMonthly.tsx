@@ -5,7 +5,7 @@ import { getAnalitycsMonth } from "@/api/analitycs";
 import type { UserRequest } from "@/types/users";
 
 export default function UsersMonthly() {
-  const [users, setUsers] = useState<UserRequest[]>();
+  const [users, setUsers] = useState<number>();
   const token = localStorage.getItem("token");
   useEffect(() => {
     getAnalitycsMonth().then((data) => {
@@ -32,7 +32,7 @@ export default function UsersMonthly() {
       >
         <Typography variant="h6">Пользователи за месяц</Typography>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          {users ?? ''}
+          {users}
         </Typography>
         <PeopleIcon
           sx={{
