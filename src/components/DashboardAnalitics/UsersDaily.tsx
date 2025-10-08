@@ -33,7 +33,7 @@ export default function UsersDaily() {
       >
         <Typography variant="h6">Пользователи за день</Typography>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          {users && users[0].activeUsers}
+          {users && users[0]?.activeUsers}
         </Typography>
         <PeopleIcon
           sx={{
