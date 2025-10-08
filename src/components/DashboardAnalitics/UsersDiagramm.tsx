@@ -10,40 +10,17 @@ import {
   Bar,
 } from "recharts";
 import { useState, useEffect } from "react";
-
-const weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+import { getAnalitycsWeek } from "@/api/analitycs";
+import { UserRequest } from "@/types/users";
 
 export default function UsersDiagramm() {
-  const [data, setData] = useState(weekDays.map((day) => ({ day, users: 0 })));
+  const [data, setData] = useState<UserRequest[]>();
   const token = localStorage.getItem("token");
   useEffect(() => {
-    const fetchDaily = async () => {
-      try {
-        const res = await fetch(
-          "https://t-mebel.onrender.com/analitics/daily-users",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        const { dailyUsers } = await res.json();
-
-        const todayIndex = new Date().getDay();
-        // 0 = Вс, 1 = Пн, ... нужно сместить, чтобы Пн был 0
-        const index = todayIndex === 0 ? 6 : todayIndex - 1;
-
-        setData((prev) => {
-          const updated = [...prev];
-          updated[index] = { ...updated[index], users: dailyUsers };
-          return updated;
-        });
-      } catch (error) {
-        console.error("Ошибка загрузки статистики:", error);
-      }
-    };
-
-    fetchDaily();
+    getAnalitycsWeek().then((res) => {
+      const sortedData = res?.sort((a: UserRequest, b: UserRequest) => a.date.localeCompare(b.date));
+      setData(sortedData);
+    });
   }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 12 }} sx={{ mb: 2 }}>
@@ -71,10 +48,10 @@ export default function UsersDiagramm() {
               margin={{ top: 20, right: 20, bottom: 20, left: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="day" />
+              <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="users" fill="#1976d2" />
+              <Bar dataKey="activeUsers" fill="#1976d2" />
             </BarChart>
           </ResponsiveContainer>
         </Box>

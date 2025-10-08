@@ -1,28 +1,20 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
 import { useState, useEffect } from "react";
-
-interface UsersMonthly {
-  monthlyUsers: number;
-}
+import { getAnalitycsMonth } from "@/api/analitycs";
+import type { UserRequest } from "@/types/users";
 
 export default function UsersMonthly() {
-  const [users, setUsers] = useState<UsersMonthly | null>(null);
+  const [users, setUsers] = useState<UserRequest[]>();
   const token = localStorage.getItem("token");
   useEffect(() => {
-    const getUsersDaily = async () => {
-      const response = await fetch(
-        "https://t-mebel.onrender.com/analitics/monthly-users",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+    getAnalitycsMonth().then((data) => {
+      const users = data.reduce(
+        (acc: number, item: UserRequest) => acc + Number(item.activeUsers),
+        0
       );
-      const data = await response.json();
-      setUsers(data);
-    };
-    getUsersDaily();
+      setUsers(users);
+    });
   }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
@@ -40,7 +32,7 @@ export default function UsersMonthly() {
       >
         <Typography variant="h6">Пользователи за месяц</Typography>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          {users?.monthlyUsers}
+          {users ?? ''}
         </Typography>
         <PeopleIcon
           sx={{

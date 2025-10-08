@@ -10,9 +10,10 @@ import {
 } from "@mui/material";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import { useState, useEffect } from "react";
+import { getPageVisits } from "@/api/analitycs";
 
 interface RoutesStats {
-  url: string;
+  page: string;
   views: number;
 }
 
@@ -20,19 +21,7 @@ export default function UsersRouts() {
   const [routes, setRoutes] = useState<RoutesStats[]>();
   const token = localStorage.getItem("token");
   useEffect(() => {
-    const getUsersDaily = async () => {
-      const response = await fetch(
-        "https://t-mebel.onrender.com/pagevisit/stats",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      const data = await response.json();
-      setRoutes(data);
-    };
-    getUsersDaily();
+    getPageVisits().then((data) => setRoutes(data));
   }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 8 }}>
@@ -52,9 +41,9 @@ export default function UsersRouts() {
           <Table size="small">
             <TableBody>
               {routes?.map((rout) => (
-                <TableRow key={rout.url}>
+                <TableRow key={rout.page}>
                   <TableCell sx={{ maxWidth: 500, overflow: "hidden" }}>
-                    {rout.url}
+                    {rout.page}
                   </TableCell>
                   <TableCell align="right">{rout.views}</TableCell>
                 </TableRow>

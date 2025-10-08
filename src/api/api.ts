@@ -8,6 +8,7 @@ interface AxiosRequestConfigWithRetry extends AxiosRequestConfig {
 
 const api = axios.create({
     baseURL: `https://t-mebel.onrender.com`,
+    // baseURL: `http://localhost:3000`,
     headers: {
         'Content-Type': 'application/json',
     },

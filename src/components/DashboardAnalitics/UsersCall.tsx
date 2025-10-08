@@ -1,26 +1,13 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import { useState, useEffect } from "react";
+import { getCallClick } from "@/api/analitycs";
 
 export default function UsersCall() {
       const [users, setUsers] = useState<string | null>(null);
       const token = localStorage.getItem("token");
       useEffect(() => {
-        const getUsersDaily = async () => {
-          const response = await fetch(
-            "https://t-mebel.onrender.com/callclick",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          // return response.json();
-          const data = await response.json();
-          console.log(data);
-          setUsers(data);
-        };
-        getUsersDaily();
+        getCallClick().then((data) => setUsers(data));
       }, [token]);
   return (
     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
