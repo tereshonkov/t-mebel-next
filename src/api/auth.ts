@@ -1,0 +1,26 @@
+import api from "./api";
+
+export const login = async (email: string, password: string) => {
+  try {
+    const response = await api.post(`/auth/login`, {
+      email,
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw new Error((error as Error)?.message || "Ошибка входа");
+  }
+};
+
+export const refreshToken = async () => {
+  try {
+    const response = await api.get(`/auth/refresh`, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw new Error((error as Error)?.message || "Ошибка обновления токена");
+  }
+};

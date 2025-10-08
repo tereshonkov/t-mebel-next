@@ -4,6 +4,7 @@ import { Box, Paper, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { login } from "@/api/auth";
 
 interface LoginFormProps {
   email: string;
@@ -19,34 +20,11 @@ export default function LoginForm() {
 
   const onSubmit = async (): Promise<void> => {
     try {
-     const token = await toast.promise(
-        (async () => {
-          const res = await fetch("https://t-mebel.onrender.com/auth/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: value.email,
-              password: value.password,
-            }),
-          });
-
-          if (!res.ok) {
-            // Можно показать сообщение от сервера
-            const errorData = await res.json().catch(() => ({}));
-            throw new Error(errorData.message || `Ошибка ${res.status}`);
-          }
-
-          return res.text();
-        })(),
-        {
-          loading: "Идет соединение...",
-          success: "Вход разрешен!",
-          error: (err: unknown) =>
-            `Ошибка при входе: ${(err as Error).message}`,
-        }
-      );
+      const token = await toast.promise(login(value.email, value.password), {
+        loading: "Идет соединение...",
+        success: "Вход разрешен!",
+        error: (err: unknown) => `Ошибка при входе: ${(err as Error).message}`,
+      });
       localStorage.setItem("token", token);
       router.push("/admin");
     } catch (error: unknown) {
@@ -150,7 +128,13 @@ export default function LoginForm() {
             onChange={(e) => setValue({ ...value, password: e.target.value })}
             required
           />
-          <Button type="button" variant="contained" fullWidth sx={{ mt: 2 }} onClick={onSubmit}>
+          <Button
+            type="button"
+            variant="contained"
+            fullWidth
+            sx={{ mt: 2 }}
+            onClick={onSubmit}
+          >
             Войти
           </Button>
         </form>
