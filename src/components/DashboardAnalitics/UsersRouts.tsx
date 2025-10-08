@@ -40,7 +40,9 @@ export default function UsersRouts() {
         <TableContainer sx={{ maxHeight: 300 }}>
           <Table size="small">
             <TableBody>
-              {routes?.map((rout) => (
+              {routes
+              ?.filter((rout) => rout.page !== "/admin" && rout.page !== "/signin")
+              .map((rout) => (
                 <TableRow key={rout.page}>
                   <TableCell sx={{ maxWidth: 500, overflow: "hidden" }}>
                     {rout.page}
