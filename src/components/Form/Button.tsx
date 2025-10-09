@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 
 export default function Button() {
   const t = useTranslations("form");
-  const token = localStorage.getItem("token");
 
   const postClick = async () => {
     try {
@@ -14,7 +13,6 @@ export default function Button() {
         {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({}),
