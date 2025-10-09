@@ -33,7 +33,7 @@ api.interceptors.response.use(
             originalRequest._retry = true;
 
             const newToken = await refreshToken();
-            if (newToken) {
+            if (newToken && typeof window !== "undefined") {
                 localStorage.setItem('token', newToken);
                 originalRequest.headers!['Authorization'] = `Bearer ${newToken}`;
                 return api(originalRequest);
