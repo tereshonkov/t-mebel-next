@@ -7,9 +7,13 @@ import { Box, Container } from "@mui/material";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
 import AnaliticsPage from "@/components/AnaliticsPage/AnaliticsPage";
+import MessagesPage from "@/components/MessagesPage/MessagePage";
+import ReviewsPage from "@/components/ReviewsPage/ReviewsPage";
+import { useTabContext } from "@/context/TabContext";
 
 export default function Admin() {
   const [tokenChecked, setTokenChecked] = useState(false);
+  const { page } = useTabContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -32,7 +36,9 @@ export default function Admin() {
       <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
         <Container sx={{ flexGrow: 1 }}>
           <HeaderAdmin mode={mode} toggleMode={toggleMode} />
-          <AnaliticsPage />
+          {page.analitycs && <AnaliticsPage />}
+          {page.messages && <MessagesPage />}
+          {page.reviews && <ReviewsPage />}
         </Container>
       </Box>
     </Box>

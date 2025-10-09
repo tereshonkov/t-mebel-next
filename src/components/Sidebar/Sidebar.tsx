@@ -15,8 +15,17 @@ import {
   Typography,
 } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
+import { useTabContext } from "@/context/TabContext";
+import { getMessages } from "@/api/messages";
+import type { MessagesTypes } from "@/types/messages";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
+  const { setPage } = useTabContext();
+  const [messages, setMessages] = useState<MessagesTypes[]>([]);
+  useEffect(() => {
+    getMessages().then((data) => setMessages(data));
+  }, []);
   return (
     <>
       <Box width={240} p={2}>
@@ -39,7 +48,16 @@ export default function Sidebar() {
             }}
           />
         </Box>
-        <ListItemButton>
+        <ListItemButton
+          onClick={() => {
+            setPage((prev) => ({
+              ...prev,
+              analitycs: true,
+              messages: false,
+              reviews: false,
+            }));
+          }}
+        >
           <ListItemIcon sx={{ color: "primary.main" }}>
             <BarChartIcon />
           </ListItemIcon>
@@ -64,16 +82,32 @@ export default function Sidebar() {
         </Box>
 
         <List>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() =>
+              setPage((prev) => ({
+                ...prev,
+                analitycs: false,
+                messages: true,
+                reviews: false,
+              }))
+            }
+          >
             <ListItemIcon sx={{ color: "primary.main" }}>
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={messages?.length || 0} color="secondary">
                 <MailIcon />
               </Badge>
             </ListItemIcon>
             <ListItemText primary="Сообщения" />
           </ListItemButton>
 
-          <ListItemButton>
+          <ListItemButton onClick={() => (
+            setPage((prev) => ({
+              ...prev,
+              analitycs: false,
+              messages: false,
+              reviews: true,
+            }))
+          )}>
             <ListItemIcon sx={{ color: "primary.main" }}>
               <Badge badgeContent={2} color="secondary">
                 <FeedbackIcon />

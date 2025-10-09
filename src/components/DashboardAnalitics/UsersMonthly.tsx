@@ -1,3 +1,4 @@
+"use client";
 import { Grid, Paper, Typography } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
 import { useState, useEffect } from "react";
