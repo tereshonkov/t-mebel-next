@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import toast from "react-hot-toast";
+import { sendMessageApi } from "@/api/messages";
 interface FormData {
   name: string;
   phone: string;
@@ -38,6 +39,7 @@ export default function FormContact() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await sendMessage();
+    await sendMessageApi(formData);
     console.log("Form submitted:", formData);
     setFormData({
       name: "",
