@@ -26,3 +26,14 @@ export const refreshToken = async () => {
     throw new Error((error as Error)?.message || "Ошибка обновления токена");
   }
 };
+
+export const logout = async () => {
+  try {
+    const response = await api.post(`/auth/logout`, {}, { withCredentials: true });
+    localStorage.clear();
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw new Error((error as Error)?.message || "Ошибка выхода");
+  }
+}

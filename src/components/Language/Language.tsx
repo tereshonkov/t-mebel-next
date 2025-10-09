@@ -2,6 +2,7 @@
 import styles from './Language.module.css';
 import { useTranslations } from 'next-intl';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Language({ mobile = false }: { mobile?: boolean }) {
 
@@ -43,9 +44,11 @@ const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 
   router.push(`${newPathname}${query}`);
 };
+const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
     return (
-        <div className={mobile ? styles.langWrapperDark : styles.langWrapper}>
+      <>
+              <div className={mobile ? styles.langWrapperDark : styles.langWrapper}>
             <img src={!mobile ? "/lang.svg" : "/lang-dark.svg"} alt="language" />
             {/* <p>{t('language')}</p> */}
             <div className={styles.langSelect}>
@@ -63,5 +66,9 @@ const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
                 </select>
             </div>
         </div>
+        {token && (
+          <Link className={styles.select} href="/admin">Админ панель</Link>
+        )}
+      </>
     )
 }

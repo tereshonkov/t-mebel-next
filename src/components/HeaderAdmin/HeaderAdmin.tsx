@@ -1,8 +1,11 @@
+"use client";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchBar from "../SearchAdmin/Search";
 import { AppBar, Badge, Box, Button, IconButton, Toolbar } from "@mui/material";
+import { logout } from "@/api/auth";
+import { useRouter } from "next/navigation";
 
 export default function HeaderAdmin({
   mode,
@@ -11,6 +14,15 @@ export default function HeaderAdmin({
   mode: string;
   toggleMode: () => void;
 }) {
+  const router = useRouter();
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/signin");
+    } catch (error) {
+      console.error("Ошибка при выходе:", error);
+    }
+  };
   return (
     <AppBar
       position="static"
@@ -40,7 +52,7 @@ export default function HeaderAdmin({
           </Badge>
         </IconButton>
 
-        <Button variant="contained" sx={{ ml: 2 }}>
+        <Button onClick={handleLogout} variant="contained" sx={{ ml: 2 }}>
           Выход
         </Button>
       </Toolbar>
