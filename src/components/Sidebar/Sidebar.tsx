@@ -18,13 +18,17 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useTabContext } from "@/context/TabContext";
 import { getMessages } from "@/api/messages";
 import type { MessagesTypes } from "@/types/messages";
+import type { ReviewsTypes } from "@/types/reviews";
 import { useEffect, useState } from "react";
+import { getReviews } from "@/api/reviews";
 
 export default function Sidebar() {
   const { setPage } = useTabContext();
   const [messages, setMessages] = useState<MessagesTypes[]>([]);
+  const [reviews, setReviews] = useState<ReviewsTypes[]>([]);
   useEffect(() => {
     getMessages().then((data) => setMessages(data));
+    getReviews().then((data) => setReviews(data));
   }, []);
   return (
     <>
@@ -109,7 +113,7 @@ export default function Sidebar() {
             }))
           )}>
             <ListItemIcon sx={{ color: "primary.main" }}>
-              <Badge badgeContent={2} color="secondary">
+              <Badge badgeContent={reviews?.length || 0} color="secondary">
                 <FeedbackIcon />
               </Badge>
             </ListItemIcon>

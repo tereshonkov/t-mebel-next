@@ -1,5 +1,7 @@
 export interface MessagesTypes {
+    id: string;
     name: string;
     phone: string;
-    email: string;
+    message: string;
+    read: boolean;
 }

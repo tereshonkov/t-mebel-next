@@ -19,3 +19,13 @@ export const sendMessageApi = async (data: {name: string, phone: string, message
         throw error;
     }
 }
+
+export const markMessageAsRead = async (id: string) => {
+    try {
+        const response = await api.patch(`/messages/mark-as-read/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error marking message as read:", error);
+        throw error;
+    }
+}
