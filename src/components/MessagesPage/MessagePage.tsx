@@ -26,6 +26,7 @@ export default function MessagesTable() {
     try {
       await markMessageAsRead(id);
       handleMarkRead(id);
+      await getMessages().then(data => setMessages(data));
     } catch (error) {
       console.error("Failed to mark message as read:", error);
     }
