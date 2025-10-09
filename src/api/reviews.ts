@@ -20,3 +20,23 @@ export const sendReviewApi = async (data: ReviewsTypes) => {
         throw error;
     }
 }
+
+export const approveReviewApi = async (id: string) => {
+    try {
+        const response = await api.post(`/reviews/approve-review/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error approving review:", error);
+        throw error;
+    }
+}
+
+export const cancelReview = async (id: string) => {
+    try {
+        const response = await api.delete(`/reviews/delete-review/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error canceling review:", error);
+        throw error;
+    }
+}
