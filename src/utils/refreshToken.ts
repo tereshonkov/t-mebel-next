@@ -1,3 +1,4 @@
+"use client";
 export const getToken = async (): Promise<string | null> => {
   let token = localStorage.getItem("token");
 
