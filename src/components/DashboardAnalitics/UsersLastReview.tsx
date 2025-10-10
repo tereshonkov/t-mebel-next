@@ -36,20 +36,28 @@ export default function UsersLastReview() {
   const lastIndex = reviews.length - 1;
   const review = reviews.length > 0 ? reviews[lastIndex] : null;
   return (
-    <Grid size={{ xs: 12, sm: 6, md: 4 }} sx={{ mb: 2 }}>
+    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
       <Paper
         sx={{
-          p: 2,
+          p: 3,
           position: "relative",
           overflow: "hidden",
           height: "100%",
+          borderRadius: 3,
+          boxShadow: 3,
+          background: (theme) =>
+            theme.palette.mode === "light"
+              ? "#f5f5f5"
+              : "linear-gradient(135deg, #0F123B 0%, #090D2E 59%, #020515 100%)",
+          color: (theme) =>
+            theme.palette.mode === "light" ? "text.primary" : "#fff",
         }}
       >
-        <Typography variant="h6" sx={{ mb: 2 }}>
+        <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 500 }}>
           Последние отзыв
         </Typography>
 
-        <List>
+        <List sx={{ maxHeight: 120, overflowY: "auto" }}>
           <ListItem sx={{ py: 0.5 }}>
             <ListItemText
               primary={review?.name}
@@ -62,11 +70,12 @@ export default function UsersLastReview() {
         <CommentIcon
           sx={{
             position: "absolute",
-            top: 10,
-            right: 10,
+            bottom: -10,
+            right: -10,
             fontSize: 60,
-            color: "primary.main",
-            opacity: 0.1,
+            color: (theme) => theme.palette.primary.main,
+            opacity: 0.15,
+            transform: "rotate(15deg)",
           }}
         />
       </Paper>

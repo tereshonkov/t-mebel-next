@@ -12,7 +12,7 @@ export default function SearchBar() {
   const [open, setOpen] = useState(true);
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
+    <Box sx={{ display: "flex", alignItems: "center", ml: "6vw" }}>
       {/* Иконка поиска */}
       <IconButton
         onClick={() => setOpen((prev) => !prev)}

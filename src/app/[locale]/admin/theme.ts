@@ -5,12 +5,16 @@ import type { PaletteMode } from '@mui/material';
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
-    primary: { main: mode === 'light' ? '#1976d2' : '#90caf9' },
+    primary: { main: mode === 'light' ? '#2E335B' : '#90caf9' },
     secondary: { main: '#f50057' },
     error: { main: red.A400 },
     background: {
-      default: mode === 'light' ? '#fafafa' : '#121212',
-      paper: mode === 'light' ? '#fff' : '#1e1e1e',
+      default: mode === 'light' ? '#EEEDEB' : '#0A0C27',
+      paper: mode === 'light' ? '#EEEDEB' : '#0F123B',
+    },
+    text: {
+      primary: mode === 'light' ? '#2E335B' : '#fff',
+      secondary: mode === 'light' ? '#555' : '#ccc',
     },
   },
   shape: { borderRadius: 8 },

@@ -2,17 +2,13 @@ import FeedbackIcon from "@mui/icons-material/Feedback";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import PeopleIcon from "@mui/icons-material/People";
 import {
   Badge,
   Box,
-  List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Typography,
 } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 import { useTabContext } from "@/context/TabContext";
@@ -32,27 +28,8 @@ export default function Sidebar() {
   }, []);
   return (
     <>
-      <Box width={240} p={2}>
-        <Typography variant="h4" component="div" sx={{ color: "primary.main" }}>
-          T-Mebel
-        </Typography>
-        <Box my={2}>
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{ mb: 0.5, display: "block", letterSpacing: 1 }}
-          >
-            Аналитика
-          </Typography>
-          <Box
-            sx={{
-              height: "1px", // толщина линии
-              bgcolor: "divider", // цвет из темы
-              width: "100%", // линия на всю ширину
-            }}
-          />
-        </Box>
-        <ListItemButton
+      <Box width={300} p={2}>
+      <ListItemButton
           onClick={() => {
             setPage((prev) => ({
               ...prev,
@@ -65,27 +42,10 @@ export default function Sidebar() {
           <ListItemIcon sx={{ color: "primary.main" }}>
             <BarChartIcon />
           </ListItemIcon>
-          <ListItemText primary="Аналитика" />
+          <ListItemText primary="Аналитика" sx={{fontSize: "14px"}} />
         </ListItemButton>
 
-        <Box my={2}>
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{ mb: 0.5, display: "block", letterSpacing: 1 }}
-          >
-            Сообщения и отзывы
-          </Typography>
-          <Box
-            sx={{
-              height: "1px", // толщина линии
-              bgcolor: "divider", // цвет из темы
-              width: "100%", // линия на всю ширину
-            }}
-          />
-        </Box>
 
-        <List>
           <ListItemButton
             onClick={() =>
               setPage((prev) => ({
@@ -101,7 +61,7 @@ export default function Sidebar() {
                 <MailIcon />
               </Badge>
             </ListItemIcon>
-            <ListItemText primary="Сообщения" />
+            <ListItemText primary="Сообщения" sx={{fontSize: "14px"}} />
           </ListItemButton>
 
           <ListItemButton onClick={() => (
@@ -117,80 +77,29 @@ export default function Sidebar() {
                 <FeedbackIcon />
               </Badge>
             </ListItemIcon>
-            <ListItemText primary="Отзывы" />
+            <ListItemText primary="Отзывы" sx={{fontSize: "14px"}} />
           </ListItemButton>
-        </List>
 
-        <Box my={2}>
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{ mb: 0.5, display: "block", letterSpacing: 1 }}
-          >
-            Управление контентом
-          </Typography>
-          <Box
-            sx={{
-              height: "1px", // толщина линии
-              bgcolor: "divider", // цвет из темы
-              width: "100%", // линия на всю ширину
-            }}
-          />
-        </Box>
-        <List>
           <ListItemButton>
             <ListItemIcon sx={{ color: "primary.main" }}>
               <AddBoxIcon />
             </ListItemIcon>
-            <ListItemText primary="Добавить товар" />
+            <ListItemText primary="Добавить товар" sx={{fontSize: "14px"}} />
           </ListItemButton>
 
           <ListItemButton>
             <ListItemIcon sx={{ color: "primary.main" }}>
               <Inventory2Icon />
             </ListItemIcon>
-            <ListItemText primary="Все товары" />
+            <ListItemText primary="Все товары" sx={{fontSize: "14px"}} />
           </ListItemButton>
-        </List>
 
-        <Box my={2}>
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{ mb: 0.5, display: "block", letterSpacing: 1 }}
-          >
-            Управление пользователями
-          </Typography>
-          <Box
-            sx={{
-              height: "1px", // толщина линии
-              bgcolor: "divider", // цвет из темы
-              width: "100%", // линия на всю ширину
-            }}
-          />
-        </Box>
-        <List>
           <ListItemButton>
             <ListItemIcon sx={{ color: "primary.main" }}>
               <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Все" />
+            <ListItemText primary="Пользователи" sx={{fontSize: "14px"}} />
           </ListItemButton>
-
-          <ListItemButton>
-            <ListItemIcon sx={{ color: "primary.main" }}>
-              <PersonAddIcon />
-            </ListItemIcon>
-            <ListItemText primary="Добавить" />
-          </ListItemButton>
-
-          <ListItemButton>
-            <ListItemIcon sx={{ color: "primary.main" }}>
-              <PersonRemoveIcon />
-            </ListItemIcon>
-            <ListItemText primary="Удалить" />
-          </ListItemButton>
-        </List>
       </Box>
     </>
   );

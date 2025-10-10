@@ -28,13 +28,21 @@ export default function UsersRouts() {
     <Grid size={{ xs: 12, sm: 6, md: 8 }}>
       <Paper
         sx={{
-          p: 2,
+          p: 3,
           position: "relative",
           overflow: "hidden",
-          height: "auto",
+          height: "100%",
+          borderRadius: 3,
+          boxShadow: 3,
+          background: (theme) =>
+            theme.palette.mode === "light"
+              ? "#f5f5f5"
+              : "linear-gradient(135deg, #0F123B 0%, #090D2E 59%, #020515 100%)",
+          color: (theme) =>
+            theme.palette.mode === "light" ? "text.primary" : "#fff",
         }}
       >
-        <Typography variant="h6" sx={{ mb: 15 }}>
+        <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 500 }}>
           Наиболее посещаемые страницы
         </Typography>
 
@@ -42,15 +50,17 @@ export default function UsersRouts() {
           <Table size="small">
             <TableBody>
               {routes
-              ?.filter((rout) => rout.page !== "/admin" && rout.page !== "/signin")
-              .map((rout) => (
-                <TableRow key={rout.page}>
-                  <TableCell sx={{ maxWidth: 500, overflow: "hidden" }}>
-                    {rout.page}
-                  </TableCell>
-                  <TableCell align="right">{rout.views}</TableCell>
-                </TableRow>
-              ))}
+                ?.filter(
+                  (rout) => rout.page !== "/admin" && rout.page !== "/signin"
+                )
+                .map((rout) => (
+                  <TableRow key={rout.page} hover>
+                    <TableCell sx={{ maxWidth: 500, overflow: "hidden" }}>
+                      {rout.page}
+                    </TableCell>
+                    <TableCell align="right">{rout.views}</TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
@@ -58,11 +68,12 @@ export default function UsersRouts() {
         <PageviewIcon
           sx={{
             position: "absolute",
-            top: 10,
-            right: 10,
+            bottom: -10,
+            right: -10,
             fontSize: 80,
-            color: "primary.main",
-            opacity: 0.1,
+            color: (theme) => theme.palette.primary.main,
+            opacity: 0.15,
+            transform: "rotate(15deg)",
           }}
         />
       </Paper>

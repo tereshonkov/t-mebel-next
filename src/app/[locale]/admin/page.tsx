@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useThemeContext } from "@/components/ThemeProviderClient/ThemeProviderClient";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 import Sidebar from "@/components/Sidebar/Sidebar";
 import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
@@ -30,16 +30,30 @@ export default function Admin() {
   if (!tokenChecked) return null;
 
   return (
-    <Box display="flex" minHeight="100vh">
-      <Sidebar />
+    <Box display="flex" minHeight="100vh" px={5}>
       {/* Main content */}
       <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-        <Container sx={{ flexGrow: 1 }}>
-          <HeaderAdmin mode={mode} toggleMode={toggleMode} />
-          {page.analitycs && <AnaliticsPage />}
-          {page.messages && <MessagesPage />}
-          {page.reviews && <ReviewsPage />}
-        </Container>
+      <HeaderAdmin mode={mode} toggleMode={toggleMode} />
+        <Box sx={{ mb: 2, borderRadius: 48, display: "flex", flexDirection: "row" }}>
+        <Sidebar />
+          <Box
+            sx={(theme) => ({
+              backgroundColor:
+                theme.palette.mode === "light"
+                  ? "#fff"
+                  : "linear-gradient(180deg, #0F123B 0%, #090D2E 59%, #020515 100%)",
+              height: "100%",
+              borderRadius: 2,
+              p: 5,
+              width: "100%",
+              ml: 5,
+            })}
+          >
+            {page.analitycs && <AnaliticsPage />}
+            {page.messages && <MessagesPage />}
+            {page.reviews && <ReviewsPage />}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
