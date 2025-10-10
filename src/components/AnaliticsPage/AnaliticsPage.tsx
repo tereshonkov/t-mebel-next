@@ -12,9 +12,9 @@ export default function AnaliticsPage() {
       <UsersDaily />
       <UsersMonthly />
       <UsersCall />
+      <UsersDiagramm />
       <UsersRouts />
       <UsersLastReview />
-      <UsersDiagramm />
     </Grid>
   );
 }
