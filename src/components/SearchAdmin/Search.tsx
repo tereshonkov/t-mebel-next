@@ -31,10 +31,11 @@ export default function SearchBar() {
             display: "flex",
             alignItems: "center",
             width: 500,
+            backgroundColor: "white",
           }}
         >
           <InputBase
-            sx={{ ml: 1, flex: 1, backgroundColor: "white" }}
+            sx={{ ml: 1, flex: 1}}
             placeholder="Поиск…"
             inputProps={{ "aria-label": "поиск" }}
           />
