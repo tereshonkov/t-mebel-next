@@ -20,7 +20,7 @@ export const refreshToken = async () => {
     const response = await api.get(`/auth/refresh`, {
       withCredentials: true,
     });
-    return response.data;
+    return response.data.accessToken;
   } catch (error) {
     console.error("Error:", error);
     throw new Error((error as Error)?.message || "Ошибка обновления токена");
