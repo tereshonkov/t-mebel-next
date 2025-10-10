@@ -36,7 +36,7 @@ export default function UsersLastReview() {
   const lastIndex = reviews.length - 1;
   const review = reviews.length > 0 ? reviews[lastIndex] : null;
   return (
-    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+    <Grid size={{ xs: 12, sm: 6, md: 4 }} sx={{ mb: 2 }}>
       <Paper
         sx={{
           p: 2,
