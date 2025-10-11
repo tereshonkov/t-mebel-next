@@ -152,3 +152,14 @@
     right: 3%;
   }
 }
+@media (max-width: 480px) {
+  .nav {
+    position: absolute;
+    right: -10px;
+    top: 0;
+    max-width: 40%;
+  }
+  .menuMobile {
+    max-height: 100dvh;
+  }
+}

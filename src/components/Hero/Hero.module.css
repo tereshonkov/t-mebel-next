@@ -256,3 +256,14 @@
         font-size: 12px;
     }
 }
+@media (max-width: 479px) {
+    .wrapper {
+        max-height: 80dvh;
+    }
+    .wrapperContent {
+        padding: 2%;
+    }
+    .sliderBtns {
+        display: none;
+    }
+}

@@ -68,3 +68,35 @@
         /* add fontsize fo mobile */
     }
 }
+@media (max-width: 490px) {
+    .number {
+        display: none;
+    }
+    .btn {
+        width: 100%;
+    }
+    .numberWrapper {
+        width: 100%;
+        position: fixed;
+        bottom: 40px;
+        left: 0;
+        transform: translateX(-50%);
+        transition: background-color 0.3s ease;
+        animation: breathe 2.5s ease-in-out infinite;
+    }
+}
+
+@keyframes breathe {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+  }
