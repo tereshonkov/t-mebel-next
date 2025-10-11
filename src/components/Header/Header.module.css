@@ -160,7 +160,8 @@
     top: 0;
     max-width: 40%;
   }
-  .menuMobile {
+  .navMobile {
     max-height: 100dvh;
+    overflow: hidden;
   }
 }
