@@ -114,6 +114,7 @@
     background-color: var(--background-color-primary);
     padding: 20px;
     padding-left: 40px;
+    z-index: 2000;
   }
   .wrapperNavMobile {
     display: flex;
@@ -161,6 +162,5 @@
   }
   .menuMobile {
     max-height: 100dvh;
-    z-index: 2000;
   }
 }
