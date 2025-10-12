@@ -198,8 +198,16 @@
     "title": "Our Works — Custom Furniture in Kharkiv",
     "description": "Our works: wardrobes, kitchens, bedrooms, furniture for shops and other spaces in Kharkiv. High-quality custom furniture manufacturing."
   },
-    "label": {
+  "label": {
     "prev": "Previous",
     "next": "Next"
+  },
+  "popap": {
+    "title": "Wait a moment!",
+    "description": "Would you like a 10% discount on your first order?",
+    "text": "We’ll gift it to you — just leave your contact details and our designer will reach out to you!",
+    "name": "Your name",
+    "phone": "Your phone",
+    "btn": "Get my discount"
   }
 }

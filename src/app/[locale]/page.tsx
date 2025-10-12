@@ -8,6 +8,7 @@ import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 import { Metadata } from "next"
 import { getTranslations } from 'next-intl/server';
+import Popap from "@/components/Popap/Popap"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -44,6 +45,7 @@ export default function page() {
     <div className="container">
       <Hero startIndex={0} home={true}/>
     <main>
+      <Popap />
       <Service />
       <Rewies />
       <Logo />
