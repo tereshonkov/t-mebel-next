@@ -1,6 +1,6 @@
 "use client";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+// import Brightness4Icon from "@mui/icons-material/Brightness4";
+// import Brightness7Icon from "@mui/icons-material/Brightness7";
 import SearchBar from "../SearchAdmin/Search";
 import { AppBar, Box, Button, IconButton, Toolbar } from "@mui/material";
 import { logout } from "@/api/auth";
@@ -19,13 +19,7 @@ const languages = [
   { code: "uk", label: "Українська" },
 ];
 
-export default function HeaderAdmin({
-  mode,
-  toggleMode,
-}: {
-  mode: string;
-  toggleMode: () => void;
-}) {
+export default function HeaderAdmin() {
   const router = useRouter();
   const handleLogout = async () => {
     try {
@@ -73,9 +67,9 @@ export default function HeaderAdmin({
         <Box sx={{ flexGrow: 1 }} />
 
         {/* Переключение темы */}
-        <IconButton onClick={toggleMode} sx={{ color: "primary.main" }}>
+        {/* <IconButton onClick={toggleMode} sx={{ color: "primary.main" }}>
           {mode === "light" ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+        </IconButton> */}
         <div>
         <IconButton onClick={handleOpen} sx={{ color: "primary.main" }}>
         <FiGlobe size={24} />

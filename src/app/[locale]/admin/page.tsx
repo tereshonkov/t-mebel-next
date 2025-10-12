@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useThemeContext } from "@/components/ThemeProviderClient/ThemeProviderClient";
 import { Box } from "@mui/material";
 
 import Sidebar from "@/components/Sidebar/Sidebar";
@@ -25,15 +24,13 @@ export default function Admin() {
     }
   }, [router]);
 
-  const { mode, toggleMode } = useThemeContext();
-
   if (!tokenChecked) return null;
 
   return (
     <Box display="flex" minHeight="100vh" px={5}>
       {/* Main content */}
       <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-      <HeaderAdmin mode={mode} toggleMode={toggleMode} />
+      <HeaderAdmin />
         <Box sx={{ mb: 2, borderRadius: 48, display: "flex", flexDirection: "row" }}>
         <Sidebar />
           <Box
