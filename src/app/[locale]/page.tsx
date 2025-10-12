@@ -8,7 +8,8 @@ import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 import { Metadata } from "next"
 import { getTranslations } from 'next-intl/server';
-import Popap from "@/components/Popap/Popap"
+import dynamic from "next/dynamic";
+const Popap = dynamic(() => import("@/components/Popap/Popap"), { ssr: false });
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
