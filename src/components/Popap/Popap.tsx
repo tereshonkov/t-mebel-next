@@ -39,10 +39,11 @@ export default function Popap() {
   };
   useEffect(() => {
     if (sessionStorage.getItem("popapShown")) return;
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsOpen(true);
       sessionStorage.setItem("popapShown", "true");
     }, 15000);
+    return () => clearTimeout(timer);
   }, []);
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

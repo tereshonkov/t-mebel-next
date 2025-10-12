@@ -8,8 +8,7 @@ import Form from "@/components/Form/Form";
 import Footer from "@/components/Footer/Footer";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import dynamic from "next/dynamic";
-const Popap = dynamic(() => import("@/components/Popap/Popap"), { ssr: false });
+import PopapClientWrapper from "@/components/Popap/PopapClientWrapper"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = "uk";
@@ -44,7 +43,7 @@ export default function page() {
     <div className="container">
       <Hero startIndex={0} home={true} />
       <main>
-        <Popap />
+        <PopapClientWrapper />
         <Service />
         <Rewies />
         <Logo />
