@@ -1,6 +1,5 @@
 import FeedbackIcon from "@mui/icons-material/Feedback";
 import BarChartIcon from "@mui/icons-material/BarChart";
-import AddBoxIcon from "@mui/icons-material/AddBox";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
 import PeopleIcon from "@mui/icons-material/People";
 import {
@@ -78,13 +77,6 @@ export default function Sidebar() {
               </Badge>
             </ListItemIcon>
             <ListItemText primary="Отзывы" sx={{fontSize: "14px"}} />
-          </ListItemButton>
-
-          <ListItemButton>
-            <ListItemIcon sx={{ color: "primary.main" }}>
-              <AddBoxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Добавить товар" sx={{fontSize: "14px"}} />
           </ListItemButton>
 
           <ListItemButton>
