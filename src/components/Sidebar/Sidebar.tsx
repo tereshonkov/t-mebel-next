@@ -35,6 +35,8 @@ export default function Sidebar() {
               analitycs: true,
               messages: false,
               reviews: false,
+              products: false,
+              users: false,
             }));
           }}
         >
@@ -52,6 +54,8 @@ export default function Sidebar() {
                 analitycs: false,
                 messages: true,
                 reviews: false,
+                products: false,
+                users: false,
               }))
             }
           >
@@ -69,6 +73,8 @@ export default function Sidebar() {
               analitycs: false,
               messages: false,
               reviews: true,
+              products: false,
+              users: false,
             }))
           )}>
             <ListItemIcon sx={{ color: "primary.main" }}>
@@ -79,14 +85,32 @@ export default function Sidebar() {
             <ListItemText primary="Отзывы" sx={{fontSize: "14px"}} />
           </ListItemButton>
 
-          <ListItemButton>
+          <ListItemButton onClick={() => {
+            setPage((prev) => ({
+              ...prev,
+              analitycs: false,
+              messages: false,
+              reviews: false,
+              products: true,
+              users: false,
+            }))
+          }}>
             <ListItemIcon sx={{ color: "primary.main" }}>
               <Inventory2Icon />
             </ListItemIcon>
             <ListItemText primary="Все товары" sx={{fontSize: "14px"}} />
           </ListItemButton>
 
-          <ListItemButton>
+          <ListItemButton onClick={() => {
+            setPage((prev) => ({
+              ...prev,
+              analitycs: false,
+              messages: false,
+              reviews: false,
+              products: false,
+              users: true,
+            }))
+          }}>
             <ListItemIcon sx={{ color: "primary.main" }}>
               <PeopleIcon />
             </ListItemIcon>

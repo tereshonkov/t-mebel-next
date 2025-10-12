@@ -5,9 +5,14 @@ export type Data = {
     color: string;
     furnitures: string;
     image: string;
-    images?: string[];
+    images?: ImageType[];
     width?: number;
     height?: number;
     raiting?: number;
     categories?: string[];
   };
+
+  export interface ImageType {
+    url: string;
+    isCover: boolean;
+  }

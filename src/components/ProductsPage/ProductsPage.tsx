@@ -1,0 +1,83 @@
+import {
+  TableContainer,
+  Paper,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  Button,
+  Box,
+} from "@mui/material";
+import { useState, useEffect } from "react";
+import type { Data, ImageType } from "@/types/data";
+import { getProducts } from "@/api/product";
+import Image from "next/image";
+
+export default function ProductsPage() {
+  const [products, setProducts] = useState<Data[]>([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+    fetchProducts();
+  }, []);
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Все товары</TableCell>
+            <TableCell align="right">
+              <Button variant="contained" color="success">
+                Добавить товар
+              </Button>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+      </Table>
+        <Box sx={{display: "flex", gap: "30px", flexWrap: "wrap", justifyContent: "center", padding: "20px"}}>
+        {products.map((item, index) => (
+        <Paper
+          key={item.id || index}
+          sx={{
+            p: 3,
+            position: "relative",
+            overflow: "hidden",
+            borderRadius: 3,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: 350,
+            height: 350,
+            background: (theme) =>
+              theme.palette.mode === "light"
+                ? "#f5f5f5"
+                : "linear-gradient(135deg, #0F123B 0%, #090D2E 59%, #020515 100%)",
+            color: (theme) =>
+              theme.palette.mode === "light" ? "text.primary" : "#fff",
+            boxShadow: 3,
+          }}
+        >
+           <Image
+              src={item?.images?.find((image: ImageType) => image.isCover)?.url || ''}
+              alt={item.title}
+              width={1000}
+              height={1000}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: 8,
+              }}
+            />
+        </Paper>
+      ))}
+        </Box>
+    </TableContainer>
+  );
+}

@@ -8,6 +8,8 @@ import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
 import AnaliticsPage from "@/components/AnaliticsPage/AnaliticsPage";
 import MessagesPage from "@/components/MessagesPage/MessagePage";
 import ReviewsPage from "@/components/ReviewsPage/ReviewsPage";
+import ProductsPage from "@/components/ProductsPage/ProductsPage";
+import UsersPage from "@/components/UsersPage/UsersPage";
 import { useTabContext } from "@/context/TabContext";
 
 export default function Admin() {
@@ -49,6 +51,8 @@ export default function Admin() {
             {page.analitycs && <AnaliticsPage />}
             {page.messages && <MessagesPage />}
             {page.reviews && <ReviewsPage />}
+            {page.products && <ProductsPage />}
+            {page.users && <UsersPage />}
           </Box>
         </Box>
       </Box>

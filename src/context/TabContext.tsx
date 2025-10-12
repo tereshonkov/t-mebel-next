@@ -5,12 +5,16 @@ interface TabContextType {
         analitycs: boolean;
         messages: boolean;
         reviews: boolean;
+        products: boolean;
+        users: boolean;
     };
     setPage: React.Dispatch<
         React.SetStateAction<{
         analitycs: boolean;
         messages: boolean;
         reviews: boolean;
+        products: boolean;
+        users: boolean;
         }>
     >;
     }
@@ -22,6 +26,8 @@ export function TabProvider({ children }: { children: React.ReactNode }) {
     analitycs: true,
     messages: false,
     reviews: false,
+    products: false,
+    users: false,
   });
 
   return (
