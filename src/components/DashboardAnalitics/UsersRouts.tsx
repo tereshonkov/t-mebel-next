@@ -51,7 +51,7 @@ export default function UsersRouts() {
             <TableBody>
               {routes
                 ?.filter(
-                  (rout) => rout.page !== "/admin" && rout.page !== "/signin"
+                  (rout) => rout.page !== "/admin" && rout.page !== "/signin" && rout.page !== "/admin/create"
                 )
                 .map((rout) => (
                   <TableRow key={rout.page} hover>

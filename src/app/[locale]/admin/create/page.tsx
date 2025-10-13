@@ -34,7 +34,7 @@ export default function Admin() {
       <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
         <HeaderAdmin />
         <Button
-          sx={{ mb: 2, width: 100 }}
+          sx={{ mb: 2, width: 100, ml: 3 }}
           variant="outlined"
           color="primary"
           startIcon={<ArrowBackIcon />}
@@ -46,7 +46,6 @@ export default function Admin() {
           component="form"
           sx={{
             mb: 2,
-            borderRadius: 48,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -54,7 +53,7 @@ export default function Admin() {
             flexGrow: 1,
             alignSelf: "center",
             gap: 2,
-            width: 700,
+            width: "100%",
           }}
         >
           <TextField
@@ -63,7 +62,7 @@ export default function Admin() {
             multiline
             rows={4}
             required
-            sx={{ width: "100%" }}
+            sx={{ width: 800 }}
           />
 
           <TextField
@@ -72,10 +71,10 @@ export default function Admin() {
             multiline
             rows={4}
             required
-            sx={{ width: "100%" }}
+            sx={{ width: 800 }}
           />
 
-          <FormControl required sx={{ width: "100%" }}>
+          <FormControl required sx={{ width: 800 }}>
             <InputLabel>Категория</InputLabel>
             <Select name="category" label="Категория">
               <MenuItem value="KITCHEN">Кухня</MenuItem>
@@ -90,7 +89,7 @@ export default function Admin() {
             name="color"
             multiline
             required
-            sx={{ width: "100%" }}
+            sx={{ width: 800}}
           />
 
           <TextField
@@ -98,7 +97,7 @@ export default function Admin() {
             name="furnitures"
             multiline
             required
-            sx={{ width: "100%" }}
+            sx={{ width: 800 }}
           />
 
           <TextField
@@ -106,7 +105,7 @@ export default function Admin() {
             name="width"
             multiline
             required
-            sx={{ width: "100%" }}
+            sx={{ width: 800}}
           />
 
           <TextField
@@ -114,18 +113,21 @@ export default function Admin() {
             name="height"
             multiline
             required
-            sx={{ width: "100%" }}
+            sx={{ width: 800}}
           />
 
-          <TextField
-            label="Рейтинг"
-            name="rating"
-            multiline
-            required
-            sx={{ width: "100%" }}
-          />
+          <FormControl required sx={{ width: 800}}>
+            <InputLabel>Рейтинг</InputLabel>
+            <Select name="category" label="Категория">
+              <MenuItem value="1">1</MenuItem>
+              <MenuItem value="2">2</MenuItem>
+              <MenuItem value="3">3</MenuItem>
+              <MenuItem value="4">4</MenuItem>
+              <MenuItem value="5">5</MenuItem>
+            </Select>
+          </FormControl>
 
-          <Button type="submit" variant="contained" color="success">
+          <Button type="submit" variant="contained" color="success" sx={{mt: "20px"}}>
             Добавить товар
           </Button>
         </Box>
