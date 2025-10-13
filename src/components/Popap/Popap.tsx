@@ -77,6 +77,7 @@ export default function Popap() {
                 type="text"
                 placeholder={t("name")}
                 className={styles.input}
+                required
               />
               <input
                 value={input.phone}
@@ -84,6 +85,7 @@ export default function Popap() {
                 type="text"
                 placeholder={t("phone")}
                 className={styles.input}
+                required
               />
             </div>
             <button type="submit" className={styles.button}>
