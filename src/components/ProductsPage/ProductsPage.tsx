@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 import type { Data } from "@/types/data";
 import { getProducts } from "@/api/product";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Data[]>([]);
@@ -56,9 +57,11 @@ export default function ProductsPage() {
               </FormControl>
             </TableCell>
             <TableCell align="right">
-              <Button variant="contained" color="success">
-                Добавить товар
-              </Button>
+              <Link href="/admin/create">
+                <Button variant="contained" color="primary">
+                  Добавить товар
+                </Button>
+              </Link>
             </TableCell>
           </TableRow>
         </TableHead>
