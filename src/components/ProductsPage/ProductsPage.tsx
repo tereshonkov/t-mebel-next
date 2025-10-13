@@ -52,8 +52,8 @@ export default function ProductsPage() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            width: 350,
-            height: 350,
+            width: 290,
+            height: 290,
             background: (theme) =>
               theme.palette.mode === "light"
                 ? "#f5f5f5"
