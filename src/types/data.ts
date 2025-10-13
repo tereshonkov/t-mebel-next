@@ -1,18 +1,29 @@
-export type Data = {
-    id: number;
-    title: string;
-    description: string;
-    color: string;
-    furnitures: string;
-    image: string;
-    images?: ImageType[];
-    width?: number;
-    height?: number;
-    raiting?: number;
-    categories?: string[];
-  };
+export type Review = {
+  id: string;
+  name: string;
+  text: string;
+  productId: string;
+  isApproved?: boolean;
+}
 
-  export interface ImageType {
-    url: string;
-    isCover: boolean;
-  }
+export type Images = {
+  url: string;
+  id: string;
+  isCover: boolean;
+  productId: string;
+  reviewId: string | null;
+};
+
+export type Data = {
+  id: number;
+  title: string;
+  description: string;
+  color: string;
+  furnitures: string;
+  images: Images[];
+  width?: number;
+  height?: number;
+  raiting?: number;
+  category?: "KITCHEN" | "WARDROBE" | "STORE" | "BEDROOM";
+  reviews?: Review[];
+};
