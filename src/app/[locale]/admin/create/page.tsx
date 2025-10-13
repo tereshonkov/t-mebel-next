@@ -60,6 +60,7 @@ export default function Admin() {
           <TextField
             label="Название товара"
             name="title"
+            multiline
             rows={4}
             required
             sx={{ width: "100%" }}
