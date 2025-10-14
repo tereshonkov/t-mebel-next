@@ -49,13 +49,13 @@ export default function FormAdmin() {
   const onSubmit = async (data: Data) => {
     const filesUrls = await handleImageUpload();
     console.log("OnSubmit", filesUrls);
-    const productData = { 
-        ...data,
-        width: Number(data.width),
-        height: Number(data.height),
-        rating: Number(data.rating), 
-        images: filesUrls.map((url: string) => ({ url }))
-     };
+    const productData = {
+      ...data,
+      width: Number(data.width),
+      height: Number(data.height),
+      rating: Number(data.rating),
+      images: filesUrls.map((url: string, index: number) => ({ url, isCover: index === 0 })),
+    };
     try {
       const response = await createProduct(productData);
       console.log("Product creation successful:", response);
@@ -64,7 +64,7 @@ export default function FormAdmin() {
       console.error("Product creation failed:", error);
       alert("Ошибка при создании товара.");
     }
-    };
+  };
 
   return (
     <>
