@@ -12,6 +12,7 @@ import {
 import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Upload from "@/components/Upload/Upload";
 
 export default function Admin() {
   const [tokenChecked, setTokenChecked] = useState(false);
@@ -126,6 +127,8 @@ export default function Admin() {
               <MenuItem value="5">5</MenuItem>
             </Select>
           </FormControl>
+
+          <Upload />
 
           <Button type="submit" variant="contained" color="success" sx={{mt: "20px"}}>
             Добавить товар
