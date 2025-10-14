@@ -2,17 +2,12 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
-  Box,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
+  Box
 } from "@mui/material";
 import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Upload from "@/components/Upload/Upload";
+import FormAdmin from "@/components/FormAdmin/FormAdmin";
 
 export default function Admin() {
   const [tokenChecked, setTokenChecked] = useState(false);
@@ -43,97 +38,7 @@ export default function Admin() {
         >
           Назад
         </Button>
-        <Box
-          component="form"
-          sx={{
-            mb: 2,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            flexGrow: 1,
-            alignSelf: "center",
-            gap: 2,
-            width: "100%",
-          }}
-        >
-          <TextField
-            label="Название товара"
-            name="title"
-            multiline
-            rows={4}
-            required
-            sx={{ width: 800 }}
-          />
-
-          <TextField
-            label="Описание"
-            name="description"
-            multiline
-            rows={4}
-            required
-            sx={{ width: 800 }}
-          />
-
-          <FormControl required sx={{ width: 800 }}>
-            <InputLabel>Категория</InputLabel>
-            <Select name="category" label="Категория">
-              <MenuItem value="KITCHEN">Кухня</MenuItem>
-              <MenuItem value="WARDROBE">Шкаф</MenuItem>
-              <MenuItem value="STORE">Магазин</MenuItem>
-              <MenuItem value="BEDROOM">Спальня</MenuItem>
-            </Select>
-          </FormControl>
-
-          <TextField
-            label="Цвет"
-            name="color"
-            multiline
-            required
-            sx={{ width: 800}}
-          />
-
-          <TextField
-            label="Фурнитура"
-            name="furnitures"
-            multiline
-            required
-            sx={{ width: 800 }}
-          />
-
-          <TextField
-            label="Ширина"
-            name="width"
-            multiline
-            required
-            sx={{ width: 800}}
-          />
-
-          <TextField
-            label="Высота"
-            name="height"
-            multiline
-            required
-            sx={{ width: 800}}
-          />
-
-          <FormControl required sx={{ width: 800}}>
-            <InputLabel>Рейтинг</InputLabel>
-            <Select name="category" label="Категория">
-              <MenuItem value="1">1</MenuItem>
-              <MenuItem value="2">2</MenuItem>
-              <MenuItem value="3">3</MenuItem>
-              <MenuItem value="4">4</MenuItem>
-              <MenuItem value="5">5</MenuItem>
-            </Select>
-          </FormControl>
-
-          <Upload />
-
-          <Button type="submit" variant="contained" color="success" sx={{mt: "20px"}}>
-            Добавить товар
-          </Button>
-        </Box>
+        <FormAdmin />
       </Box>
     </Box>
   );

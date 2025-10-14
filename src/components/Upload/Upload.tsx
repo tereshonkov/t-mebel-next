@@ -1,10 +1,14 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import styles from "./Upload.module.css";
 import Image from "next/image";
 
-export default function Upload() {
+interface UploadProps {
+  files: File[];
+  setFiles: (files: File[]) => void;
+}
+
+export default function Upload({ files, setFiles }: UploadProps) {
   const refContainer = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
 
   const handleClick = () => {
     refContainer.current?.click();
@@ -13,7 +17,7 @@ export default function Upload() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const selectedFiles = Array.from(event.target.files);
-      setFiles((prev) => [...prev, ...selectedFiles]);
+      setFiles([...files, ...selectedFiles]);
     }
   };
   return (

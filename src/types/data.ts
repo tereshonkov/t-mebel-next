@@ -23,7 +23,7 @@ export type Data = {
   images: Images[];
   width?: number;
   height?: number;
-  raiting?: number;
+  rating?: number;
   category?: "KITCHEN" | "WARDROBE" | "STORE" | "BEDROOM";
   reviews?: Review[];
 };

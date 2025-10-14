@@ -29,7 +29,7 @@ export default function useDataFurniture() {
     images: Images[];
     width?: number;
     height?: number;
-    raiting?: number;
+    rating?: number;
     category?: "KITCHEN" | "WARDROBE" | "STORE" | "BEDROOM";
     reviews?: Review[];
   };
