@@ -54,7 +54,7 @@ export default function FormAdmin() {
         width: Number(data.width),
         height: Number(data.height),
         rating: Number(data.rating), 
-        images: filesUrls
+        images: filesUrls.map((url: string) => ({ url }))
      };
     try {
       const response = await createProduct(productData);
