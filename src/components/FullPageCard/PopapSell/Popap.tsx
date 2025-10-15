@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { sendMessageApi } from "@/api/messages";
-import Link from "next/link";
+// import Link from "next/link";
 
 interface InputState {
   name: string;
@@ -106,7 +106,7 @@ export default function PopapSell({
         </div>
         <FaTags className={styles.iconBgLeft} />
         <FaTags className={styles.iconBgRight} />
-        <div className={styles.dash}></div>
+        {/* <div className={styles.dash}></div>
         <p>{t("or")}</p>
         <div className={styles.socialWrapper}>
             <Link href="https://www.instagram.com/tereshonkov.alexander/"  target="_blank" className={styles.instagram}></Link>
@@ -114,7 +114,7 @@ export default function PopapSell({
             <Link href="https://www.facebook.com/tmebelsite?locale=ru_RU" target="_blank" className={styles.facebook}></Link>
           </div>
         <p>{t("tel")}</p>
-        <p className={styles.tel}>067-149-67-41</p>
+        <p className={styles.tel}>067-149-67-41</p> */}
       </div>
     </div>
   );
