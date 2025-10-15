@@ -8,7 +8,7 @@ import Form from "@/components/Form/Form";
 import Footer from "@/components/Footer/Footer";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import PopapClientWrapper from "@/components/Popap/PopapClientWrapper"
+import PopapClientWrapper from "@/components/FullPageCard/Popap/PopapClientWrapper"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = "uk";

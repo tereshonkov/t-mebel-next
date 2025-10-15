@@ -209,5 +209,15 @@
     "name": "Your name",
     "phone": "Your phone",
     "btn": "Get my discount"
+  },
+  "popapSell": {
+    "title": "Hello!",
+    "description": "Would you like a free designer consultation?",
+    "text": "Leave your contact details, and our specialist will get in touch to help you choose furniture for your space!",
+    "name": "Your Name",
+    "phone": "Your Phone",
+    "btn": "Get Consultation",
+    "or": "You can also call us at",
+    "tel": "Or call us"
   }
 }

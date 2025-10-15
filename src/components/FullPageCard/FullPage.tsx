@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import PopapSell from "./PopapSell/Popap";
 
 type Review = {
   id?: string;
@@ -46,6 +47,7 @@ export default function FullPage({ id }: { id: string }) {
   const t3 = useTranslations("modal");
   const [data, setData] = useState<Data | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [popap, setPopap] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -230,9 +232,9 @@ export default function FullPage({ id }: { id: string }) {
               {t2("phone")}
             </Link>
           ) : (
-            <Link href="tel:0671496741" className={styles.link}>
+            <button onClick={() => setPopap(prev => !prev)}  className={styles.btn}>
               {t2("phone")}
-            </Link>
+            </button>
           )}
         </div>
       </section>
@@ -297,6 +299,7 @@ export default function FullPage({ id }: { id: string }) {
           </div>
         </div>
       )}
+      {popap && <PopapSell isOpen={popap} setIsOpen={setPopap} />}
     </>
   );
 }
