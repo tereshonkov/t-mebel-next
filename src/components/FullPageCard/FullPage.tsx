@@ -6,6 +6,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { Button } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 type Review = {
   id?: string;
@@ -42,7 +45,7 @@ export default function FullPage({ id }: { id: string }) {
   const t2 = useTranslations("fullPage");
   const t3 = useTranslations("modal");
   const [data, setData] = useState<Data | null>(null);
-  // console.log("FurniturePage data:", data);
+  const router = useRouter();
 
   const sendReview = async (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -137,6 +140,24 @@ export default function FullPage({ id }: { id: string }) {
   return (
     <>
       <section className={styles.wrapper}>
+        <div className={styles.back}>
+          <Button
+            sx={{
+              mb: 2,
+              width: { xs: "100%", sm: 200 },
+              ml: { xs: 0, sm: 8 },
+              border: "2px solid #422313",
+              color: "#422313",
+              borderRadius: "15px",
+            }}
+            variant="outlined"
+            color="primary"
+            startIcon={<ArrowBackIcon />}
+            onClick={() => router.back()}
+          >
+            Назад
+          </Button>
+        </div>
         <div className={styles.slider}>
           <div className={styles.emblaViewport} ref={emblaRef}>
             <div className={styles.emblaContainer}>

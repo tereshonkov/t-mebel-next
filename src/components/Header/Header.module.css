@@ -154,11 +154,15 @@
   }
 }
 @media (max-width: 480px) {
+  .menuMobile {
+    display: none;
+  }
   .nav {
-    position: absolute;
+    /* position: absolute;
     right: -10px;
     top: 0;
-    max-width: 40%;
+    max-width: 40%; */
+    display: none;
   }
   .navMobile {
     max-height: 100dvh;
