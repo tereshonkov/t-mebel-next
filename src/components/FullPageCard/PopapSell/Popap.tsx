@@ -28,7 +28,7 @@ export default function PopapSell({
   });
   const sendMessage = async () => {
     const data = {
-      message: `Сообщение с сайта: Имя: ${input.name}; Телефон: ${input.phone}; Сообщение: Заявка из карточки`,
+      message: `Сообщение с сайта: Имя: ${input.name}; Телефон: ${input.phone}; Сообщение: Заявка из карточки товара`,
     };
 
     await toast.promise(
