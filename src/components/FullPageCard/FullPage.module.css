@@ -205,10 +205,10 @@
   max-width: 300px;
 }
 .btn:hover {
-  background-color: rgb(146, 135, 7);
-  color: var(--text-color-primary);
+  background-color: var(--text-color-primary);
+  color: var(--text-color-secondary);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  border-color: var(--text-color-primary);    
+  border-color: var(--text-color-secondary);    
 }
 .modal {
   position: fixed;
