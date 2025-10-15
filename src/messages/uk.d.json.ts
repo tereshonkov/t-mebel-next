@@ -62,7 +62,7 @@ declare const messages: {
     "titleRegular": "Отримайте",
     "titleBold": "безкоштовну ",
     "titleRegularTwo": "консультацію вже",
-    "titleBoldTwo": "сьогодні!",
+    "titleBoldTwo": " сьогодні!",
     "btn": "Зателефонувати нам"
   },
   "footer": {
