@@ -201,6 +201,14 @@
   border-radius: 50px;
   padding: 26px;
   font-weight: 600;
+  transition: all 0.3s ease;
+  max-width: 300px;
+}
+.btn:hover {
+  background-color: rgb(146, 135, 7);
+  color: var(--text-color-primary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: var(--text-color-primary);    
 }
 .modal {
   position: fixed;
@@ -348,5 +356,9 @@
   }
   .furnitures {
     margin-bottom: 1rem;
+  }
+  .btn {
+    width: 100%;
+    max-width: none;
   }
 }
