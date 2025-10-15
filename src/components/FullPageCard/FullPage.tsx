@@ -45,7 +45,12 @@ export default function FullPage({ id }: { id: string }) {
   const t2 = useTranslations("fullPage");
   const t3 = useTranslations("modal");
   const [data, setData] = useState<Data | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    setIsMobile(/Mobi|Android/i.test(navigator.userAgent));
+  }, []);
 
   const sendReview = async (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -215,14 +220,20 @@ export default function FullPage({ id }: { id: string }) {
             {t("description")}
           </p>
           <p className={styles.width}>
-            {t2("size")}: {data?.width} x {data?.height}
+            {/* {t2("size")}: {data?.width} x {data?.height} */}
           </p>
           <p className={styles.furnitures}>
             {t2("furniture")}: {data?.furnitures}
           </p>
-          <Link href="tel:0671496741" className={styles.link}>
-            {t2("phone")}
-          </Link>
+          {isMobile ? (
+            <Link className={styles.btn} href="tel:0671496741">
+              {t2("phone")}
+            </Link>
+          ) : (
+            <Link href="tel:0671496741" className={styles.link}>
+              {t2("phone")}
+            </Link>
+          )}
         </div>
       </section>
       <section className={styles.reviews}>

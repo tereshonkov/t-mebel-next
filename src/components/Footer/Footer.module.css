@@ -3,6 +3,8 @@
     justify-content: space-between;
     background-color: var(--background-color-primary);
     padding: 20px 62px;
+    position: relative;
+    z-index: 10000;
 }
 .insta, .telega, .facebook {
     display: block;
