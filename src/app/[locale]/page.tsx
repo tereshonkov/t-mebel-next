@@ -9,6 +9,8 @@ import Footer from "@/components/Footer/Footer"
 import { Metadata } from "next"
 import { getTranslations } from 'next-intl/server';
 import PopapClientWrapper from "@/components/Popap/PopapClientWrapper"
+// import WhyYou from "@/components/WhyYou/WhyYou"
+// import TrustMe from "@/components/TrustMe/TrustMe"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -46,6 +48,8 @@ export default function page() {
       <Hero startIndex={0} home={true}/>
     <main>
       <PopapClientWrapper />
+      {/* <WhyYou /> */}
+      {/* <TrustMe /> */}
       <Service />
       <Rewies />
       <Logo />

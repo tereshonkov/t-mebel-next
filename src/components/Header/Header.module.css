@@ -43,7 +43,6 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  height: 100dvh;
 }
 .wrapperNav a {
   color: var(--text-color-secondary);

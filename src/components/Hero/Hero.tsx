@@ -16,7 +16,7 @@ export default async function Hero({ startIndex = 0, home, page }: { startIndex?
         <div className={styles.banner}>
           <div className={styles.banerWrapper}>
             <div className={styles.bannerText}>
-              <h2>{t('title')}</h2>
+              <h1>{t('title')}</h1>
               <p>{t('subtitle')}</p>
             </div>
             <div className={styles.bannerButton}>
@@ -25,7 +25,7 @@ export default async function Hero({ startIndex = 0, home, page }: { startIndex?
             </div>
           </div>
         </div>
-        <h1 className={styles.title}>{t('header')} <span>{t('bold')}</span></h1>
+        <h2 className={styles.title}>{t('header')} <span>{t('bold')}</span></h2>
       </div>}
       {!home &&
         <div className={styles.numberWrapper}>
