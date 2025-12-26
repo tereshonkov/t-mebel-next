@@ -1,6 +1,8 @@
 .wrapper {
   background: var(--background-color-primary);
   padding: 60px 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .container {
@@ -12,12 +14,14 @@
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   background: linear-gradient(155deg, rgba(255, 244, 232, 0.97), rgba(247, 210, 173, 0.9));
+  box-sizing: border-box;
 }
 
 .formSection {
   padding: 40px 36px;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .formContent {
@@ -226,7 +230,7 @@
 
 @media (max-width: 600px) {
   .wrapper {
-    padding: 60px 16px;
+    padding: 40px 12px;
   }
 
   .container {
@@ -234,7 +238,7 @@
   }
 
   .formSection {
-    padding: 32px 24px;
+    padding: 24px 16px;
   }
 
   .formContent {
