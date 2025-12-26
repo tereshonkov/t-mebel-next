@@ -230,15 +230,15 @@
 
 @media (max-width: 600px) {
   .wrapper {
-    padding: 40px 12px;
+    padding: 30px 8px;
   }
 
   .container {
-    border-radius: 16px;
+    border-radius: 12px;
   }
 
   .formSection {
-    padding: 24px 16px;
+    padding: 20px 12px;
   }
 
   .formContent {
@@ -255,11 +255,11 @@
   }
 
   .form {
-    gap: 16px;
+    gap: 12px;
   }
 
   .input {
-    padding: 12px 14px 10px;
+    padding: 10px 12px 8px;
     font-size: 15px;
   }
 
@@ -268,7 +268,7 @@
   }
 
   .submitButton {
-    padding: 14px 28px;
+    padding: 12px 24px;
     font-size: 15px;
     width: 100%;
   }
