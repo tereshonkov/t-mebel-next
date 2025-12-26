@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer/Footer";
 import Form from "@/components/Form/Form";
-import FullPage from "@/components/FullPageCard/FullPage";
-import Hero from "@/components/Hero/Hero";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import ProductGallery from "@/components/ProductGallery/ProductGallery";
 import { use } from 'react';
 import { Metadata } from "next"
 import { getTranslations } from 'next-intl/server';
@@ -38,14 +38,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 
-export default function FurniturePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params) as { id: string };
+export default async function FurniturePage({ params }: { params: Promise<{ id: string, locale: string }> }) {
+  const { id, locale } = await params;
+  const t = await getTranslations({ locale, namespace: `data_${id}` });
 
   return (
     <>
-      <Hero startIndex={2} page={true} />
+      <PageHeader 
+        title={t('title')}
+      />
       <main>
-        <FullPage id={id} />
+        <ProductGallery id={id} />
         <Form />
       </main>
       <Footer />

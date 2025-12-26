@@ -1,0 +1,253 @@
+.wrapper {
+  background-color: var(--background-color-primary);
+  padding: 0;
+  min-height: calc(100vh - 100px);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: 18px;
+  color: var(--text-color-secondary);
+  opacity: 0.7;
+}
+
+/* Галерея */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-color: var(--background-color-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  object-fit: cover;
+  user-select: none;
+}
+
+/* Навигация */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  color: var(--text-color-secondary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navButton:hover {
+  background-color: var(--text-color-secondary);
+  color: var(--text-color-primary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navButtonPrev {
+  left: 20px;
+}
+
+.navButtonNext {
+  right: 20px;
+}
+
+/* Счетчик */
+.counter {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* Точки */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background-color: rgba(128, 128, 128, 0.5);
+  transform: scale(1.2);
+}
+
+.dotActive {
+  background-color: var(--text-color-secondary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Информация */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-color-secondary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-color-secondary);
+  opacity: 0.85;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.1rem 2.5rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, rgba(112, 64, 21, 1), rgba(66, 35, 19, 1));
+  color: var(--text-color-primary);
+  cursor: pointer;
+  box-shadow: 0 18px 35px rgba(66, 35, 19, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(66, 35, 19, 0.3);
+}
+
+.note {
+  font-size: 14px;
+  color: var(--text-color-secondary);
+  opacity: 0.7;
+  text-align: center;
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+
+  .info {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-height: auto;
+  }
+
+  .container {
+    padding: 20px 16px;
+    gap: 24px;
+  }
+
+  .mainImage {
+    aspect-ratio: 1;
+    border-radius: 12px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navButtonPrev {
+    left: 12px;
+  }
+
+  .navButtonNext {
+    right: 12px;
+  }
+
+  .counter {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navButton svg {
+    width: 22px;
+    height: 22px;
+  }
+}
