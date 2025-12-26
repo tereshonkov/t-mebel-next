@@ -26,7 +26,7 @@ export default async function Hero({ startIndex = 0, home, page }: { startIndex?
                 triggerClassName={styles.btn}
                 useDefaultTriggerStyles={false}
               />
-              <Link href="/contacts" className={styles.btnSecond}>{t('buttonTwo')}</Link>
+              <Link href="/service" className={styles.btnSecond}>{t('buttonTwo')}</Link>
             </div>
           </div>
         </div>
