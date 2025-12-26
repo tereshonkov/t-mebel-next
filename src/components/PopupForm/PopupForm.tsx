@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react';
 import styles from './PopupForm.module.css';
+import { toast } from 'react-hot-toast';
 
 interface PopupFormProps {
   triggerLabel?: string;
@@ -14,6 +15,25 @@ export default function PopupForm({
 }: PopupFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });
+
+    const sendMessage = async () => {
+    const data = {
+      message: `Сообщение с сайта: Имя: ${formData.name}; Телефон: ${formData.phone}; Сообщение: Новая заявка!!!`,
+    };
+
+    await toast.promise(
+      fetch("https://t-mebel.onrender.com/telegram/send-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }),
+      {
+        loading: "Отправка сообщения...",
+        success: "Сообщение отправлено!",
+        error: "Ошибка при отправке",
+      }
+    );
+  };
 
   useEffect(() => {
     if (!isOpen) {
@@ -47,6 +67,7 @@ export default function PopupForm({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // TODO: hook into API submission when ready
+    sendMessage();
     setIsOpen(false);
     setFormData({ name: '', phone: '' });
   };
