@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero/Hero";
-import Service from "@/components/Service/Service";
+// import Service from "@/components/Service/Service";
 import Rewies from "@/components/Reviews/Reviews";
 import Logo from "@/components/Logo/Logo";
 import Furniture from "@/components/Furniture/Furniture";
@@ -8,9 +8,9 @@ import Form from "@/components/Form/Form";
 import Footer from "@/components/Footer/Footer";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import PopapClientWrapper from "@/components/Popap/PopapClientWrapper"
-// import WhyYou from "@/components/WhyYou/WhyYou";
-// import TrustMe from "@/components/TrustMe/TrustMe";
+import PopapClientWrapper from "@/components/Popap/PopapClientWrapper";
+import WhyYou from "@/components/WhyYou/WhyYou";
+import TrustMe from "@/components/TrustMe/TrustMe";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = "uk";
@@ -46,12 +46,12 @@ export default function page() {
       <Hero startIndex={0} home={true} />
       <main>
         <PopapClientWrapper />
-        {/* <WhyYou /> */}
-        {/* <TrustMe /> */}
-        <Service />
+        <WhyYou />
+        <TrustMe />
+        {/* <Service /> */}
+        <Furniture home={true} />
         <Rewies />
         <Logo />
-        <Furniture home={true} />
         <Faq />
         <Form />
       </main>

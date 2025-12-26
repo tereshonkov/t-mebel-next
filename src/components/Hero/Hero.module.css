@@ -67,6 +67,13 @@
   font-weight: 700;
   color: var(--text-color-primary);
 }
+@media (max-width: 479px) {
+  .bannerText h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
 .bannerText p {
   font-size: var(--text-regular);
   font-weight: 300;

@@ -38,10 +38,12 @@ export default function WhyYou() {
           </div>
         </div>
       </div>
-      <div>
-        <p className={styles.note}>
-          Ми працюємо з індивідуальними проєктами та не продаємо готові меблі
-        </p>
+      <div className={styles.bottom}>
+        <div className={styles.noteWrapper}>
+          <p className={styles.note}>
+            Ми працюємо з індивідуальними проєктами та не продаємо готові меблі
+          </p>
+        </div>
       </div>
     </section>
   );

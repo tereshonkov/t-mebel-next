@@ -23,7 +23,8 @@
 }
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 0;
   }
 }
 .title {
@@ -39,15 +40,22 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border-radius: 100px;
   box-shadow: var(--box-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 600px) {
+  .card {
+    padding: 12px;
+  }
 }
 .icon {
   font-size: 40px;
   color: var(--text-color-secondary);
-
-  transition: color 0.3s ease;
+}
+@media (max-width: 600px) {
+  .icon {
+    font-size: 20px;
+  }
 }
 .content {
   display: flex;
@@ -64,16 +72,46 @@
   margin-bottom: 24px;
   text-transform: uppercase;
 }
+@media (max-width: 600px) {
+  .content h3 {
+    font-size: var(--text-header-h4);
+  }
+}
 .content p {
   font-size: var(--text-regular);
   color: var(--text-color-secondary);
   font-style: italic;
 }
+@media (max-width: 600px) {
+  .content p {
+    font-size: var(--text-small);
+  }
+}
 .note {
   font-size: var(--text-regular);
   color: var(--text-color-secondary);
   text-align: center;
-  margin-top: 16px;
   font-style: italic;
   font-weight: 700;
+}
+.noteWrapper {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding: 1rem;
+  border: 1px solid var(--text-color-secondary);
+  border-radius: 20px;
+  background-color: bisque;
+}
+@media (max-width: 600px) {
+  .noteWrapper {
+    width: 100%;
+  }
+}
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

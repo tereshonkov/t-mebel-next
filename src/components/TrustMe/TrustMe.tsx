@@ -3,6 +3,7 @@ import { FaCalculator } from "react-icons/fa";
 import { GoProjectRoadmap } from "react-icons/go";
 import { MdOutlineControlCamera } from "react-icons/md";
 import { GiGreatPyramid } from "react-icons/gi";
+import { FaHandshakeAngle } from "react-icons/fa6";
 
 export default function TrustMe() {
   return (
@@ -29,7 +30,7 @@ export default function TrustMe() {
         </div>
       </div>
       <div className={styles.card}>
-        <GiGreatPyramid className={styles.icon} size={60} />
+        <FaHandshakeAngle className={styles.icon} size={60} />
         <div className={styles.content}>
           <h3>Відповідальність</h3>
           <p>Від проєкту до монтажу</p>
