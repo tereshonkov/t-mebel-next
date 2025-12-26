@@ -4,6 +4,8 @@ import { MdSelfImprovement } from "react-icons/md";
 import { FaPenRuler } from "react-icons/fa6";
 import { GiProgression } from "react-icons/gi";
 import styles from "./WhyYou.module.css";
+import PopupForm from "../PopupForm/PopupForm";
+
 export default function WhyYou() {
   return (
     <section className={styles.wrapper}>
@@ -43,6 +45,11 @@ export default function WhyYou() {
           <p className={styles.note}>
             Ми працюємо з індивідуальними проєктами та не продаємо готові меблі
           </p>
+          <PopupForm 
+            triggerLabel="Отримати консультацію"
+            useDefaultTriggerStyles={false}
+            triggerClassName={styles.ctaButton}
+          />
         </div>
       </div>
     </section>
