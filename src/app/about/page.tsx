@@ -1,10 +1,10 @@
-import Hero from "@/components/Hero/Hero"
 import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 import About from "@/components/About/About"
 import Reviews from "@/components/Reviews/Reviews"
 import { Metadata } from "next"
 import messages from '@/messages/uk.json';
+import PageHeader from "@/components/PageHeader/PageHeader"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = (key: string) => messages.seoAbout[key as keyof typeof messages.seoAbout];
@@ -39,7 +39,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function page() {
   return (
     <div className="container">
-      <Hero startIndex={3} />
+      <PageHeader 
+        title={messages.aboutUsPage.title}
+        subtitle={messages.aboutUsPage.text1}
+      />
       <main className="main-service">
         <About />
         <Reviews />

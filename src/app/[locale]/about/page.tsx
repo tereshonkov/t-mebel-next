@@ -1,10 +1,10 @@
-import Hero from "@/components/Hero/Hero"
 import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 import About from "@/components/About/About"
 import Reviews from "@/components/Reviews/Reviews"
 import { Metadata } from "next"
 import { getTranslations } from 'next-intl/server';
+import PageHeader from "@/components/PageHeader/PageHeader"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -37,10 +37,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 
-export default function page() {
+export default async function page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'aboutUsPage' });
+  
   return (
     <div className="container">
-      <Hero startIndex={3} />
+      <PageHeader 
+        title={t('title')}
+        subtitle={t('text1')}
+      />
       <main className="main-service">
         <About />
         <Reviews />

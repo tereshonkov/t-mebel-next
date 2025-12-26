@@ -1,10 +1,9 @@
-import Hero from "@/components/Hero/Hero"
-import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 import Faq from "@/components/Faq/Faq"
-import Contacts from "@/components/Contacts/Contact"
 import { Metadata } from "next"
 import messages from '@/messages/uk.json';
+import PageHeader from "@/components/PageHeader/PageHeader"
+import ContactsPage from "@/components/ContactsPage/ContactsPage"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = (key: string) => messages.seoContact[key as keyof typeof messages.seoContact];
@@ -39,11 +38,13 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function page() {
   return (
     <div className="container">
-      <Hero startIndex={4} />
+      <PageHeader 
+        title={messages.contactPage.contactTitle}
+        subtitle="Зв'яжіться з нами будь-яким зручним способом. Ми завжди раді вам допомогти!"
+      />
       <main className="main-service">
-        <Contacts />
+        <ContactsPage />
         <Faq />
-        <Form />
       </main>
       <Footer />
     </div>

@@ -1,10 +1,9 @@
-import Hero from "@/components/Hero/Hero"
-import Form from "@/components/Form/Form"
 import Footer from "@/components/Footer/Footer"
 import Faq from "@/components/Faq/Faq"
-import Contacts from "@/components/Contacts/Contact"
 import { Metadata } from "next"
 import { getTranslations } from 'next-intl/server';
+import PageHeader from "@/components/PageHeader/PageHeader"
+import ContactsPage from "@/components/ContactsPage/ContactsPage"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -37,14 +36,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 
-export default function page() {
+export default async function page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'contactPage' });
+  
   return (
     <div className="container">
-      <Hero startIndex={4} />
+      <PageHeader 
+        title={t('contactTitle')}
+        subtitle={locale === 'uk' ? "Зв'яжіться з нами будь-яким зручним способом. Ми завжди раді вам допомогти!" : locale === 'en' ? "Contact us in any convenient way. We are always happy to help you!" : "Свяжитесь с нами любым удобным способом. Мы всегда рады вам помочь!"}
+      />
       <main className="main-service">
-        <Contacts />
+        <ContactsPage />
         <Faq />
-        <Form />
       </main>
       <Footer />
     </div>
