@@ -7,11 +7,13 @@ import { toast } from 'react-hot-toast';
 interface PopupFormProps {
   triggerLabel?: string;
   triggerClassName?: string;
+  useDefaultTriggerStyles?: boolean;
 }
 
 export default function PopupForm({
   triggerLabel = 'Записатися на консультацію',
   triggerClassName,
+  useDefaultTriggerStyles = true,
 }: PopupFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });
@@ -72,7 +74,10 @@ export default function PopupForm({
     setFormData({ name: '', phone: '' });
   };
 
-  const triggerClasses = [styles.triggerButton, triggerClassName]
+  const triggerClasses = [
+    useDefaultTriggerStyles ? styles.triggerButton : null,
+    triggerClassName,
+  ]
     .filter(Boolean)
     .join(' ');
 
