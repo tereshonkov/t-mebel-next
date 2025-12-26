@@ -19,7 +19,7 @@ export default function CtaBlock() {
             надійність фурнітури та реальний бюджет — без прихованих платежів на
             етапі монтажу
           </p>
-          <Button>Отримати розрахунок</Button>
+          <Button className={styles.ctaButton}>Отримати розрахунок</Button>
         </div>
       </div>
     </section>
