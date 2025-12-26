@@ -1,10 +1,12 @@
+"use client";
+
 import styles from "./Contact.module.css";
 import Link from "next/link";
 import FormContact from "./FormContact";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-export default async function Contact() {
-    const t = await getTranslations("contactPage");
+export default function Contact() {
+    const t = useTranslations("contactPage");
   return (
     <section className={styles.wrapper}>
       <div className={styles.contact}>

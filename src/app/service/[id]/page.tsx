@@ -4,7 +4,7 @@ import FullPage from "@/components/FullPageCard/FullPage";
 import Hero from "@/components/Hero/Hero";
 import { use } from "react";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import messages from '@/messages/uk.json';
 
 export async function generateMetadata({
   params,
@@ -12,8 +12,9 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const locale = "uk";
-  const t = await getTranslations({ locale, namespace: `data_${id}` });
+  const locale = "uk"; // Default locale for non-localized routes
+  const messagesData = messages as any;
+  const t = (key: string) => messagesData[`data_${id}`]?.[key] || key;
 
   const baseUrl = "https://t-mebel.com.ua";
   const path = `/product/${id}`;

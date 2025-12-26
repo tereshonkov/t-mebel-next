@@ -4,15 +4,14 @@ import Footer from "@/components/Footer/Footer"
 import About from "@/components/About/About"
 import Reviews from "@/components/Reviews/Reviews"
 import { Metadata } from "next"
-import { getTranslations } from 'next-intl/server';
+import messages from '@/messages/uk.json';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = 'uk';
-  const t = await getTranslations({ locale, namespace: 'seoAbout' });
+  const t = (key: string) => messages.seoAbout[key as keyof typeof messages.seoAbout];
+  const locale = 'uk'; // Default locale for non-localized routes
 
   const baseUrl = 'https://t-mebel.com.ua';
   const path = '/about';
-//   const canonical = `${baseUrl}/${locale}${path}`;
 
   return {
     title: t('title'),
@@ -24,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'T-Mebel',
       locale,
     },
-        alternates: {
+    alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
         uk: `${baseUrl}${path}`,
@@ -37,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 
-export default function page() {
+export default async function page() {
   return (
     <div className="container">
       <Hero startIndex={3} />

@@ -5,11 +5,11 @@ import TrustMe from "@/components/TrustMe/TrustMe";
 import Form from "@/components/Form/Form";
 import Footer from "@/components/Footer/Footer";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import messages from '@/messages/uk.json';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = "uk";
-  const t = await getTranslations({ locale, namespace: "seoPortfolio" });
+  const t = (key: string) => messages.seoPortfolio[key as keyof typeof messages.seoPortfolio];
+  const locale = "uk"; // Default locale for non-localized routes
 
   const baseUrl = "https://t-mebel.com.ua";
   const path = "/service";
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function page() {
+export default async function page() {
   return (
     <div className="container">
       <PageHeader 

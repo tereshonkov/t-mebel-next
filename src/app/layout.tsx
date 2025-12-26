@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
+import { NextIntlClientProvider } from 'next-intl';
+import messages from '@/messages/uk.json';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -39,10 +41,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${montserrat.variable}`}>
-        <SpeedInsights />
-        <Analytics />
-        <Toaster position="top-right" reverseOrder={false} />
-        {children}
+        <NextIntlClientProvider locale="uk" messages={messages}>
+          <SpeedInsights />
+          <Analytics />
+          <Toaster position="top-right" reverseOrder={false} />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ import Faq from "@/components/Faq/Faq";
 import Form from "@/components/Form/Form";
 import Footer from "@/components/Footer/Footer";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import messages from '@/messages/uk.json';
 import PopapClientWrapper from "@/components/Popap/PopapClientWrapper";
 import WhyYou from "@/components/WhyYou/WhyYou";
 import TrustMe from "@/components/TrustMe/TrustMe";
@@ -15,8 +15,8 @@ import CtaBlock from "@/components/CtaBlock/CtaBlock";
 import ContactForm from "@/components/ContactForm/ContactForm";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = "uk";
-  const t = await getTranslations({ locale, namespace: "seoHome" });
+  const t = (key: string) => messages.seoHome[key as keyof typeof messages.seoHome];
+  const locale = "uk"; // Default locale for non-localized routes
 
   const baseUrl = "https://t-mebel.com.ua";
 

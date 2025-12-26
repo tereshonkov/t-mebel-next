@@ -4,11 +4,11 @@ import Footer from "@/components/Footer/Footer"
 import Faq from "@/components/Faq/Faq"
 import Contacts from "@/components/Contacts/Contact"
 import { Metadata } from "next"
-import { getTranslations } from 'next-intl/server';
+import messages from '@/messages/uk.json';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale  = 'uk';
-  const t = await getTranslations({ locale, namespace: 'seoContact' });
+  const t = (key: string) => messages.seoContact[key as keyof typeof messages.seoContact];
+  const locale = 'uk'; // Default locale for non-localized routes
 
   const baseUrl = 'https://t-mebel.com.ua';
   const path = '/contacts';
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 
-export default function page() {
+export default async function page() {
   return (
     <div className="container">
       <Hero startIndex={4} />

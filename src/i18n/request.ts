@@ -7,7 +7,13 @@ import en from '../messages/en.json';
 
 export default getRequestConfig(async ({requestLocale}) => {
   // Typically corresponds to the `[locale]` segment
-  const requested = await requestLocale;
+  let requested = await requestLocale;
+  
+  // For routes without [locale] segment, use default locale
+  if (!requested) {
+    requested = routing.defaultLocale;
+  }
+  
   const locale = hasLocale(routing.locales, requested)
     ? requested
     : routing.defaultLocale;
