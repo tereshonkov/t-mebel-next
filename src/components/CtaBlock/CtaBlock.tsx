@@ -7,7 +7,7 @@ export default function CtaBlock() {
       <div className={styles.container}>
         <div className={styles.image}>
           <img
-            src="http://localhost:3000/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Ft-mebel%2FImage%2FourPage%2Fmodal%2Fkitchen%2F4%2Ftablet.webp&w=1080&q=75"
+            src="https://www.t-mebel.com.ua/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Ft-mebel%2FImage%2FourPage%2Fmodal%2Fkitchen%2F4%2Ftablet.webp&w=1080&q=75"
             alt="кухня мдф крашеный глянцевый"
           />
         </div>
