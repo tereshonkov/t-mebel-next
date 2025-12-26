@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
-import Image from "next/image";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
