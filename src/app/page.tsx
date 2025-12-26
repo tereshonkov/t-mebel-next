@@ -52,8 +52,8 @@ export default function page() {
         {/* <Service /> */}
         <Furniture home={true} />
         <CtaBlock />
-        <Rewies />
         <Logo />
+        <Rewies />
         <Faq />
         <Form />
       </main>
