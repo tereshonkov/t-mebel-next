@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './PopupForm.module.css';
 import { toast } from 'react-hot-toast';
 
@@ -17,6 +18,11 @@ export default function PopupForm({
 }: PopupFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
     const sendMessage = async () => {
     const data = {
@@ -81,6 +87,67 @@ export default function PopupForm({
     .filter(Boolean)
     .join(' ');
 
+  const modalContent = isOpen && mounted ? (
+    <div
+      className={styles.backdrop}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="popup-form-title"
+    >
+      <div className={styles.modal}>
+        <button
+          type="button"
+          className={styles.closeButton}
+          onClick={closeForm}
+          aria-label="Закрити форму"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div className={styles.header}>
+          <p className={styles.pill}>Індивідуальний прорахунок</p>
+          <h3 id="popup-form-title">Залиште контакти</h3>
+          <p className={styles.subtitle}>
+            Підготуємо точний кошторис та надішлемо перші ескізи вже сьогодні.
+          </p>
+        </div>
+
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.field}>
+            <span>Ваше ім&apos;я</span>
+            <input
+              name="name"
+              type="text"
+              placeholder="Марія"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <label className={styles.field}>
+            <span>Телефон</span>
+            <input
+              name="phone"
+              type="tel"
+              placeholder="+38 (0_) ___ __ __"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <button type="submit" className={styles.submitButton}>
+            Надіслати заявку
+          </button>
+          <p className={styles.note}>
+            Менеджер зателефонує, щоб узгодити деталі та варіанти матеріалів.
+          </p>
+        </form>
+      </div>
+    </div>
+  ) : null;
+
   return (
     <>
       <button
@@ -91,66 +158,7 @@ export default function PopupForm({
         {triggerLabel}
       </button>
 
-      {isOpen && (
-        <div
-          className={styles.backdrop}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="popup-form-title"
-        >
-          <div className={styles.modal}>
-            <button
-              type="button"
-              className={styles.closeButton}
-              onClick={closeForm}
-              aria-label="Закрити форму"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-
-            <div className={styles.header}>
-              <p className={styles.pill}>Індивідуальний прорахунок</p>
-              <h3 id="popup-form-title">Залиште контакти</h3>
-              <p className={styles.subtitle}>
-                Підготуємо точний кошторис та надішлемо перші ескізи вже сьогодні.
-              </p>
-            </div>
-
-            <form className={styles.form} onSubmit={handleSubmit}>
-              <label className={styles.field}>
-                <span>Ваше ім&apos;я</span>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Марія"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-
-              <label className={styles.field}>
-                <span>Телефон</span>
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="+38 (0_) ___ __ __"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-
-              <button type="submit" className={styles.submitButton}>
-                Надіслати заявку
-              </button>
-              <p className={styles.note}>
-                Менеджер зателефонує, щоб узгодити деталі та варіанти матеріалів.
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
+      {mounted && modalContent && createPortal(modalContent, document.body)}
     </>
   );
 }
