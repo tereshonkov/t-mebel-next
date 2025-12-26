@@ -1,9 +1,11 @@
+"use client";
+
 import styles from "./Form.module.css";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import PopupForm from "../PopupForm/PopupForm";
 
-export default async function Form() {
-  const t = await getTranslations("form");
+export default function Form() {
+  const t = useTranslations("form");
   return (
     <section className={styles.wrapper}>
       <div className={styles.container}>
@@ -12,17 +14,17 @@ export default async function Form() {
             {t('titleRegular')} <span>{t('titleBold')}</span>{t('titleRegularTwo')}<span>{t('titleBoldTwo')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Безкоштовна консультація, виїзд дизайнера та розрахунок вартості проєкту
+            {t('subtitle')}
           </p>
         </div>
         <div className={styles.buttonWrapper}>
           <PopupForm 
-            triggerLabel="Замовити консультацію"
+            triggerLabel={t('ctaButton')}
             useDefaultTriggerStyles={false}
             triggerClassName={styles.ctaButton}
           />
           <p className={styles.note}>
-            ⚡ Відповімо протягом 15 хвилин
+            {t('note')}
           </p>
         </div>
       </div>

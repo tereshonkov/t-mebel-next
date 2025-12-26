@@ -1,3 +1,5 @@
+"use client";
+
 import { MdApartment } from "react-icons/md";
 import { PiHouseLineFill } from "react-icons/pi";
 import { MdSelfImprovement } from "react-icons/md";
@@ -5,48 +7,51 @@ import { FaPenRuler } from "react-icons/fa6";
 import { GiProgression } from "react-icons/gi";
 import styles from "./WhyYou.module.css";
 import PopupForm from "../PopupForm/PopupForm";
+import { useTranslations } from "next-intl";
 
 export default function WhyYou() {
+  const t = useTranslations("whyYou");
+  
   return (
     <section className={styles.wrapper}>
-      <h2 className={styles.title}>Кому підійдуть наші меблі</h2>
+      <h2 className={styles.title}>{t("title")}</h2>
       <div className={styles.grid}>
         <div className={styles.card}>
           <MdApartment size={60} className={styles.icon} />
           <div className={styles.content}>
-            <h3>Для власників квартир</h3>
-            <p>Після ремонту або на етапі планування</p>
+            <h3>{t("apartmentTitle")}</h3>
+            <p>{t("apartmentDesc")}</p>
           </div>
         </div>
         <div className={styles.card}>
           <PiHouseLineFill size={60} className={styles.icon} />
           <div className={styles.content}>
-            <h3>Для приватних будинків</h3>
-            <p>Кухні, гардеробні, шафи та інші індивідуальні рішення</p>
+            <h3>{t("houseTitle")}</h3>
+            <p>{t("houseDesc")}</p>
           </div>
         </div>
         <div className={styles.card}>
           <FaPenRuler size={60} className={styles.icon} />
           <div className={styles.content}>
-            <h3>Для тих, хто хоче результат</h3>
-            <p>Не готові до типових рішень з магазину</p>
+            <h3>{t("resultTitle")}</h3>
+            <p>{t("resultDesc")}</p>
           </div>
         </div>
         <div className={styles.card}>
           <GiProgression size={60} className={styles.icon} />
           <div className={styles.content}>
-            <h3>Для клієнтів, які цінують процес</h3>
-            <p>Зрозумілі етапи, терміни та розрахунок</p>
+            <h3>{t("processTitle")}</h3>
+            <p>{t("processDesc")}</p>
           </div>
         </div>
       </div>
       <div className={styles.bottom}>
         <div className={styles.noteWrapper}>
           <p className={styles.note}>
-            Ми працюємо з індивідуальними проєктами та не продаємо готові меблі
+            {t("note")}
           </p>
           <PopupForm 
-            triggerLabel="Отримати консультацію"
+            triggerLabel={t("ctaButton")}
             useDefaultTriggerStyles={false}
             triggerClassName={styles.ctaButton}
           />

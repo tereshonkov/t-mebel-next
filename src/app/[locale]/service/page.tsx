@@ -40,12 +40,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 
 
-export default function page() {
+export default async function page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'servicePage' });
+  
   return (
     <div className="container">
       <PageHeader 
-        title="Наші роботи" 
-        subtitle="Індивідуальні меблі, створені з любов'ю до деталей. Кожен проєкт — унікальний."
+        title={t('title')}
+        subtitle={t('subtitle')}
       />
       <main className="main-service">
         <Furniture />

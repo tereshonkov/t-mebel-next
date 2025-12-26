@@ -1,7 +1,12 @@
+"use client";
+
 import PopupForm from "../PopupForm/PopupForm";
 import styles from "./CtaBlock.module.css";
+import { useTranslations } from "next-intl";
 
 export default function CtaBlock() {
+  const t = useTranslations("ctaBlock");
+  
   return (
     <section className={styles.wrapper}>
       <div className={styles.container}>
@@ -12,16 +17,13 @@ export default function CtaBlock() {
           />
         </div>
         <div className={styles.content}>
-          <h2>Скільки насправді коштуватимуть ваші меблі?</h2>
+          <h2>{t("title")}</h2>
           <p>
-            Типові ціни за погонний метр часто вводять в оману. Ми підготуємо
-            персональну пропозицію, де врахуємо кожен міліметр вашого простору,
-            надійність фурнітури та реальний бюджет — без прихованих платежів на
-            етапі монтажу
+            {t("description")}
           </p>
           <PopupForm
             triggerClassName={styles.ctaButton}
-            triggerLabel="Отримати розрахунок"
+            triggerLabel={t("button")}
           />
         </div>
       </div>

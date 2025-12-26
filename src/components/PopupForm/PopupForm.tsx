@@ -4,6 +4,7 @@ import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './PopupForm.module.css';
 import { toast } from 'react-hot-toast';
+import { useTranslations } from 'next-intl';
 
 interface PopupFormProps {
   triggerLabel?: string;
@@ -12,10 +13,11 @@ interface PopupFormProps {
 }
 
 export default function PopupForm({
-  triggerLabel = 'Записатися на консультацію',
+  triggerLabel,
   triggerClassName,
   useDefaultTriggerStyles = true,
 }: PopupFormProps) {
+  const t = useTranslations('popupForm');
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });
   const [mounted, setMounted] = useState(false);
@@ -36,9 +38,9 @@ export default function PopupForm({
         body: JSON.stringify(data),
       }),
       {
-        loading: "Отправка сообщения...",
-        success: "Сообщение отправлено!",
-        error: "Ошибка при отправке",
+        loading: t('sending'),
+        success: t('success'),
+        error: t('error'),
       }
     );
   };
@@ -99,26 +101,26 @@ export default function PopupForm({
           type="button"
           className={styles.closeButton}
           onClick={closeForm}
-          aria-label="Закрити форму"
+          aria-label={t('closeButton')}
         >
           <span aria-hidden="true">&times;</span>
         </button>
 
         <div className={styles.header}>
-          <p className={styles.pill}>Індивідуальний прорахунок</p>
-          <h3 id="popup-form-title">Залиште контакти</h3>
+          <p className={styles.pill}>{t('pill')}</p>
+          <h3 id="popup-form-title">{t('formTitle')}</h3>
           <p className={styles.subtitle}>
-            Підготуємо точний кошторис та надішлемо перші ескізи вже сьогодні.
+            {t('formSubtitle')}
           </p>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <label className={styles.field}>
-            <span>Ваше ім&apos;я</span>
+            <span>{t('nameLabel')}</span>
             <input
               name="name"
               type="text"
-              placeholder="Марія"
+              placeholder={t('namePlaceholder')}
               value={formData.name}
               onChange={handleChange}
               required
@@ -126,11 +128,11 @@ export default function PopupForm({
           </label>
 
           <label className={styles.field}>
-            <span>Телефон</span>
+            <span>{t('phoneLabel')}</span>
             <input
               name="phone"
               type="tel"
-              placeholder="+38 (0_) ___ __ __"
+              placeholder={t('phonePlaceholder')}
               value={formData.phone}
               onChange={handleChange}
               required
@@ -138,10 +140,10 @@ export default function PopupForm({
           </label>
 
           <button type="submit" className={styles.submitButton}>
-            Надіслати заявку
+            {t('submitButton')}
           </button>
           <p className={styles.note}>
-            Менеджер зателефонує, щоб узгодити деталі та варіанти матеріалів.
+            {t('note')}
           </p>
         </form>
       </div>
@@ -155,7 +157,7 @@ export default function PopupForm({
         className={triggerClasses}
         onClick={() => setIsOpen(true)}
       >
-        {triggerLabel}
+        {triggerLabel || t('triggerButton')}
       </button>
 
       {mounted && modalContent && createPortal(modalContent, document.body)}

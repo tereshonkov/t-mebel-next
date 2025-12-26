@@ -60,7 +60,11 @@
     "titleBold": "free ",
     "titleRegularTwo": "consultation ",
     "titleBoldTwo": "today!",
-    "btn": "Call us"
+    "btn": "Call us",
+    "subtitle": "Free consultation, designer visit and project cost estimate",
+    "badge": "20+ years of experience in furniture manufacturing",
+    "ctaButton": "Order consultation",
+    "note": "⚡ We will respond within 15 minutes"
   },
   "footer": {
     "title": "Custom furniture — convenient. stylish. personalized.",
@@ -213,6 +217,10 @@
     "title": "Our Works — Custom Furniture in Kharkiv",
     "description": "Our works: wardrobes, kitchens, bedrooms, furniture for shops and other spaces in Kharkiv. High-quality custom furniture manufacturing."
   },
+  "servicePage": {
+    "title": "Our Works",
+    "subtitle": "Custom furniture created with love for details. Each project is unique."
+  },
   "label": {
     "prev": "Previous",
     "next": "Next"
@@ -234,5 +242,78 @@
     "btn": "Get Consultation",
     "or": "You can also call us at",
     "tel": "Or call us"
+  },
+  "whyYou": {
+    "title": "Who our furniture is perfect for",
+    "apartmentTitle": "For apartment owners",
+    "apartmentDesc": "After renovation or at the planning stage",
+    "houseTitle": "For private houses",
+    "houseDesc": "Kitchens, wardrobes, closets and other custom solutions",
+    "resultTitle": "For those who want results",
+    "resultDesc": "Not ready for standard store solutions",
+    "processTitle": "For clients who value the process",
+    "processDesc": "Clear stages, deadlines and calculations",
+    "note": "We work with custom projects and do not sell ready-made furniture",
+    "ctaButton": "Get Consultation"
+  },
+  "trustMe": {
+    "calculationTitle": "Clear calculation",
+    "calculationDesc": "Budget before work starts, no surprises",
+    "projectTitle": "Project for your space",
+    "projectDesc": "Furniture for your dimensions and layout",
+    "controlTitle": "Stage control",
+    "controlDesc": "You know what stage the project is at",
+    "responsibilityTitle": "Responsibility",
+    "responsibilityDesc": "From design to installation"
+  },
+  "popupForm": {
+    "triggerButton": "Book a consultation",
+    "title": "Free consultation",
+    "subtitle": "Leave your contacts and we will get back to you within 15 minutes",
+    "pill": "Individual calculation",
+    "formTitle": "Leave your contacts",
+    "formSubtitle": "We will prepare an accurate estimate and send the first sketches today",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Maria",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "+38 (0_) ___ __ __",
+    "submitButton": "Submit request",
+    "note": "The manager will call to confirm details and material options",
+    "closeButton": "Close form",
+    "sending": "Sending...",
+    "success": "Request sent!",
+    "error": "Sending error"
+  },
+  "contactForm": {
+    "title": "Let's discuss your project",
+    "subtitle": "Leave a request and we will contact you within 15 minutes for a free consultation",
+    "nameLabel": "Your name",
+    "phoneLabel": "Phone",
+    "messageLabel": "Message",
+    "submitButton": "Submit request",
+    "note": "Free consultation and cost estimate",
+    "badgeYears": "20+ years",
+    "badgeExperience": "of experience in furniture manufacturing",
+    "privacy": "By clicking the button, you agree to the",
+    "privacyLink": "privacy policy",
+    "sending": "Sending...",
+    "success": "Request sent!",
+    "error": "Sending error"
+  },
+  "ctaBlock": {
+    "title": "How much will your furniture really cost?",
+    "description": "Standard prices per linear meter are often misleading. We will prepare a personalized offer that takes into account every millimeter of your space, reliable hardware and real budget — no hidden charges at the installation stage",
+    "button": "Get a quote"
+  },
+  "pageHeader": {
+    "backButton": "Back"
+  },
+  "productGallery": {
+    "loading": "Loading...",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "goToPhoto": "Go to photo",
+    "ctaButton": "Order similar project",
+    "note": "Free consultation and cost estimate"
   }
 }

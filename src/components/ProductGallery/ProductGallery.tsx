@@ -5,6 +5,7 @@ import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import styles from "./ProductGallery.module.css";
 import Image from "next/image";
 import PopupForm from "../PopupForm/PopupForm";
+import { useTranslations } from "next-intl";
 
 type Images = {
   url: string;
@@ -32,6 +33,7 @@ interface ProductGalleryProps {
 }
 
 export default function ProductGallery({ id }: ProductGalleryProps) {
+  const t = useTranslations("productGallery");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState<Data | null>(null);
 
@@ -72,7 +74,7 @@ export default function ProductGallery({ id }: ProductGalleryProps) {
   if (!data) {
     return (
       <section className={styles.wrapper}>
-        <div className={styles.container}>
+        <div className={styles.container}>{t("loading")}
           <div className={styles.loading}>Завантаження...</div>
         </div>
       </section>
@@ -101,14 +103,14 @@ export default function ProductGallery({ id }: ProductGalleryProps) {
                 <button 
                   onClick={prevSlide} 
                   className={`${styles.navButton} ${styles.navButtonPrev}`}
-                  aria-label="Попереднє фото"
+                  aria-label={t("prevPhoto")}
                 >
                   <IoChevronBack size={28} />
                 </button>
                 <button 
                   onClick={nextSlide} 
                   className={`${styles.navButton} ${styles.navButtonNext}`}
-                  aria-label="Наступне фото"
+                  aria-label={t("nextPhoto")}
                 >
                   <IoChevronForward size={28} />
                 </button>
@@ -129,7 +131,7 @@ export default function ProductGallery({ id }: ProductGalleryProps) {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ""}`}
-                  aria-label={`Перейти до фото ${index + 1}`}
+                  aria-label={`${t("goToPhoto")} ${index + 1}`}
                 />
               ))}
             </div>
@@ -143,12 +145,12 @@ export default function ProductGallery({ id }: ProductGalleryProps) {
           
           <div className={styles.actions}>
             <PopupForm 
-              triggerLabel="Замовити подібний проєкт"
+              triggerLabel={t("ctaButton")}
               useDefaultTriggerStyles={false}
               triggerClassName={styles.ctaButton}
             />
             <p className={styles.note}>
-              Безкоштовна консультація та розрахунок вартості
+              {t("note")}
             </p>
           </div>
         </div>

@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
+import { useTranslations } from "next-intl";
+import { toast } from "react-hot-toast";
 
 export default function ContactForm() {
+  const t = useTranslations("contactForm");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -33,10 +36,30 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendMessage = async () => {
+    const data = {
+      message: `Сообщение с сайта: Имя: ${formData.name}; Телефон: ${formData.phone}; Сообщение: ${formData.message || 'Нет сообщения'}`,
+    };
+
+    await toast.promise(
+      fetch("https://t-mebel.onrender.com/telegram/send-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }),
+      {
+        loading: t('sending'),
+        success: t('success'),
+        error: t('error'),
+      }
+    );
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Здесь добавьте логику отправки формы
+    await sendMessage();
+    setFormData({ name: "", phone: "", message: "" });
+    setFocused({ name: false, phone: false, message: false });
   };
 
   return (
@@ -44,10 +67,9 @@ export default function ContactForm() {
       <div className={styles.container}>
         <div className={styles.formSection}>
           <div className={styles.formContent}>
-            <h2 className={styles.title}>Давайте обсудимо ваш проєкт</h2>
+            <h2 className={styles.title}>{t("title")}</h2>
             <p className={styles.subtitle}>
-              Залиште заявку, і ми зв'яжемось з вами протягом 15 хвилин для
-              безкоштовної консультації
+              {t("subtitle")}
             </p>
 
             <form className={styles.form} onSubmit={handleSubmit}>
@@ -69,7 +91,7 @@ export default function ContactForm() {
                     focused.name || formData.name ? styles.labelActive : ""
                   }`}
                 >
-                  Ваше ім'я
+                  {t("nameLabel")}
                 </label>
               </div>
 
@@ -91,7 +113,7 @@ export default function ContactForm() {
                     focused.phone || formData.phone ? styles.labelActive : ""
                   }`}
                 >
-                  Телефон
+                  {t("phoneLabel")}
                 </label>
               </div>
 
@@ -114,17 +136,17 @@ export default function ContactForm() {
                       : ""
                   }`}
                 >
-                  Коротко про ваш проєкт
+                  {t("messageLabel")}
                 </label>
               </div>
 
               <button type="submit" className={styles.submitButton}>
-                Отримати консультацію
+                {t("submitButton")}
               </button>
 
               <p className={styles.privacy}>
-                Натискаючи кнопку, ви погоджуєтесь з{" "}
-                <a href="/privacy">політикою конфіденційності</a>
+                {t("privacy")}{" "}
+                <a href="/privacy">{t("privacyLink")}</a>
               </p>
             </form>
           </div>
@@ -141,8 +163,8 @@ export default function ContactForm() {
             <div className={styles.badge}>
               <span className={styles.badgeIcon}>✓</span>
               <div className={styles.badgeText}>
-                <strong>20+ років</strong>
-                <span>досвіду в меблевому виробництві</span>
+                <strong>{t("badgeYears")}</strong>
+                <span>{t("badgeExperience")}</span>
               </div>
             </div>
           </div>

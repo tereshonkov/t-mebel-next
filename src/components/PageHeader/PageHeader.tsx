@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { IoArrowBack } from "react-icons/io5";
 import styles from "./PageHeader.module.css";
+import { useTranslations } from "next-intl";
 
 interface PageHeaderProps {
   title: string;
@@ -11,6 +12,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   const router = useRouter();
+  const t = useTranslations("pageHeader");
 
   return (
     <section className={styles.wrapper}>
@@ -18,10 +20,10 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
         <button 
           onClick={() => router.back()} 
           className={styles.backButton}
-          aria-label="Повернутись назад"
+          aria-label={t("backButton")}
         >
           <IoArrowBack size={20} />
-          <span>Назад</span>
+          <span>{t("backButton")}</span>
         </button>
         <h1 className={styles.title}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
