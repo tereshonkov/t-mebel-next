@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import PopupForm from "../PopupForm/PopupForm";
 import styles from "./CtaBlock.module.css";
 
 export default function CtaBlock() {
@@ -19,7 +19,10 @@ export default function CtaBlock() {
             надійність фурнітури та реальний бюджет — без прихованих платежів на
             етапі монтажу
           </p>
-          <Button className={styles.ctaButton}>Отримати розрахунок</Button>
+          <PopupForm
+            triggerClassName={styles.ctaButton}
+            triggerLabel="Отримати розрахунок"
+          />
         </div>
       </div>
     </section>
