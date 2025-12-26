@@ -100,10 +100,16 @@
 
 @media (max-width: 960px) {
   .container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .image {
+    min-height: 320px;
+    height: 320px;
+  }
+  
+  .image img {
     min-height: 320px;
   }
 

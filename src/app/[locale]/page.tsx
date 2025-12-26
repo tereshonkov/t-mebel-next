@@ -12,6 +12,7 @@ import PopapClientWrapper from "@/components/Popap/PopapClientWrapper";
 import WhyYou from "@/components/WhyYou/WhyYou";
 import TrustMe from "@/components/TrustMe/TrustMe";
 import CtaBlock from "@/components/CtaBlock/CtaBlock";
+import ContactForm from "@/components/ContactForm/ContactForm";
 
 export async function generateMetadata({
   params,
@@ -59,6 +60,7 @@ export default function page() {
         <CtaBlock />
         <Logo />
         <Rewies />
+        <ContactForm />
         <Faq />
         <Form />
       </main>
