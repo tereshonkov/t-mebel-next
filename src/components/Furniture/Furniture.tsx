@@ -9,9 +9,9 @@ export default async function Slider({ home }: { home?: boolean }) {
     <section id="furniture" className={styles.wrapper}>
       {home && <h2 className={styles.title}>{t('title')}</h2>}
       <FurnitureClient limit={home ? 6 : 20} />
-      <div className={styles.link}>
+      {/* <div className={styles.link}>
         {home && <Button link="/service#furniture">{t('btnFurniture')}</Button>}
-      </div>
+      </div> */}
     </section>
   );
 }

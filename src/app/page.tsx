@@ -11,6 +11,7 @@ import { getTranslations } from "next-intl/server";
 import PopapClientWrapper from "@/components/Popap/PopapClientWrapper";
 import WhyYou from "@/components/WhyYou/WhyYou";
 import TrustMe from "@/components/TrustMe/TrustMe";
+import CtaBlock from "@/components/CtaBlock/CtaBlock";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = "uk";
@@ -50,6 +51,7 @@ export default function page() {
         <TrustMe />
         {/* <Service /> */}
         <Furniture home={true} />
+        <CtaBlock />
         <Rewies />
         <Logo />
         <Faq />
