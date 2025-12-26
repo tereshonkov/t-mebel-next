@@ -153,15 +153,12 @@
   }
 }
 @media (max-width: 480px) {
-  .menuMobile {
-    display: none;
+  .header {
+    padding: 0 10px;
   }
   .nav {
-    /* position: absolute;
-    right: -10px;
-    top: 0;
-    max-width: 40%; */
-    display: none;
+    max-width: 50%;
+    min-height: 50px;
   }
   .navMobile {
     max-height: 100dvh;
