@@ -15,15 +15,20 @@ export type Images = {
 };
 
 export type Data = {
-  id: number;
+  id?: number;
   title: string;
   description: string;
-  color: string;
-  furnitures: string;
+  color?: string;
+  furnitures?: string;
   images: Images[];
   width?: number;
   height?: number;
   rating?: number;
   category?: "KITCHEN" | "WARDROBE" | "STORE" | "BEDROOM";
   reviews?: Review[];
+  translations?: {
+    ru?: { title: string; description: string };
+    uk?: { title: string; description: string };
+    en?: { title: string; description: string };
+  };
 };
