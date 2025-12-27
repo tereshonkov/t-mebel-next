@@ -5,6 +5,7 @@ import { FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import toast from "react-hot-toast";
 import { sendMessageApi } from "@/api/messages";
+import { reportConversion } from "@/utils/gtagConversion";
 interface FormData {
   name: string;
   phone: string;
@@ -40,6 +41,7 @@ export default function FormContact() {
     e.preventDefault();
     await sendMessage();
     await sendMessageApi(formData);
+    reportConversion();
     console.log("Form submitted:", formData);
     setFormData({
       name: "",

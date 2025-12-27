@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { sendMessageApi } from "@/api/messages";
+import { reportConversion } from "@/utils/gtagConversion";
 
 interface InputState {
   name: string;
@@ -59,6 +60,7 @@ export default function Popap() {
     e.preventDefault();
     await sendMessage();
     await sendMessageApi({name: input.name, phone: input.phone, message: "скидка 10%"});
+    reportConversion();
     console.log(input);
     setInput({ name: "", phone: "" });
     setIsOpen(false);
