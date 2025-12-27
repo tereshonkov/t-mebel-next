@@ -39,11 +39,21 @@ export default function Popap() {
   };
   useEffect(() => {
     if (sessionStorage.getItem("popapShown")) return;
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-      sessionStorage.setItem("popapShown", "true");
-    }, 15000);
-    return () => clearTimeout(timer);
+    
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = (scrolled / height) * 100;
+      
+      if (scrollPercentage >= 50) {
+        setIsOpen(true);
+        sessionStorage.setItem("popapShown", "true");
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
