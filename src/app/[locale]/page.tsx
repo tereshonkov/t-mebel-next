@@ -13,6 +13,7 @@ import WhyYou from "@/components/WhyYou/WhyYou";
 import TrustMe from "@/components/TrustMe/TrustMe";
 import CtaBlock from "@/components/CtaBlock/CtaBlock";
 import ContactForm from "@/components/ContactForm/ContactForm";
+import AnimatedSection from "@/components/AnimatedSection/AnimatedSection";
 
 export async function generateMetadata({
   params,
@@ -53,16 +54,34 @@ export default function page() {
       <Hero startIndex={0} home={true} />
       <main>
         <PopapClientWrapper />
-        <WhyYou />
-        <TrustMe />
+        <AnimatedSection>
+          <WhyYou />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <TrustMe />
+        </AnimatedSection>
         {/* <Service /> */}
-        <Furniture home={true} />
-        <CtaBlock />
-        <Logo />
-        <Rewies />
-        <ContactForm />
-        <Faq />
-        <Form />
+        <AnimatedSection delay={100}>
+          <Furniture home={true} />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <CtaBlock />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Logo />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Rewies />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <ContactForm />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Faq />
+        </AnimatedSection>
+        <AnimatedSection delay={100}>
+          <Form />
+        </AnimatedSection>
       </main>
       <Footer />
     </div>
