@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { login } from "@/api/auth";
@@ -17,6 +17,22 @@ export default function LoginForm() {
     email: "",
     password: "",
   });
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
+
+  // Загрузка сохраненных данных при монтировании
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("savedEmail");
+    const savedPassword = localStorage.getItem("savedPassword");
+    const savedRemember = localStorage.getItem("rememberMe") === "true";
+
+    if (savedRemember && savedEmail) {
+      setValue({
+        email: savedEmail,
+        password: savedPassword || "",
+      });
+      setRememberMe(true);
+    }
+  }, []);
 
   const onSubmit = async (): Promise<void> => {
     try {
@@ -25,6 +41,18 @@ export default function LoginForm() {
         success: "Вход разрешен!",
         error: (err: unknown) => `Ошибка при входе: ${(err as Error).message}`,
       });
+      
+      // Сохранение данных если включен "Запомнить меня"
+      if (rememberMe) {
+        localStorage.setItem("savedEmail", value.email);
+        localStorage.setItem("savedPassword", value.password);
+        localStorage.setItem("rememberMe", "true");
+      } else {
+        localStorage.removeItem("savedEmail");
+        localStorage.removeItem("savedPassword");
+        localStorage.removeItem("rememberMe");
+      }
+      
       localStorage.setItem("token", token);
       router.push("/admin");
     } catch (error: unknown) {
@@ -115,6 +143,19 @@ export default function LoginForm() {
               placeholder="••••••••"
               required
             />
+          </div>
+
+          <div className={styles.checkboxGroup}>
+            <input
+              id="rememberMe"
+              type="checkbox"
+              className={styles.checkbox}
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+            <label htmlFor="rememberMe" className={styles.checkboxLabel}>
+              Запомнить меня
+            </label>
           </div>
 
           <button type="submit" className={styles.button}>
