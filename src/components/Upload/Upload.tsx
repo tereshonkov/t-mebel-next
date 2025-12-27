@@ -28,9 +28,10 @@ export default function Upload({ files, setFiles }: UploadProps) {
           multiple
           ref={refContainer}
           type="file"
+          accept="image/*"
           hidden
         />
-        <p>Нажать для загрузки</p>
+        <p>📷 Нажмите для загрузки изображений</p>
       </div>
 
       {files.length > 0 && (
@@ -40,8 +41,7 @@ export default function Upload({ files, setFiles }: UploadProps) {
             return (
               <div key={index} className={styles.file}>
                 <Image
-                  width={100}
-                  height={100}
+                  fill
                   src={imageUrl}
                   alt={file.name}
                   className={styles.image}

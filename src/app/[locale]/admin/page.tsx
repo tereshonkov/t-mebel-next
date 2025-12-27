@@ -29,23 +29,34 @@ export default function Admin() {
   if (!tokenChecked) return null;
 
   return (
-    <Box display="flex" minHeight="100vh" px={5}>
+    <Box 
+      display="flex" 
+      minHeight="100vh" 
+      px={5} 
+      py={4}
+      sx={{
+        background: (theme) => 
+          theme.palette.mode === "light"
+            ? "linear-gradient(135deg, rgba(255, 235, 214, 1) 0%, rgba(247, 210, 173, 1) 50%, rgba(255, 235, 214, 1) 100%)"
+            : "#0d0a08",
+      }}
+    >
       {/* Main content */}
       <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
       <HeaderAdmin />
-        <Box sx={{ mb: 2, borderRadius: 48, display: "flex", flexDirection: "row" }}>
+        <Box sx={{ mb: 2, display: "flex", flexDirection: "row", gap: 3 }}>
         <Sidebar />
           <Box
             sx={(theme) => ({
               backgroundColor:
                 theme.palette.mode === "light"
-                  ? "#fff"
-                  : "linear-gradient(180deg, #0F123B 0%, #090D2E 59%, #020515 100%)",
+                  ? "rgba(254, 247, 240, 0.6)"
+                  : "linear-gradient(180deg, #2a1f18 0%, #1a1410 100%)",
               height: "100%",
-              borderRadius: 2,
-              p: 5,
+              borderRadius: 3,
+              p: 4,
               width: "100%",
-              ml: 5,
+              boxShadow: "0 8px 24px rgba(56, 29, 12, 0.08)",
             })}
           >
             {page.analitycs && <AnaliticsPage />}

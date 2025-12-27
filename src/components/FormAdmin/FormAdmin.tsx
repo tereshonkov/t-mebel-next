@@ -7,28 +7,32 @@ import {
   Select,
   MenuItem,
   Button,
+  Typography,
+  Paper,
 } from "@mui/material";
 import Upload from "@/components/Upload/Upload";
 import { useForm } from "react-hook-form";
-import { Data } from "@/types/data";
 import { useState } from "react";
 import { uploadImage } from "@/api/images";
 import { createProduct } from "@/api/product";
 
+interface ProductFormData {
+  titleRu: string;
+  titleUk: string;
+  titleEn: string;
+  descriptionRu: string;
+  descriptionUk: string;
+  descriptionEn: string;
+  category: "KITCHEN" | "WARDROBE" | "STORE" | "BEDROOM";
+}
+
 export default function FormAdmin() {
   const [files, setFiles] = useState<File[]>([]);
-  const { register, handleSubmit, formState } = useForm<Data>({
+  const { register, handleSubmit, formState } = useForm<ProductFormData>({
     mode: "onBlur",
   });
 
-  const titleError = formState.errors.title?.message;
-  const descriptionError = formState.errors.description?.message;
-  const colorError = formState.errors.color?.message;
-  const furnituresError = formState.errors.furnitures?.message;
-  const widthError = formState.errors.width?.message;
-  const heightError = formState.errors.height?.message;
-  const categoryError = formState.errors.category?.message;
-  const ratingError = formState.errors.rating?.message;
+  const { errors } = formState;
 
   const handleImageUpload = async () => {
     if (files.length === 0) return;
@@ -46,14 +50,27 @@ export default function FormAdmin() {
     }
   };
 
-  const onSubmit = async (data: Data) => {
+  const onSubmit = async (data: ProductFormData) => {
     const filesUrls = await handleImageUpload();
     console.log("OnSubmit", filesUrls);
     const productData = {
-      ...data,
-      width: Number(data.width),
-      height: Number(data.height),
-      rating: Number(data.rating),
+      title: data.titleRu, // основное название (русский по умолчанию)
+      description: data.descriptionRu, // основное описание
+      category: data.category,
+      translations: {
+        ru: {
+          title: data.titleRu,
+          description: data.descriptionRu,
+        },
+        uk: {
+          title: data.titleUk,
+          description: data.descriptionUk,
+        },
+        en: {
+          title: data.titleEn,
+          description: data.descriptionEn,
+        },
+      },
       images: filesUrls.map((url: string, index: number) => ({ url, isCover: index === 0 })),
     };
     try {
@@ -67,134 +84,203 @@ export default function FormAdmin() {
   };
 
   return (
-    <>
-      <Box
-        onSubmit={handleSubmit(onSubmit)}
-        component="form"
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: 1000,
+        margin: "0 auto",
+        p: 4,
+      }}
+    >
+      <Paper
+        elevation={0}
         sx={{
-          mb: 2,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          flexGrow: 1,
-          alignSelf: "center",
-          gap: 2,
-          width: "100%",
+          p: 4,
+          borderRadius: 3,
+          background: (theme) =>
+            theme.palette.mode === "light"
+              ? "linear-gradient(155deg, rgba(255, 244, 232, 0.97), rgba(247, 210, 173, 0.9))"
+              : "linear-gradient(135deg, #2a1f18 0%, #1a1410 100%)",
+          boxShadow: "0 8px 24px rgba(56, 29, 12, 0.12)",
         }}
       >
-        <TextField
-          {...register("title", {
-            required: "Это поле обязательно для заполнения",
-          })}
-          label="Название товара"
-          multiline
-          rows={4}
-          required
-          sx={{ width: 800 }}
-        />
-        {titleError && <p style={{ color: "red" }}>{titleError}</p>}
-
-        <TextField
-          {...register("description", {
-            required: "Это поле обязательно для заполнения",
-          })}
-          label="Описание"
-          multiline
-          rows={4}
-          required
-          sx={{ width: 800 }}
-        />
-        {descriptionError && <p style={{ color: "red" }}>{descriptionError}</p>}
-
-        <FormControl required sx={{ width: 800 }}>
-          <InputLabel>Категория</InputLabel>
-          <Select
-            label="Категория"
-            {...register("category", {
-              required: "Это поле обязательно для заполнения",
-            })}
-          >
-            <MenuItem value="KITCHEN">Кухня</MenuItem>
-            <MenuItem value="WARDROBE">Шкаф</MenuItem>
-            <MenuItem value="STORE">Магазин</MenuItem>
-            <MenuItem value="BEDROOM">Спальня</MenuItem>
-          </Select>
-          {categoryError && <p style={{ color: "red" }}>{categoryError}</p>}
-        </FormControl>
-
-        <TextField
-          label="Цвет"
-          {...register("color", {
-            required: "Это поле обязательно для заполнения",
-          })}
-          multiline
-          required
-          sx={{ width: 800 }}
-        />
-        {colorError && <p style={{ color: "red" }}>{colorError}</p>}
-
-        <TextField
-          label="Фурнитура"
-          {...register("furnitures", {
-            required: "Это поле обязательно для заполнения",
-          })}
-          multiline
-          required
-          sx={{ width: 800 }}
-        />
-        {furnituresError && <p style={{ color: "red" }}>{furnituresError}</p>}
-
-        <TextField
-          label="Ширина"
-          {...register("width", {
-            required: "Это поле обязательно для заполнения",
-          })}
-          multiline
-          required
-          sx={{ width: 800 }}
-        />
-        {widthError && <p style={{ color: "red" }}>{widthError}</p>}
-
-        <TextField
-          label="Высота"
-          {...register("height", {
-            required: "Это поле обязательно для заполнения",
-          })}
-          multiline
-          required
-          sx={{ width: 800 }}
-        />
-        {heightError && <p style={{ color: "red" }}>{heightError}</p>}
-
-        <FormControl required sx={{ width: 800 }}>
-          <InputLabel>Рейтинг</InputLabel>
-          <Select
-            {...register("rating", {
-              required: "Это поле обязательно для заполнения",
-            })}
-            label="Рейтинг"
-          >
-            <MenuItem value="1">1</MenuItem>
-            <MenuItem value="2">2</MenuItem>
-            <MenuItem value="3">3</MenuItem>
-            <MenuItem value="4">4</MenuItem>
-            <MenuItem value="5">5</MenuItem>
-          </Select>
-          {ratingError && <p style={{ color: "red" }}>{ratingError}</p>}
-        </FormControl>
-
-        <Upload files={files} setFiles={setFiles} />
-
-        <Button
-          type="submit"
-          variant="contained"
-          color="success"
-          sx={{ mt: "20px" }}
+        <Typography
+          variant="h5"
+          sx={{
+            mb: 4,
+            fontWeight: 700,
+            color: (theme) => theme.palette.text.primary,
+            textAlign: "center",
+          }}
         >
-          Добавить товар
-        </Button>
-      </Box>
-    </>
+          Создание нового товара
+        </Typography>
+
+        <Box
+          onSubmit={handleSubmit(onSubmit)}
+          component="form"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 3,
+          }}
+        >
+          {/* Русский язык */}
+          <Box>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600, color: "primary.main" }}>
+              🇷🇺 Русский
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <TextField
+                {...register("titleRu", {
+                  required: "Название на русском обязательно",
+                })}
+                label="Название товара"
+                multiline
+                rows={2}
+                required
+                fullWidth
+                error={!!errors.titleRu}
+                helperText={errors.titleRu?.message}
+              />
+
+              <TextField
+                {...register("descriptionRu", {
+                  required: "Описание на русском обязательно",
+                })}
+                label="Описание"
+                multiline
+                rows={4}
+                required
+                fullWidth
+                error={!!errors.descriptionRu}
+                helperText={errors.descriptionRu?.message}
+              />
+            </Box>
+          </Box>
+
+          {/* Украинский язык */}
+          <Box>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600, color: "primary.main" }}>
+              🇺🇦 Українська
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <TextField
+                {...register("titleUk", {
+                  required: "Назва українською обов'язкова",
+                })}
+                label="Назва товару"
+                multiline
+                rows={2}
+                required
+                fullWidth
+                error={!!errors.titleUk}
+                helperText={errors.titleUk?.message}
+              />
+
+              <TextField
+                {...register("descriptionUk", {
+                  required: "Опис українською обов'язковий",
+                })}
+                label="Опис"
+                multiline
+                rows={4}
+                required
+                fullWidth
+                error={!!errors.descriptionUk}
+                helperText={errors.descriptionUk?.message}
+              />
+            </Box>
+          </Box>
+
+          {/* Английский язык */}
+          <Box>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600, color: "primary.main" }}>
+              🇬🇧 English
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <TextField
+                {...register("titleEn", {
+                  required: "Title in English is required",
+                })}
+                label="Product Title"
+                multiline
+                rows={2}
+                required
+                fullWidth
+                error={!!errors.titleEn}
+                helperText={errors.titleEn?.message}
+              />
+
+              <TextField
+                {...register("descriptionEn", {
+                  required: "Description in English is required",
+                })}
+                label="Description"
+                multiline
+                rows={4}
+                required
+                fullWidth
+                error={!!errors.descriptionEn}
+                helperText={errors.descriptionEn?.message}
+              />
+            </Box>
+          </Box>
+
+          {/* Категория */}
+          <FormControl required fullWidth>
+            <InputLabel>Категория</InputLabel>
+            <Select
+              label="Категория"
+              {...register("category", {
+                required: "Выберите категорию",
+              })}
+              error={!!errors.category}
+            >
+              <MenuItem value="KITCHEN">Кухня</MenuItem>
+              <MenuItem value="WARDROBE">Шкаф</MenuItem>
+              <MenuItem value="STORE">Магазин</MenuItem>
+              <MenuItem value="BEDROOM">Спальня</MenuItem>
+            </Select>
+            {errors.category && (
+              <Typography variant="caption" color="error" sx={{ mt: 0.5, ml: 2 }}>
+                {errors.category.message}
+              </Typography>
+            )}
+          </FormControl>
+
+          {/* Загрузка изображений */}
+          <Box>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600, color: "primary.main" }}>
+              Изображения
+            </Typography>
+            <Upload files={files} setFiles={setFiles} />
+          </Box>
+
+          {/* Кнопка отправки */}
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            sx={{
+              mt: 2,
+              py: 1.5,
+              borderRadius: "999px",
+              fontWeight: 700,
+              fontSize: "16px",
+              background: "linear-gradient(135deg, rgba(112, 64, 21, 1), rgba(66, 35, 19, 1))",
+              color: "rgba(254, 247, 240, 1)",
+              boxShadow: "0 4px 12px rgba(66, 35, 19, 0.3)",
+              "&:hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0 6px 16px rgba(66, 35, 19, 0.4)",
+              },
+            }}
+          >
+            Добавить товар
+          </Button>
+        </Box>
+      </Paper>
+    </Box>
   );
 }

@@ -2,22 +2,12 @@
 // import Brightness4Icon from "@mui/icons-material/Brightness4";
 // import Brightness7Icon from "@mui/icons-material/Brightness7";
 import SearchBar from "../SearchAdmin/Search";
-import { AppBar, Box, Button, IconButton, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import { logout } from "@/api/auth";
 import { useRouter } from "next/navigation";
-import { Menu, MenuItem, ListItemIcon } from "@mui/material";
-import { FiGlobe } from "react-icons/fi";
-import CheckIcon from "@mui/icons-material/Check";
-import { useState } from "react";
 import Image from "next/image";
 import styles from "../Header/Header.module.css";
 import Link from "next/link";
-
-const languages = [
-  { code: "en", label: "English" },
-  { code: "ru", label: "Русский" },
-  { code: "uk", label: "Українська" },
-];
 
 export default function HeaderAdmin() {
   const router = useRouter();
@@ -29,30 +19,24 @@ export default function HeaderAdmin() {
       console.error("Ошибка при выходе:", error);
     }
   };
-
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [currentLang, setCurrentLang] = useState("ru");
-
-  const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = (lang?: string) => {
-    if (lang) setCurrentLang(lang);
-    setAnchorEl(null);
-  };
   return (
     <AppBar
       position="static"
       color="default"
       sx={{
-        background: "transparent",
-        boxShadow: "none",
+        background: (theme) => 
+          theme.palette.mode === "light"
+            ? "linear-gradient(155deg, rgba(255, 244, 232, 0.97), rgba(247, 210, 173, 0.9))"
+            : "linear-gradient(135deg, #2a1f18 0%, #1a1410 100%)",
+        boxShadow: "0 4px 16px rgba(56, 29, 12, 0.1)",
+        borderRadius: 3,
         border: "none",
         width: "100%",
-        mb: 2,
+        mb: 3,
         pb: 2,
+        pt: 2,
         pl: 3,
+        pr: 3,
       }}
     >
       <Toolbar disableGutters>
@@ -66,33 +50,24 @@ export default function HeaderAdmin() {
         {/* Spacer для выравнивания */}
         <Box sx={{ flexGrow: 1 }} />
 
-        {/* Переключение темы */}
-        {/* <IconButton onClick={toggleMode} sx={{ color: "primary.main" }}>
-          {mode === "light" ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton> */}
-        <div>
-        <IconButton onClick={handleOpen} sx={{ color: "primary.main" }}>
-        <FiGlobe size={24} />
-      </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={() => handleClose()}
-      >
-        {languages.map((lang) => (
-          <MenuItem key={lang.code} onClick={() => handleClose(lang.code)}>
-            {lang.label}
-            {currentLang === lang.code && (
-              <ListItemIcon>
-                <CheckIcon fontSize="small" />
-              </ListItemIcon>
-            )}
-          </MenuItem>
-        ))}
-      </Menu>
-        </div>
-
-        <Button onClick={handleLogout} variant="contained" sx={{ ml: 2 }}>
+        <Button 
+          onClick={handleLogout} 
+          variant="contained" 
+          sx={{ 
+            ml: 2,
+            borderRadius: "999px",
+            padding: "10px 24px",
+            fontWeight: 600,
+            background: "linear-gradient(135deg, rgba(112, 64, 21, 1), rgba(66, 35, 19, 1))",
+            color: "rgba(254, 247, 240, 1)",
+            boxShadow: "0 4px 12px rgba(66, 35, 19, 0.3)",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              transform: "translateY(-2px)",
+              boxShadow: "0 6px 16px rgba(66, 35, 19, 0.4)",
+            },
+          }}
+        >
           Выход
         </Button>
       </Toolbar>

@@ -27,7 +27,19 @@ export default function Sidebar() {
   }, []);
   return (
     <>
-      <Box width={300} p={2}>
+      <Box 
+        width={280} 
+        p={3}
+        sx={{
+          background: (theme) => 
+            theme.palette.mode === "light"
+              ? "linear-gradient(155deg, rgba(255, 244, 232, 0.97), rgba(247, 210, 173, 0.9))"
+              : "linear-gradient(135deg, #2a1f18 0%, #1a1410 100%)",
+          borderRadius: 3,
+          boxShadow: "0 8px 24px rgba(56, 29, 12, 0.12)",
+          height: "fit-content",
+        }}
+      >
       <ListItemButton
           onClick={() => {
             setPage((prev) => ({
@@ -39,11 +51,28 @@ export default function Sidebar() {
               users: false,
             }));
           }}
+          sx={{
+            borderRadius: 2,
+            mb: 1,
+            transition: "all 0.2s ease",
+            "&:hover": {
+              backgroundColor: "rgba(112, 64, 21, 0.1)",
+              transform: "translateX(4px)",
+            },
+          }}
         >
-          <ListItemIcon sx={{ color: "primary.main" }}>
+          <ListItemIcon sx={{ color: "primary.main", minWidth: 40 }}>
             <BarChartIcon />
           </ListItemIcon>
-          <ListItemText primary="Аналитика" sx={{fontSize: "14px"}} />
+          <ListItemText 
+            primary="Аналитика" 
+            sx={{ 
+              "& .MuiTypography-root": {
+                fontSize: "15px",
+                fontWeight: 500,
+              }
+            }} 
+          />
         </ListItemButton>
 
 
@@ -58,13 +87,30 @@ export default function Sidebar() {
                 users: false,
               }))
             }
+            sx={{
+              borderRadius: 2,
+              mb: 1,
+              transition: "all 0.2s ease",
+              "&:hover": {
+                backgroundColor: "rgba(112, 64, 21, 0.1)",
+                transform: "translateX(4px)",
+              },
+            }}
           >
-            <ListItemIcon sx={{ color: "primary.main" }}>
+            <ListItemIcon sx={{ color: "primary.main", minWidth: 40 }}>
               <Badge badgeContent={messages?.length || 0} color="secondary">
                 <MailIcon />
               </Badge>
             </ListItemIcon>
-            <ListItemText primary="Сообщения" sx={{fontSize: "14px"}} />
+            <ListItemText 
+              primary="Сообщения" 
+              sx={{ 
+                "& .MuiTypography-root": {
+                  fontSize: "15px",
+                  fontWeight: 500,
+                }
+              }} 
+            />
           </ListItemButton>
 
           <ListItemButton onClick={() => (
@@ -76,13 +122,31 @@ export default function Sidebar() {
               products: false,
               users: false,
             }))
-          )}>
-            <ListItemIcon sx={{ color: "primary.main" }}>
+          )}
+          sx={{
+            borderRadius: 2,
+            mb: 1,
+            transition: "all 0.2s ease",
+            "&:hover": {
+              backgroundColor: "rgba(112, 64, 21, 0.1)",
+              transform: "translateX(4px)",
+            },
+          }}
+          >
+            <ListItemIcon sx={{ color: "primary.main", minWidth: 40 }}>
               <Badge badgeContent={reviews?.length || 0} color="secondary">
                 <FeedbackIcon />
               </Badge>
             </ListItemIcon>
-            <ListItemText primary="Отзывы" sx={{fontSize: "14px"}} />
+            <ListItemText 
+              primary="Отзывы" 
+              sx={{ 
+                "& .MuiTypography-root": {
+                  fontSize: "15px",
+                  fontWeight: 500,
+                }
+              }} 
+            />
           </ListItemButton>
 
           <ListItemButton onClick={() => {
@@ -94,11 +158,29 @@ export default function Sidebar() {
               products: true,
               users: false,
             }))
-          }}>
-            <ListItemIcon sx={{ color: "primary.main" }}>
+          }}
+          sx={{
+            borderRadius: 2,
+            mb: 1,
+            transition: "all 0.2s ease",
+            "&:hover": {
+              backgroundColor: "rgba(112, 64, 21, 0.1)",
+              transform: "translateX(4px)",
+            },
+          }}
+          >
+            <ListItemIcon sx={{ color: "primary.main", minWidth: 40 }}>
               <Inventory2Icon />
             </ListItemIcon>
-            <ListItemText primary="Все товары" sx={{fontSize: "14px"}} />
+            <ListItemText 
+              primary="Все товары" 
+              sx={{ 
+                "& .MuiTypography-root": {
+                  fontSize: "15px",
+                  fontWeight: 500,
+                }
+              }} 
+            />
           </ListItemButton>
 
           <ListItemButton onClick={() => {
@@ -110,11 +192,29 @@ export default function Sidebar() {
               products: false,
               users: true,
             }))
-          }}>
-            <ListItemIcon sx={{ color: "primary.main" }}>
+          }}
+          sx={{
+            borderRadius: 2,
+            mb: 1,
+            transition: "all 0.2s ease",
+            "&:hover": {
+              backgroundColor: "rgba(112, 64, 21, 0.1)",
+              transform: "translateX(4px)",
+            },
+          }}
+          >
+            <ListItemIcon sx={{ color: "primary.main", minWidth: 40 }}>
               <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Пользователи" sx={{fontSize: "14px"}} />
+            <ListItemText 
+              primary="Пользователи" 
+              sx={{ 
+                "& .MuiTypography-root": {
+                  fontSize: "15px",
+                  fontWeight: 500,
+                }
+              }} 
+            />
           </ListItemButton>
       </Box>
     </>

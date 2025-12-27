@@ -31,14 +31,19 @@ export default function UsersMonthly() {
     height: 150,
     background: (theme) =>
       theme.palette.mode === "light"
-        ? "#f5f5f5"
-        : "linear-gradient(135deg, #0F123B 0%, #090D2E 59%, #020515 100%)",
-    color: (theme) => (theme.palette.mode === "light" ? "text.primary" : "#fff"),
-    boxShadow: 3,
+        ? "linear-gradient(155deg, rgba(255, 244, 232, 0.97), rgba(247, 210, 173, 0.9))"
+        : "linear-gradient(135deg, #2a1f18 0%, #1a1410 100%)",
+    color: (theme) => theme.palette.text.primary,
+    boxShadow: "0 8px 24px rgba(56, 29, 12, 0.12)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-4px)",
+      boxShadow: "0 12px 32px rgba(56, 29, 12, 0.18)",
+    },
   }}
 >
   <Box>
-    <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 500 }}>
+    <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600, opacity: 0.8 }}>
       Пользователи за месяц
     </Typography>
     <Typography variant="h4" sx={{ fontWeight: "bold" }}>

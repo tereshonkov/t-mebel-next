@@ -1,10 +1,10 @@
 "use client";
 
-import { Box, Paper, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { login } from "@/api/auth";
+import styles from "./page.module.css";
 
 interface LoginFormProps {
   email: string;
@@ -71,74 +71,57 @@ export default function LoginForm() {
   // }
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background:
-          "linear-gradient(270deg, #6a11cb, #2575fc, #6a11cb, #2575fc)",
-        backgroundSize: "400% 400%",
-        animation: "gradientAnim 15s ease infinite",
-        "@keyframes gradientAnim": {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
-        },
-      }}
-    >
-      <Paper
-        elevation={6}
-        sx={{
-          p: 4,
-          width: 400,
-          borderRadius: 3,
-          backgroundColor: "rgba(255,255,255,0.9)",
-        }}
-      >
-        <Typography variant="h5" textAlign="center" mb={3}>
-          Войти в аккаунт
-        </Typography>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Вход в панель управления</h1>
+          <p className={styles.subtitle}>Введите свои данные для доступа</p>
+        </div>
+        
         <form
-          action="#"
+          className={styles.form}
           onSubmit={(e) => {
             e.preventDefault();
             onSubmit();
-            // reg();
           }}
         >
-          <TextField
-            fullWidth
-            label="Email"
-            name="email"
-            type="email"
-            margin="normal"
-            value={value.email}
-            onChange={(e) => setValue({ ...value, email: e.target.value })}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Пароль"
-            name="password"
-            type="password"
-            margin="normal"
-            value={value.password}
-            onChange={(e) => setValue({ ...value, password: e.target.value })}
-            required
-          />
-          <Button
-            type="button"
-            variant="contained"
-            fullWidth
-            sx={{ mt: 2 }}
-            onClick={onSubmit}
-          >
+          <div className={styles.inputGroup}>
+            <label htmlFor="email" className={styles.label}>
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              className={styles.input}
+              value={value.email}
+              onChange={(e) => setValue({ ...value, email: e.target.value })}
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label htmlFor="password" className={styles.label}>
+              Пароль
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className={styles.input}
+              value={value.password}
+              onChange={(e) => setValue({ ...value, password: e.target.value })}
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          <button type="submit" className={styles.button}>
             Войти
-          </Button>
+          </button>
         </form>
-      </Paper>
-    </Box>
+      </div>
+    </div>
   );
 }
