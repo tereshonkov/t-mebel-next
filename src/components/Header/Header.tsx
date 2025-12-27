@@ -8,22 +8,24 @@ import Image from 'next/image';
 export default async function Header() {
   const t = await getTranslations('header');
   return (
-    <div className={styles.header}>
-      <div className={styles.logoWrapper}>
-        <Link href="/" className={styles.logo}>
-          <Image src="/logo.png" alt="Logo" width={150} height={50} />
-        </Link>
+    <>
+      <div className={styles.header}>
+        <div className={styles.logoWrapper}>
+          <Link href="/" className={styles.logo}>
+            <Image src="/logo.png" alt="Logo" width={150} height={50} />
+          </Link>
+        </div>
+        <nav className={styles.nav}>
+          <ul className={styles.wrapperNav}>
+            <li><Link href="/">{t('home')}</Link></li>
+            <li><Link href="/service">{t('service')}</Link></li>
+            <li><Link href="/about">{t('about')}</Link></li>
+            <li><Link href="/contacts">{t('contacts')}</Link></li>
+          </ul>
+          <NavMobile />
+        </nav>
+        <Language mobile={false} />
       </div>
-      <nav className={styles.nav}>
-        <ul className={styles.wrapperNav}>
-          <li><Link href="/">{t('home')}</Link></li>
-          <li><Link href="/service">{t('service')}</Link></li>
-          <li><Link href="/about">{t('about')}</Link></li>
-          <li><Link href="/contacts">{t('contacts')}</Link></li>
-        </ul>
-        <NavMobile />
-      </nav>
-      <Language mobile={false} />
-    </div>
+    </>
   )
 }
