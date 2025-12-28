@@ -37,7 +37,7 @@ export default function UsersCall() {
       >
         <Box>
           <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600, opacity: 0.8 }}>
-            Конверсий на звонок
+            Конверсий
           </Typography>
           <Typography variant="h4" sx={{ fontWeight: "bold" }}>
             {users?.length || 0}

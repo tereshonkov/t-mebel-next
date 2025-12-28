@@ -5,6 +5,7 @@ import styles from "./ContactForm.module.css";
 import { useTranslations } from "next-intl";
 import { toast } from "react-hot-toast";
 import { reportConversion } from "@/utils/gtagConversion";
+import { registerConversion } from "@/api/conversion";
 
 export default function ContactForm() {
   const t = useTranslations("contactForm");
@@ -59,6 +60,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await sendMessage();
+    await registerConversion();
     reportConversion();
     setFormData({ name: "", phone: "", message: "" });
     setFocused({ name: false, phone: false, message: false });

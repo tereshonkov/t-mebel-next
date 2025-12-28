@@ -6,6 +6,7 @@ import styles from './PopupForm.module.css';
 import { toast } from 'react-hot-toast';
 import { useTranslations } from 'next-intl';
 import { reportConversion } from '@/utils/gtagConversion';
+import { registerConversion } from '@/api/conversion';
 
 interface PopupFormProps {
   triggerLabel?: string;
@@ -77,7 +78,7 @@ export default function PopupForm({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // TODO: hook into API submission when ready
+    registerConversion();
     sendMessage();
     reportConversion();
     setIsOpen(false);
