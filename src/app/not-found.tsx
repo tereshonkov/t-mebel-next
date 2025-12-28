@@ -11,7 +11,7 @@ const NotFound: FC = () => (
         Вибачте, такої сторінки не існує або вона була переміщена.
       </p>
       <Link href="/" style={{
-        background: "var(--primary)",
+        background: "var(--secondary)",
         color: "#fff",
         padding: "0.75rem 2rem",
         borderRadius: "8px",
