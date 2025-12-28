@@ -150,7 +150,7 @@ export default function ContactForm() {
 
               <p className={styles.privacy}>
                 {t("privacy")}{" "}
-                <a href="/privacy">{t("privacyLink")}</a>
+                <a href="/privacy-policy">{t("privacyLink")}</a>
               </p>
             </form>
           </div>
