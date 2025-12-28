@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { sendMessageApi } from "@/api/messages";
 import { reportConversion } from "@/utils/gtagConversion";
+import { registerConversion } from "@/api/conversion";
 
 interface InputState {
   name: string;
@@ -58,6 +59,7 @@ export default function Popap() {
   }, []);
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    await registerConversion();
     await sendMessage();
     await sendMessageApi({name: input.name, phone: input.phone, message: "скидка 10%"});
     reportConversion();
