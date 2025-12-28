@@ -2,7 +2,7 @@
  
 export const registerConversion = async () => {
     try {
-        const response = await api.post("/conversions/record");
+        const response = await api.post("/callclick/record");
     } catch (error) {
         console.error("Error recording conversion:", error);
         throw error;
