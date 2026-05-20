@@ -8,7 +8,7 @@ Your primary goal is to grow organic traffic from Google UA by improving positio
 Site: https://t-mebel.com.ua
 Stack: Next.js 15, next-intl (uk/ru/en), TypeScript, MUI, Vercel
 Working dir: `migration/` (the Next.js project)
-Memory & backlog: `../memory/` (one level up from migration/)
+Memory & backlog: `memory/` (one level up from migration/)
 
 ---
 
@@ -36,7 +36,7 @@ Pattern for new guide article:
 
 ### competitor-researcher — Agent
 
-Use when analyzing competitor SEO landscape. Has access to competitor data in `../memory/competitors.md`.
+Use when analyzing competitor SEO landscape. Has access to competitor data in `memory/competitors.md`.
 
 When called, the agent should:
 
@@ -45,7 +45,7 @@ When called, the agent should:
 3. Estimate link gap between t-mebel and top-3
 4. Spot content gaps (keywords competitors rank for that t-mebel doesn't)
 5. Report: threats (competitors growing fast), opportunities (low-link sites ranking well = winnable with content)
-6. Update `../memory/competitors.md` with new snapshot and date
+6. Update `memory/competitors.md` with new snapshot and date
 
 ---
 
@@ -101,7 +101,7 @@ Files may be in Windows-1251 encoding with Cyrillic. Read and decode.
 
 ### Step 4 — Update memory
 
-After analysis, update `../memory/backlog.md`:
+After analysis, update `memory/backlog.md`:
 
 - Move completed tasks to "Зроблено" with date
 - Add new action items from the report
